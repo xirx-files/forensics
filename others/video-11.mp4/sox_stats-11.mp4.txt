@@ -1,0 +1,31 @@
+Samples read:            176400
+Length (seconds):      2.000000
+Scaled by:         2147483647.0
+Maximum amplitude:     0.918610
+Minimum amplitude:    -0.912933
+Midline amplitude:     0.002838
+Mean    norm:          0.041646
+Mean    amplitude:    -0.001478
+RMS     amplitude:     0.077583
+Maximum delta:         1.434143
+Minimum delta:         0.000000
+Mean    delta:         0.033001
+RMS     delta:         0.064181
+Rough   frequency:         5806
+Volume adjustment:        1.089
+             Overall     Left      Right
+DC offset  -0.001784 -0.001784 -0.001172
+Min level  -0.912933 -0.908844 -0.912933
+Max level   0.918610  0.918610  0.875519
+Pk lev dB      -0.74     -0.74     -0.79
+RMS lev dB    -22.20    -21.35    -23.26
+RMS Pk dB     -11.76    -12.32    -11.76
+RMS Tr dB     -39.56    -37.29    -39.56
+Crest factor       -     10.74     13.29
+Flat factor     0.00      0.00      0.00
+Pk count           2         2         2
+Bit-depth      16/16     16/16     16/16
+Num samples    88.2k
+Length s       2.000
+Scale max   1.000000
+Window s       0.050

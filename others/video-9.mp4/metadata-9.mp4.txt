@@ -1,0 +1,70 @@
+ExifTool Version Number         : 12.57
+File Name                       : 9 (not visible).mp4
+Directory                       : ../../../..
+File Size                       : 9.0 MB
+File Modification Date/Time     : 2025:12:13 19:57:45+11:00
+File Access Date/Time           : 2025:12:13 19:42:33+11:00
+File Inode Change Date/Time     : 2025:12:13 19:57:45+11:00
+File Permissions                : -rw-r--r--
+File Type                       : MP4
+File Type Extension             : mp4
+MIME Type                       : video/mp4
+Major Brand                     : MP4 Base Media v1 [IS0 14496-12:2003]
+Minor Version                   : 0.0.1
+Compatible Brands               : isom
+Movie Header Version            : 0
+Create Date                     : 2025:09:10 18:44:12
+Modify Date                     : 2025:09:10 18:44:12
+Time Scale                      : 441000
+Duration                        : 0:00:45
+Preferred Rate                  : 1
+Preferred Volume                : 100.00%
+Preview Time                    : 0 s
+Preview Duration                : 0 s
+Poster Time                     : 0 s
+Selection Time                  : 0 s
+Selection Duration              : 0 s
+Current Time                    : 0 s
+Next Track ID                   : 3
+Track Header Version            : 0
+Track Create Date               : 0000:00:00 00:00:00
+Track Modify Date               : 2025:09:10 18:44:12
+Track ID                        : 1
+Track Duration                  : 0:00:44
+Track Layer                     : 0
+Track Volume                    : 0.00%
+Image Width                     : 720
+Image Height                    : 960
+Graphics Mode                   : srcCopy
+Op Color                        : 0 0 0
+Compressor ID                   : avc1
+Source Image Width              : 720
+Source Image Height             : 960
+X Resolution                    : 72
+Y Resolution                    : 72
+Bit Depth                       : 24
+Pixel Aspect Ratio              : 1:1
+Buffer Size                     : 60122
+Max Bitrate                     : 2803832
+Average Bitrate                 : 1392208
+Video Frame Rate                : 29.839
+Matrix Structure                : 1 0 0 0 1 0 0 0 1
+Media Header Version            : 0
+Media Create Date               : 0000:00:00 00:00:00
+Media Modify Date               : 2025:09:10 18:44:12
+Media Time Scale                : 441000
+Media Duration                  : 0:00:45
+Media Language Code             : und
+Handler Type                    : Audio Track
+Handler Description             : Twitter-vork muxer
+Balance                         : 0
+Audio Format                    : mp4a
+Audio Channels                  : 2
+Audio Bits Per Sample           : 16
+Audio Sample Rate               : 44100
+Media Data Size                 : 8956497
+Media Data Offset               : 36449
+Image Size                      : 720x960
+Megapixels                      : 0.691
+Avg Bitrate                     : 1.61 Mbps
+Rotation                        : 0

@@ -1,0 +1,119 @@
+Index,Timestamp (s),Peak Frequency (Hz),Potential Event
+1,0.0116,215.33,LARGE EXPLOSION (Low Frequency)
+2,0.0232,904.39,GUNSHOT (9mm/Rifle Spectral Peak)
+3,0.0348,301.46,LARGE EXPLOSION (Low Frequency)
+4,0.0464,1033.59,GUNSHOT (9mm/Rifle Spectral Peak)
+5,0.0580,301.46,LARGE EXPLOSION (Low Frequency)
+6,0.0697,602.93,GUNSHOT (9mm/Rifle Spectral Peak)
+7,0.0813,1076.66,GUNSHOT (9mm/Rifle Spectral Peak)
+8,0.0929,602.93,GUNSHOT (9mm/Rifle Spectral Peak)
+9,0.1045,1033.59,GUNSHOT (9mm/Rifle Spectral Peak)
+10,0.1161,1248.93,GUNSHOT (9mm/Rifle Spectral Peak)
+11,0.1277,1248.93,GUNSHOT (9mm/Rifle Spectral Peak)
+12,0.1393,689.06,GUNSHOT (9mm/Rifle Spectral Peak)
+13,0.1509,602.93,GUNSHOT (9mm/Rifle Spectral Peak)
+14,0.1625,602.93,GUNSHOT (9mm/Rifle Spectral Peak)
+15,0.1741,689.06,GUNSHOT (9mm/Rifle Spectral Peak)
+16,0.1858,1421.19,GUNSHOT (9mm/Rifle Spectral Peak)
+17,0.1974,559.86,GUNSHOT (9mm/Rifle Spectral Peak)
+18,0.2090,301.46,LARGE EXPLOSION (Low Frequency)
+19,0.2206,301.46,LARGE EXPLOSION (Low Frequency)
+20,0.2322,301.46,LARGE EXPLOSION (Low Frequency)
+21,0.2438,301.46,LARGE EXPLOSION (Low Frequency)
+22,0.2554,301.46,LARGE EXPLOSION (Low Frequency)
+23,0.2670,301.46,LARGE EXPLOSION (Low Frequency)
+24,0.2786,732.13,GUNSHOT (9mm/Rifle Spectral Peak)
+25,0.2902,301.46,LARGE EXPLOSION (Low Frequency)
+26,0.3019,301.46,LARGE EXPLOSION (Low Frequency)
+27,0.3135,301.46,LARGE EXPLOSION (Low Frequency)
+28,0.3251,301.46,LARGE EXPLOSION (Low Frequency)
+29,0.3367,301.46,LARGE EXPLOSION (Low Frequency)
+30,0.3483,301.46,LARGE EXPLOSION (Low Frequency)
+31,0.3599,301.46,LARGE EXPLOSION (Low Frequency)
+32,0.3715,301.46,LARGE EXPLOSION (Low Frequency)
+33,0.3831,301.46,LARGE EXPLOSION (Low Frequency)
+34,0.3947,301.46,LARGE EXPLOSION (Low Frequency)
+35,0.4063,301.46,LARGE EXPLOSION (Low Frequency)
+36,0.4180,473.73,Ambient/Speech
+37,0.4296,473.73,Ambient/Speech
+38,0.4412,516.80,GUNSHOT (9mm/Rifle Spectral Peak)
+39,0.4528,301.46,LARGE EXPLOSION (Low Frequency)
+40,0.4644,301.46,LARGE EXPLOSION (Low Frequency)
+41,0.4760,387.60,LARGE EXPLOSION (Low Frequency)
+42,0.4876,387.60,LARGE EXPLOSION (Low Frequency)
+43,0.4992,689.06,GUNSHOT (9mm/Rifle Spectral Peak)
+44,0.5108,301.46,LARGE EXPLOSION (Low Frequency)
+45,0.5224,602.93,GUNSHOT (9mm/Rifle Spectral Peak)
+46,0.5341,430.66,Ambient/Speech
+47,0.5457,473.73,Ambient/Speech
+48,0.5573,430.66,Ambient/Speech
+49,0.5689,473.73,Ambient/Speech
+50,0.5805,430.66,Ambient/Speech
+51,0.5921,646.00,GUNSHOT (9mm/Rifle Spectral Peak)
+52,0.6037,689.06,GUNSHOT (9mm/Rifle Spectral Peak)
+53,0.6153,387.60,LARGE EXPLOSION (Low Frequency)
+54,0.6269,1248.93,GUNSHOT (9mm/Rifle Spectral Peak)
+55,0.6385,1248.93,GUNSHOT (9mm/Rifle Spectral Peak)
+56,0.6502,1205.86,GUNSHOT (9mm/Rifle Spectral Peak)
+57,0.6618,430.66,Ambient/Speech
+58,0.6734,473.73,Ambient/Speech
+59,0.6850,1248.93,GUNSHOT (9mm/Rifle Spectral Peak)
+60,0.6966,1033.59,GUNSHOT (9mm/Rifle Spectral Peak)
+61,0.7082,1033.59,GUNSHOT (9mm/Rifle Spectral Peak)
+62,0.7198,1033.59,GUNSHOT (9mm/Rifle Spectral Peak)
+63,0.7314,1033.59,GUNSHOT (9mm/Rifle Spectral Peak)
+64,0.7430,990.53,GUNSHOT (9mm/Rifle Spectral Peak)
+65,0.7546,990.53,GUNSHOT (9mm/Rifle Spectral Peak)
+66,0.7663,258.40,LARGE EXPLOSION (Low Frequency)
+67,0.7779,430.66,Ambient/Speech
+68,0.7895,258.40,LARGE EXPLOSION (Low Frequency)
+69,0.8011,473.73,Ambient/Speech
+70,0.8127,473.73,Ambient/Speech
+71,0.8243,344.53,LARGE EXPLOSION (Low Frequency)
+72,0.8359,3359.18,Ambient/Speech
+73,0.8475,1679.59,Ambient/Speech
+74,0.8591,3057.71,Ambient/Speech
+75,0.8707,2411.72,Ambient/Speech
+76,0.8824,3531.45,Ambient/Speech
+77,0.8940,3919.04,Ambient/Speech
+78,0.9056,2583.98,Ambient/Speech
+79,0.9172,2067.19,Ambient/Speech
+80,0.9288,1248.93,GUNSHOT (9mm/Rifle Spectral Peak)
+81,0.9404,2368.65,Ambient/Speech
+82,0.9520,602.93,GUNSHOT (9mm/Rifle Spectral Peak)
+83,0.9636,602.93,GUNSHOT (9mm/Rifle Spectral Peak)
+84,0.9752,1851.86,Ambient/Speech
+85,0.9868,2368.65,Ambient/Speech
+86,0.9985,258.40,LARGE EXPLOSION (Low Frequency)
+87,1.0101,258.40,LARGE EXPLOSION (Low Frequency)
+88,1.0217,2024.12,Ambient/Speech
+89,1.0333,602.93,GUNSHOT (9mm/Rifle Spectral Peak)
+90,1.0449,2325.59,Ambient/Speech
+91,1.0565,2583.98,Ambient/Speech
+92,1.0681,2282.52,Ambient/Speech
+93,1.0797,1981.05,Ambient/Speech
+94,1.0913,1679.59,Ambient/Speech
+95,1.1029,473.73,Ambient/Speech
+96,1.1146,258.40,LARGE EXPLOSION (Low Frequency)
+97,1.1262,258.40,LARGE EXPLOSION (Low Frequency)
+98,1.1378,301.46,LARGE EXPLOSION (Low Frequency)
+99,1.1494,344.53,LARGE EXPLOSION (Low Frequency)
+100,1.1610,344.53,LARGE EXPLOSION (Low Frequency)
+101,1.1726,258.40,LARGE EXPLOSION (Low Frequency)
+102,1.1842,344.53,LARGE EXPLOSION (Low Frequency)
+103,1.1958,301.46,LARGE EXPLOSION (Low Frequency)
+104,1.2074,258.40,LARGE EXPLOSION (Low Frequency)
+105,1.2190,689.06,GUNSHOT (9mm/Rifle Spectral Peak)
+106,1.2307,344.53,LARGE EXPLOSION (Low Frequency)
+107,1.2423,1722.66,Ambient/Speech
+108,1.2539,947.46,GUNSHOT (9mm/Rifle Spectral Peak)
+109,1.2655,990.53,GUNSHOT (9mm/Rifle Spectral Peak)
+110,1.2771,990.53,GUNSHOT (9mm/Rifle Spectral Peak)
+111,1.2887,818.26,GUNSHOT (9mm/Rifle Spectral Peak)
+112,1.3003,947.46,GUNSHOT (9mm/Rifle Spectral Peak)
+113,1.3119,904.39,GUNSHOT (9mm/Rifle Spectral Peak)
+114,1.3235,904.39,GUNSHOT (9mm/Rifle Spectral Peak)
+115,1.3351,258.40,LARGE EXPLOSION (Low Frequency)
+116,1.3468,1162.79,GUNSHOT (9mm/Rifle Spectral Peak)
+117,1.3584,430.66,Ambient/Speech
+118,1.3700,387.60,LARGE EXPLOSION (Low Frequency)
