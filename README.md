@@ -234,7 +234,27 @@ each 2sec clip captures a sequence of the exact same 3 key events:
 2. the word "great" is said by the questioner from the audience
 3. a loud bang
 
-note any sounds recorded after the onset of the bang are either reflections, reverberations or echos fixed in with crowd panic.
+note any sounds recorded after the first peak of the bang are either reflections, reverberations or echos mixed in with crowd panic.
+
+
+|File||viole[nce] sibilant fricative|grea[t] stop/plosive end|Clip bang onset|
+|---|---|---|---| 
+|1.mp4|0.357|0.734|0.899|
+|2.MOV|0.358|0.739|0.861|
+|3.mp4|0.366|0.725|0.866|
+|4.mp4|0.350|0.737|0.848|
+|5.mp4|0.368|0.752|0.897|
+|6.mp4|0.337|0.759|0.862|
+|7.mp4|0.366|0.744|0.887|
+|8.mp4|0.368|0.755|0.904|
+|9.mp4|0.353|0.771|0.890|
+|11.mp4|0.393|0.758|0.853|
+|12.mp4|0.380|0.678|0.820|
+|13.mp4|0.352|0.741|0.869|
+|14.mp4|0.346|0.778|0.857|
+|15.mp4|0.389|0.778|0.841|
+|16.mp4|0.369|0.764|0.877|
+|17.mp4|0.369|0.768|0.842|
 
 
 # Method
