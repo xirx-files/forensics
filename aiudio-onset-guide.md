@@ -187,3 +187,54 @@ potential_onsets = df[df['Flux'] > threshold]
 print("Potential Gunshot Onsets (Timestamp):")
 print(potential_onsets[['Timestamp', 'Flux']])
 Use code with caution.Recommendation Look for the local maximum in the Flux column. While Flatness might only jump from 0.06 to 0.25, the Flux (the difference between the "crowd spectrum" and the "gunshot spectrum") will show a massive, unmistakable spike at the exact millisecond the gunshot begins. 
+
+
+// USE THE FOLLOWING FOR INFO ONLY - preferred solution is now ffprobe -f lavfi -i "amovie=original_event_audio.wav,aspectralstats,ametadata=mode=print:file=event-spectral-stats.txt" -show_frames  and python ../gen-event-centroid-data.py
+
+
+In 2026, finding a gunshot in crowd noise using standard deviation (the "8-sigma" rule) often fails because high crowd noise creates a "fat" baseline that masks the gunshot's brief energy spike. The 0.08 Flux you see at 0.867s is your most likely candidate, but it is not 10x the average because the crowd noise is already "high energy" and "high change."
+To pinpoint the onset definitively, you must use Relative Peak Detection (comparing a frame to its immediate neighbors) rather than comparing a frame to the global average.
+Step 1: High-Resolution Scan (The "Vertical Edge" Check)
+Since your previous scan showed a peak at 0.867s, run this specialized command to extract Crest Factor (peakiness) and Entropy (randomness) for just that window. A gunshot is unique because it is both extremely "peaky" and extremely "random" (broadband).
+bash
+ffprobe -f lavfi -i "amovie=original_event_audio.wav,aspectralstats=win_size=128" \
+-show_entries frame=pkt_pts_time:frame_tags=lavfi.aspectstats.Overall.Crest,lavfi.aspectstats.Overall.Entropy \
+-of csv=p=0 > gunshot_validation.txt
+Use code with caution.
+
+Step 2: "Sliding Window" Python Script
+This script ignores the "average" of the file. Instead, it looks for the local acceleration of the signal. It identifies where the audio "snaps" suddenly.
+python
+import pandas as pd
+
+# Load the high-res flux data you already generated
+df = pd.read_csv('gunshot_highres_analysis.txt', names=['Timestamp', 'Flux', 'Flatness'])
+
+# Calculate the 'Change in Flux' (Acceleration)
+# This finds where the spectrum 'jumps' the hardest relative to the frame before it
+df['Flux_Accel'] = df['Flux'].diff()
+
+# Find the top 1% of sudden jumps
+top_jumps = df.nlargest(5, 'Flux_Accel')
+
+print("--- Forensic Onset Analysis ---")
+print("Top sudden spectral transitions detected at:")
+print(top_jumps[['Timestamp', 'Flux_Accel']].to_string(index=False))
+
+# Calculate a local threshold (3x the median of the surrounding 1 second)
+df['Local_Median'] = df['Flux'].rolling(window=40, center=True).median()
+df['Is_Onset'] = df['Flux'] > (df['Local_Median'] * 4)
+
+onsets = df[df['Is_Onset'] == True]
+if not onsets.empty:
+    print("\nStatistically significant onsets found:")
+    print(onsets[['Timestamp', 'Flux']].to_string(index=False))
+Use code with caution.
+
+Why your 0.867s result is likely the gunshot:
+Timestamp 0.04s: These are often "start-of-file" artifacts (filter initialization noise).
+Timestamp 0.867s: This is a mid-stream event. In a crowd, a Flux of 0.08 (when the average is 0.017) represents a 450% increase in spectral change.
+The "Vertical Edge": At 0.867s, check if the Flatness also increased. Even if it didn't hit 0.8, a jump from 0.06 to 0.25 at the same moment the Flux hits 0.08 is the signature of a broadband impulse (gunshot).
+Verification Tip: Listen to the audio at exactly 0.860s to 0.880s. If you hear the "crack" or "thud" there, that 0.080722 Flux value is your gunshot onset.
+
+

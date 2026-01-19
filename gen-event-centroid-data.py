@@ -1,8 +1,8 @@
 import csv
 import re
 
-input_file = 'gunshot_flatness_analysis.txt'
-output_file = 'gunshot_centroid_clean.csv'
+input_file = 'event-spectral-stats.txt'
+output_file = 'event-centroid-data.csv'
 
 # Regular expressions to find the timestamp and centroid values
 time_re = re.compile(r'pts_time:(\d+\.\d+|\d+)')
