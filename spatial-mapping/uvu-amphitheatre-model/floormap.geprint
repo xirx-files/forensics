@@ -1,0 +1,65 @@
+[General]
+camera="@ByteArray(<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<kml xmlns=\"http://www.opengis.net/kml/2.2\" xmlns:gx=\"http://www.google.com/kml/ext/2.2\" xmlns:kml=\"http://www.opengis.net/kml/2.2\" xmlns:atom=\"http://www.w3.org/2005/Atom\">\n<Placemark>\n\t<LookAt>\n\t\t<longitude>-111.7138134659354</longitude>\n\t\t<latitude>40.2777515391133</latitude>\n\t\t<altitude>0</altitude>\n\t\t<heading>-116.5874700848525</heading>\n\t\t<tilt>0</tilt>\n\t\t<range>102.0732996952124</range>\n\t\t<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>\n\t</LookAt>\n</Placemark>\n</kml>\n)"
+color_mode=0
+print_flags=0
+print_quality=9
+print_type=0
+save_image_quality=6
+scaling_factor=1
+version=2
+
+[Compass]
+Layout\anchor_halign=2
+Layout\anchor_pos=@Variant(\0\0\0\x1a?\xf0\0\0\0\0\0\0?\xef*K\xa0\0\0\0)
+Layout\anchor_valign=2
+Layout\size=@Size(72 72)
+Layout\visible=false
+
+[Copyright]
+Layout\anchor_halign=0
+Layout\anchor_pos=@Variant(\0\0\0\x1a\0\0\0\0\0\0\0\0?\xf0\0\0\0\0\0\0)
+Layout\anchor_valign=2
+Layout\size=@Size(196 64)
+Layout\visible=true
+
+[HTML%20Area]
+Layout\anchor_halign=0
+Layout\anchor_pos=@Variant(\0\0\0\x1a\0\0\0\0\0\0\0\0?\xe0\0\0\0\0\0\0)
+Layout\anchor_valign=1
+Layout\size=@Size(427 105)
+Layout\visible=false
+html="<!doctype html>\n<html>\n<head>\n<style type='text/css'>\nbody {\n    font: 100% 'Arial', 'Helvetica', sans-serif;\n    margin: 0;\n}\n\n#white_box {\n    background-color: rgba(255, 255, 255, 0.85);\n    bottom: 4pt;\n    color: rgba(0, 0, 0, 0.85);\n    left: 4pt;\n    outline: 1pt solid rgba(0, 0, 0, 0.2);\n    padding: 8pt 8pt;\n    position: absolute;\n    right: 4pt;\n    top: 4pt;\n}\n</style>\n</head>\n<body>\n<div id='white_box'>\n<p style='font-size: 11pt; white-space: nowrap;'>\nEdit this HTML to add a logo image or custom map title.&nbsp;&nbsp;&nbsp;&nbsp;\n<br />\nUse an <tt>iframe</tt> tag to display an external page.&nbsp;&nbsp;&nbsp;&nbsp;\n</p>\n<div style='height: 12pt; font-size: 0;'>&nbsp;</div>\n</div>\n</body>\n</html>\n"
+
+[Legend]
+Features\1\checked=true
+Features\1\name="Chick-fil-A "
+Features\1\pixmap="@Variant(\0\0\0\x41\0\0\0\x1\x89PNG\r\n\x1a\n\0\0\0\rIHDR\0\0\0\xe\0\0\0\x10\b\x6\0\0\0&\x94N:\0\0\0\tpHYs\0\0\xe\xc4\0\0\xe\xc4\x1\x95+\xe\x1b\0\0\x1\xe6IDAT(\x91\x95\x93\xbfkSQ\x14\xc7?I\x1a\x12K\xd0\x36qj\x3\x8a\xd4)\xda\x41\xb1\xfe\x80G&7\xa1\x82\xa5\xc4\xf4Q\x14\x17\xc1?A\x8a\x91\xdaQ\xb2\bN&J\a\x8b\x83!Ki\xb5\x44\x87\x84\x34\xd2:$}\x1d\xea\x62\x34\xcd\x94\x42\xdf\xb5\xc4z\x93\xbe\xeb\xf0\x8c\x31!\x19\xfc\xc2\xe1\xde{\xce\xfd\x1c\xce=\xf7^\a\xbd\xe5\x2\x9c\x7f\xe6\x16p\xd4g\x9f\xadx<>d\x9a\xe6\x9c\x94r\xcb\xb2\xac\xa6\x65YM)\xe5\x96i\x9as\xc9\x64r\xa8'\x94\xcd\x66\x43R\xca\x1d\x65\xac(\x95\x88(\xf5$d[\"\xa2\xd4\xf6\xaa\x92R\xee\x64\x32\x99\xd0\xbf%\x11\x8b\xc5NF\"\x91\xf7\xee\xfO\xcf\xb2\xba\0\x66\x15\xac#\xdb\xcc*\x18\xcb\xb8\x9a\x87\x81`8r\xbd^\xaf\xbf\xce\xe7\xf3u\a\xe0\xaaT*\x8fG\x85\xf1\x90\x37\xf\xe0\xd4\x44\xbb\x8co\x1bpa\x1a\x36\x97\xec\xf5\xf4\x33v\x8f\x9f[\b\x6\x83\x8f\x9c\xc0` \x10\x98\x62=i\aO_n\xdb\xf8M\xb8\x31\xdfN\xb4\xfe\x12\xbf\xdf?\x5\f\xe\0>\x8f\xc7\x33\x46\xb5\x64\a\x1b\x87p)j\x8f\xc6rg#\xaa%\xbc^\xef\x18\xe0\x1b\0\xdc\x1d\xc1\xcd%8s\r\n\xaf@\xd6\xe1k\xa1W/\xddN\xa0!\x84(3r\xdev\xfd\xfa\x1\xdf?\xc3\x97\x8fP\xfe\xd4\t\x8e\x8c#\x84(\x3\r'p`\x18\xc6\x1aW\xee\xf4\xbc\xa6\xe]\xbdK\xa9TZ\x3\xe\x1c\x80+\x14\n]\xcc\xe5roO\x14\x9e\x8f\x92\x7f\xd1\a\xba\xc7\xfe\xc4\xfd\xddp8|\xabX,n\xb4\xdc>]\xd7g\x84\x10{j\xfb\x9dR\x89\xdb]\xf`E\t!j\xba\xae\xcf\0\xbe\xee\x9c\xc3\xba\xae\xcf\n!\xf6T\x97\x84\x10\xb5h4:\v\f\xf7;E\v\xae\xfd\xf\xf4\x17\xd6\x34m2\x95J-\xa6\xd3\xe9\x45M\xd3&{A\x8e>\xf0\x31\xa0\xf5\x1b\xf6\x81\x9f\xdd\x1b~\x3#\xf2\xf6;\x2r\xaf\0\0\0\0\0IEND\xae\x42`\x82)"
+Features\2\checked=true
+Features\2\name=Feature 1
+Features\2\pixmap="@Variant(\0\0\0\x41\0\0\0\x1\x89PNG\r\n\x1a\n\0\0\0\rIHDR\0\0\0\x10\0\0\0\x10\b\x6\0\0\0\x1f\xf3\xff\x61\0\0\0\tpHYs\0\0\xe\xc4\0\0\xe\xc4\x1\x95+\xe\x1b\0\0\0jIDAT8\x8d\xb5RQ\n@!\b\xb3\xe;\xcf\xe4.\xdb\xfbR$\b\xac^\xfb\v\xb6\xa9[\"/\0`\0\x18\xc7\x62\xc7\xb6I\x16WM\xfa\xd1\x9a\xd5-\xaerp\xf1\xb1\xc9l\xf8\x9b\xc9\xb2\xe2J\xf7\xcb|*\xc1\xad*\xee\0\x86\x99\x5\xd1\xcc\xb6n.\xff\x3\x92MU\xe3\xad\xaa\x42\xb2\x95N\x98k\xcd\x9c\x96I>i6\x89I/\xf0\x1\x1bQ\x9dM\x8b:\xfd\xaf\0\0\0\0IEND\xae\x42`\x82)"
+Features\size=2
+Layout\anchor_halign=2
+Layout\anchor_pos=@Variant(\0\0\0\x1a?\xf0\0\0\0\0\0\0\0\0\0\0\0\0\0\0)
+Layout\anchor_valign=0
+Layout\size=@Size(140 115)
+Layout\visible=false
+
+[Printer]
+orientation=1
+paper_size=0
+
+[Scale]
+Layout\anchor_halign=2
+Layout\anchor_pos=@Variant(\0\0\0\x1a?\xf0\0\0\0\0\0\0?\xf0\0\0\0\0\0\0)
+Layout\anchor_valign=2
+Layout\size=@Size(360 20)
+Layout\visible=true
+
+[Title%20and%20Description]
+Layout\anchor_halign=0
+Layout\anchor_pos=@Variant(\0\0\0\x1a\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0)
+Layout\anchor_valign=0
+Layout\size=@Size(269 93)
+Layout\visible=false
+description=Write a description for your map.
+title=
