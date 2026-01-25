@@ -16,22 +16,28 @@ The UVU ampitheatre courtyard by the Hall of Flags building was the venue for th
 | 8  | Tent height                    | 169.00           | 2461.63     |             |
 | 9  | Centre-left speaker height     | 142.00           | 2068.35     |             |
 | 10 | Barricade height               | 69.00            | 1005.04     |             |
-| 11 |                                |                  |             |             |
-| 12 | roof-speakers-heights          |                  |             |             |
-| 13 | Tent banner width              | 403.00           | 3969.19     | 9.85        |
-| 14 | Roof height                    | 114.00           | 1122.80     |             |
-| 15 |                                |                  |             |             |
-| 16 | Left barricade height          | 145              | 1005.04     | 6.93        |
-| 17 | Left speaker height            | 338.00           | 2342.79     |             |
-| 18 |                                |                  |             |             |
-| 19 | Centre-left barricade height   | 137              | 1005.04     | 7.34        |
-| 20 | Centre-left speaker height     | 281.00           | 2061.44     |             |
-| 21 |                                |                  |             |             |
-| 22 | Center-right barricade height  | 135              | 1005.04     | 7.44        |
-| 23 | Centre-right speaker height    | 288.00           | 2144.09     |             |
-| 24 |                                |                  |             |             |
-| 25 | Barricade height               | 107.00           | 1005.04     | 9.39        |
-| 26 | Right speaker height           | 263.00           | 2470.34     |             |
+| 11 | Tent height (far side)         | 140.00           | 2461.63     | 17.58       |
+| 12 | HoF lower window height        | 231.00           | 4061.69     |             |
+| 13 |                                |                  |             |             |
+| 14 | roof-speakers-heights          |                  |             |             |
+| 15 | Tent banner width              | 403.00           | 3969.19     | 9.85        |
+| 16 | Tent roof height               | 114.00           | 1122.80     |             |
+| 17 |                                |                  |             |             |
+| 18 | Left barricade height          | 145              | 1005.04     | 6.93        |
+| 19 | Left speaker height            | 338.00           | 2342.79     |             |
+| 20 |                                |                  |             |             |
+| 21 | Centre-left barricade height   | 137              | 1005.04     | 7.34        |
+| 22 | Centre-left speaker height     | 281.00           | 2061.44     |             |
+| 23 |                                |                  |             |             |
+| 24 | Center-right barricade height  | 135              | 1005.04     | 7.44        |
+| 25 | Centre-right speaker height    | 288.00           | 2144.09     |             |
+| 26 |                                |                  |             |             |
+| 27 | Barricade height               | 107.00           | 1005.04     | 9.39        |
+| 28 | Right speaker height           | 263.00           | 2470.34     |             |
+| 29 |                                |                  |             |             |
+| 30 | tent-banner                    |                  |             |             |
+| 31 | Tent banner width              | 1110.00          | 3969.19     | 3.58        |
+| 32 | Lightning center (from top)    | 40.00            | 143.03      |             |
 
 
 ---
@@ -47,13 +53,14 @@ Figure stage-overhead
 Figure tent-barricade-speaker-heights
 
 
-
 ![roof-speakers-heights](./roof-speakers-heights.png)
 
 Figure roof-speakers-heights
 
 
 
+![tent-banner](./tent-banner.png)
+ Figure tent-banner  
 
 
 
