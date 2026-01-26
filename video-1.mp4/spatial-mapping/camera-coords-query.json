@@ -1,16 +1,16 @@
 {
     "landmarks_grid": {
-        "tent_leg_1": [10.5, 20.0, 0],
-        "speaker_pole_A": [45.2, -10.5, 0],
-        "mic_stand": [0.0, 0.0, 0]
+        "Tent back center banner frame": [3083, 53, 144.45],
+        "Tent middle center banner frame": [3087, 189, 144.45],
+        "Front Banner Lightning": [3090, 325, 159.17]
     },
     "photo1": {
-        "width": 1920,
-        "height": 1080,
+        "width": 886,
+        "height": 1920,
         "points": {
-            "tent_leg_1": [450, 600],
-            "speaker_pole_A": [1200, 550],
-            "mic_stand": [800, 900]
+            "Tent back center banner frame": [36, 862],
+            "Tent middle center banner frame": [175, 813],
+            "Front Banner Lightning": [432, 588]
         }
     }
 }

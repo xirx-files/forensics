@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import json
 
-def solve_camera_location(world_points, image_points, img_size):
+def solve_camera_location_generic(world_points, image_points, img_size):
     obj_pts = np.array(world_points, dtype=np.float64).reshape(-1, 3)
     img_pts = np.array(image_points, dtype=np.float64).reshape(-1, 2)
     
@@ -17,7 +17,9 @@ def solve_camera_location(world_points, image_points, img_size):
     
     dist_coeffs = np.zeros((4, 1))
 
-    success, rvec, tvec = cv2.solvePnP(
+    # solvePnPGeneric returns (number_of_solutions, rvecs, tvecs, errors)
+    # Using SQPNP for best results with 3+ points
+    num_sol, rvecs, tvecs, errors = cv2.solvePnPGeneric(
         obj_pts, 
         img_pts, 
         camera_matrix, 
@@ -25,24 +27,29 @@ def solve_camera_location(world_points, image_points, img_size):
         flags=cv2.SOLVEPNP_SQPNP
     )
 
-    if not success:
+    if num_sol == 0:
         return None
 
-    rmat, _ = cv2.Rodrigues(rvec)
-    camera_position = -np.matrix(rmat).T * np.matrix(tvec)
+    results = []
+    for i in range(num_sol):
+        rmat, _ = cv2.Rodrigues(rvecs[i])
+        camera_position = -np.matrix(rmat).T * np.matrix(tvecs[i])
+        results.append({
+            "pos": np.array(camera_position).flatten(),
+            "error": errors[i][0]
+        })
     
-    return np.array(camera_position).flatten()
+    # Sort results by reprojection error (lowest first)
+    return sorted(results, key=lambda x: x['error'])
 
-# Load data from JSON file
+# Load data
 with open('camera-coords-query.json', 'r') as f:
     data = json.load(f)
 
-# Extracting values from JSON
 landmarks_grid = data['landmarks_grid']
 photo_data = data['photo1']
 img_size = (photo_data['width'], photo_data['height'])
 
-# Align world points with the order of pixel points provided in the JSON
 photo1_pixels = []
 photo1_world = []
 
@@ -51,10 +58,14 @@ for landmark_name, pixels in photo_data['points'].items():
         photo1_pixels.append(pixels)
         photo1_world.append(landmarks_grid[landmark_name])
 
-# Run Solver
-cam_coords = solve_camera_location(photo1_world, photo1_pixels, img_size)
+print(f"Using {len(photo1_world)} landmarks for forensic analysis...")
 
-if cam_coords is not None:
-    print(f"Camera Estimated World Position (X, Y, Z): {cam_coords[0]:.2f}, {cam_coords[1]:.2f}, {cam_coords[2]:.2f}")
+solutions = solve_camera_location_generic(photo1_world, photo1_pixels, img_size)
+
+if solutions:
+    for idx, sol in enumerate(solutions):
+        p = sol['pos']
+        print(f"Solution {idx+1} (Error: {sol['error']:.4f}):")
+        print(f"   Camera World Pos (X, Y, Z): {p[0]:.2f}, {p[1]:.2f}, {p[2]:.2f}\n")
 else:
-    print("PnP Solver failed to find a solution.")
+    print("Solver failed to find a solution.")
