@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.6 Chrome/140.0.7339.249 Electron/38.8.0 Safari/537.36" version="29.3.6" pages="4">
   <diagram id="p8c9KdJ78u96KnLtW7xq" name="east-side-view">
-    <mxGraphModel dx="1833" dy="1164" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#000000" math="0" shadow="0">
+    <mxGraphModel dx="1375" dy="873" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#000000" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" style="locked=1;" />
@@ -8,10 +8,7 @@
           <mxGeometry height="992" width="1481" as="geometry" />
         </mxCell>
         <mxCell id="phWARsR4hzQ6MbQxWlW9-2" parent="0" style="locked=0;" value="frame" />
-        <mxCell id="phWARsR4hzQ6MbQxWlW9-3" parent="phWARsR4hzQ6MbQxWlW9-2" style="shape=dimension;direction=west;whiteSpace=wrap;html=1;align=left;points=[];verticalAlign=middle;spacingTop=0;labelBackgroundColor=none;strokeColor=#FFFFFF;strokeWidth=4;fontSize=24;fontColor=#FFFFFF;fontStyle=1;labelPosition=right;verticalLabelPosition=middle;rotation=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" value="" vertex="1">
-          <mxGeometry height="596" width="894" x="283.65" y="449.04" as="geometry" />
-        </mxCell>
-        <mxCell id="phWARsR4hzQ6MbQxWlW9-4" parent="phWARsR4hzQ6MbQxWlW9-2" style="shape=dimension;direction=west;whiteSpace=wrap;html=1;align=center;points=[];verticalAlign=bottom;spacingTop=0;labelBackgroundColor=none;strokeColor=#FFFFFF;strokeWidth=4;fontSize=24;fontColor=#FFFFFF;fontStyle=1;labelPosition=center;verticalLabelPosition=top;rotation=0.5;aspect=fixed;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));&quot;&gt;4115&lt;/span&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="phWARsR4hzQ6MbQxWlW9-4" parent="phWARsR4hzQ6MbQxWlW9-2" style="shape=dimension;direction=west;whiteSpace=wrap;html=1;align=right;points=[];verticalAlign=bottom;spacingTop=0;labelBackgroundColor=none;strokeColor=#FFFFFF;strokeWidth=4;fontSize=24;fontColor=#FFFFFF;fontStyle=1;labelPosition=left;verticalLabelPosition=top;rotation=0.5;aspect=fixed;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;spacingBottom=-10;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));&quot;&gt;4115&lt;/span&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="738" width="1107" x="205" y="303" as="geometry" />
         </mxCell>
         <mxCell id="phWARsR4hzQ6MbQxWlW9-5" parent="0" value="tables" />
@@ -44,7 +41,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="XaQtroPsekhT3NDuDnfG" name="south-side-view">
-    <mxGraphModel dx="1498" dy="426" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2202" dy="873" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" style="locked=1;" />
@@ -64,7 +61,7 @@
         <mxCell id="PqdU055SBAIthU4F_4Hc-1" parent="rnVST7UuiIYC3wCKJHzx-23" style="shape=dimension;direction=east;whiteSpace=wrap;html=1;align=right;points=[];verticalAlign=bottom;spacingTop=0;labelBackgroundColor=none;strokeColor=#FFFFFF;strokeWidth=4;fontSize=24;fontStyle=1;flipV=1;legacyAnchorPoints=0;spacingBottom=0;flipH=1;rotation=0;fillColor=#ffe6cc;labelPosition=left;verticalLabelPosition=top;fontColor=#FFFFFF;" value="&lt;span style=&quot;text-align: left;&quot;&gt;1956&lt;/span&gt;" vertex="1">
           <mxGeometry height="26" width="455" x="619" y="630" as="geometry" />
         </mxCell>
-        <mxCell id="PqdU055SBAIthU4F_4Hc-2" parent="rnVST7UuiIYC3wCKJHzx-23" style="shape=dimension;direction=east;whiteSpace=wrap;html=1;align=center;points=[];verticalAlign=bottom;spacingTop=0;labelBackgroundColor=none;strokeColor=#FFFFFF;strokeWidth=4;fontSize=24;fontStyle=1;flipV=1;legacyAnchorPoints=0;spacingBottom=0;flipH=1;rotation=0;fillColor=#ffe6cc;labelPosition=center;verticalLabelPosition=top;fontColor=#FFFFFF;" value="&lt;span style=&quot;text-align: left;&quot;&gt;1956&lt;/span&gt;" vertex="1">
+        <mxCell id="PqdU055SBAIthU4F_4Hc-2" parent="rnVST7UuiIYC3wCKJHzx-23" style="shape=dimension;direction=east;whiteSpace=wrap;html=1;align=center;points=[];verticalAlign=bottom;spacingTop=0;labelBackgroundColor=none;strokeColor=#FFFFFF;strokeWidth=4;fontSize=24;fontStyle=1;flipV=1;legacyAnchorPoints=0;spacingBottom=0;flipH=1;rotation=0;fillColor=#ffe6cc;labelPosition=center;verticalLabelPosition=top;fontColor=#FFFFFF;" value="&lt;span style=&quot;text-align: left;&quot;&gt;946&lt;/span&gt;" vertex="1">
           <mxGeometry height="57" width="220" x="853" y="600" as="geometry" />
         </mxCell>
         <mxCell id="rnVST7UuiIYC3wCKJHzx-2" parent="0" style="locked=0;" value="measurement" />
