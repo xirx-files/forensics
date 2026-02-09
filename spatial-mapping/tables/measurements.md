@@ -87,3 +87,8 @@ Figure elevated-north-side-view-measurement.jpg
 ![tables-model.svg](tables-model.svg)
 
 Figure tables-model.svg
+
+
+![tables-no-measurement.svg](tables-no-measurement.svg)
+
+Figure tables-no-measurement.svg
