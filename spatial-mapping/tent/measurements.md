@@ -5,26 +5,27 @@
 | #  | Feature                                  | Editor Size (Pt) | Millimeters |  Ratio | Notes                  |
 |----|------------------------------------------|------------------|-------------|--------|------------------------|
 | 1  | East side view                           |                  |             |        |                        |
-| 2  | Tent width                               | 1107.00          | 4114.84     | 3.72   |                        |
-| 3  | Tent height                              | 738.00           | 2743.23     |        |                        |
-| 4  |                                          |                  |             |        |                        |
-| 5  | South side view                          |                  |             |        |                        |
-| 6  | South side Tent width                    | 1218.00          | 4114.84     | 3.38   |                        |
-| 7  | South side Tent height                   | 812.00           | 2743.23     |        |                        |
-| 8  | North side Tent width                    | 605.00           | 4114.84     | 6.80   |                        |
-| 9  | North side Tent height                   | 403.33           | 2743.23     |        |                        |
-| 10 |                                          |                  |             |        |                        |
-| 11 | South east side view                     |                  |             |        |                        |
-| 12 | Tent height (wrt center)                 | 372.00           | 2743.23     | 7.37   |                        |
-| 13 | Tent roof height (wrt center)            | 220.00           | 1622.34     |        | Preferred calculations |
-| 14 |                                          |                  |             |        |                        |
-| 15 | Elevated south side view                 |                  |             |        |                        |
-| 16 | North side Tent height (wrt west facing) | 138.00           | 2743.23     | 19.88  |                        |
-| 17 | HoF lower window height                  | 226.00           | 4492.53     |        |                        |
-| 18 | Tent height (wrt center)                 | 143.00           | 2743.23     | 19.18  |                        |
-| 19 | Tent roof height (wrt center)            | 83.00            | 1592.22     |        |                        |
+| 2  | Tent width                               | 1107.00          | 3961.80     | 3.58   |                        |
+| 3  | Tent height                              | 738.00           | 2641.20     |        |                        |
+| 4  | Banner height                            | 100.00           | 357.89      |        |                        |
+| 5  |                                          |                  |             |        |                        |
+| 6  | South side view                          |                  |             |        |                        |
+| 7  | South side Tent width                    | 1218.00          | 3961.80     | 3.25   |                        |
+| 8  | South side Tent height                   | 812.00           | 2641.20     |        |                        |
+| 9  | North side Tent width                    | 605.00           | 3961.80     | 6.55   |                        |
+| 10 | North side Tent height                   | 403.33           | 2641.20     |        |                        |
+| 11 |                                          |                  |             |        |                        |
+| 12 | South east side view                     |                  |             |        |                        |
+| 13 | Tent height (wrt center)                 | 372.00           | 2641.20     | 7.10   |                        |
+| 14 | Tent roof height (wrt center)            | 220.00           | 1562.00     |        | Preferred calculations |
+| 15 |                                          |                  |             |        |                        |
+| 16 | Elevated south side view                 |                  |             |        |                        |
+| 17 | North side Tent height (wrt west facing) | 138.00           | 2641.20     | 19.14  |                        |
+| 18 | HoF lower window height                  | 226.00           | 4325.44     |        |                        |
+| 19 | Tent height (wrt center)                 | 143.00           | 2641.20     | 18.47  |                        |
+| 20 | Tent roof height (wrt center)            | 83.00            | 1533.00     |        |                        |
 
-Table measurements
+Table estimated measurements
 
 ## Process
 
