@@ -1,0 +1,37 @@
+[
+  {
+    "Feature": "Hall of Flags Roof South-side",
+    "x": "704",
+    "y": "55",
+    "lat": "40.277209",
+    "lon": "-111.713974"
+  },
+  {
+    "Feature": "Hall of Flags Roof North-side",
+    "x": "7510",
+    "y": "40",
+    "lat": "40.277943",
+    "lon": "-111.714458"
+  },
+  {
+    "Feature": "Courtyard lower-level West-side hatch",
+    "x": "3428",
+    "y": "784",
+    "lat": "40.277544",
+    "lon": "-111.714064"
+  },
+  {
+    "Feature": "Courtyard upper-level East-side",
+    "x": "3297",
+    "y": "3266",
+    "lat": "40.277664",
+    "lon": "-111.713705"
+  },
+  {
+    "Feature": "Woodbury Building Roof West-side",
+    "x": "1277",
+    "y": "4092",
+    "lat": "40.277494",
+    "lon": "-111.713453"
+  }
+]

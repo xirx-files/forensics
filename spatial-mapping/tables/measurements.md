@@ -64,6 +64,6 @@ Figure south-side-view-measurement.jpg
 Figure tables-model.svg
 
 
-![tables-no-measurement.svg](tables-no-measurement.svg)
+![tables-model-no-measurement.svg](tables-model-no-measurement.svg)
 
-Figure tables-no-measurement.svg
+Figure tables-model-no-measurement.svg

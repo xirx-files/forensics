@@ -1,0 +1,37 @@
+[
+  {
+    "Feature": "HoF North lamp post",
+    "x": "5287",
+    "y": "1051",
+    "lat": "40.277759",
+    "lon": "-111.714159"
+  },
+  {
+    "Feature": "HoF South lamp post",
+    "x": "1348",
+    "y": "1255",
+    "lat": "40.277342",
+    "lon": "-111.71385"
+  },
+  {
+    "Feature": "Woodbury North lamp post",
+    "x": "3421",
+    "y": "3928",
+    "lat": "40.277713",
+    "lon": "-111.713622"
+  },
+  {
+    "Feature": "Woodbury South lamp post",
+    "x": "2164",
+    "y": "2637",
+    "lat": "40.277508",
+    "lon": "-111.713713"
+  },
+  {
+    "Feature": "Sorrensen North lamp post",
+    "x": "6605",
+    "y": "2175",
+    "lat": "40.277961",
+    "lon": "-111.714092"
+  }
+]

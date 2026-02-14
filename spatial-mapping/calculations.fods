@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:presentation="urn:oasis:names:tc:opendocument:xmlns:presentation:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:rpt="http://openoffice.org/2005/report" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" office:version="1.3" office:mimetype="application/vnd.oasis.opendocument.spreadsheet">
- <office:meta><meta:creation-date>2026-01-23T19:48:56.000563458</meta:creation-date><dc:date>2026-02-13T21:59:31.445078275</dc:date><meta:editing-duration>P10DT52M27S</meta:editing-duration><meta:editing-cycles>248</meta:editing-cycles><meta:generator>LibreOffice/7.4.7.2$Linux_X86_64 LibreOffice_project/40$Build-2</meta:generator><meta:document-statistic meta:table-count="8" meta:cell-count="589" meta:object-count="0"/></office:meta>
+ <office:meta><meta:creation-date>2026-01-23T19:48:56.000563458</meta:creation-date><dc:date>2026-02-14T14:19:57.486225407</dc:date><meta:editing-duration>P10DT3H55M4S</meta:editing-duration><meta:editing-cycles>251</meta:editing-cycles><meta:generator>LibreOffice/7.4.7.2$Linux_X86_64 LibreOffice_project/40$Build-2</meta:generator><meta:document-statistic meta:table-count="8" meta:cell-count="624" meta:object-count="0"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
    <config:config-item config:name="VisibleAreaTop" config:type="int">0</config:config-item>
    <config:config-item config:name="VisibleAreaLeft" config:type="int">0</config:config-item>
-   <config:config-item config:name="VisibleAreaWidth" config:type="int">15492</config:config-item>
-   <config:config-item config:name="VisibleAreaHeight" config:type="int">17611</config:config-item>
+   <config:config-item config:name="VisibleAreaWidth" config:type="int">21671</config:config-item>
+   <config:config-item config:name="VisibleAreaHeight" config:type="int">12192</config:config-item>
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view1</config:config-item>
@@ -21,7 +21,7 @@
        <config:config-item config:name="PositionTop" config:type="int">0</config:config-item>
        <config:config-item config:name="PositionBottom" config:type="int">0</config:config-item>
        <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
-       <config:config-item config:name="ZoomValue" config:type="int">160</config:config-item>
+       <config:config-item config:name="ZoomValue" config:type="int">140</config:config-item>
        <config:config-item config:name="PageViewZoomValue" config:type="int">60</config:config-item>
        <config:config-item config:name="ShowGrid" config:type="boolean">true</config:config-item>
        <config:config-item config:name="AnchoredTextOverflowLegacy" config:type="boolean">false</config:config-item>
@@ -35,7 +35,7 @@
        <config:config-item config:name="PositionTop" config:type="int">0</config:config-item>
        <config:config-item config:name="PositionBottom" config:type="int">0</config:config-item>
        <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
-       <config:config-item config:name="ZoomValue" config:type="int">160</config:config-item>
+       <config:config-item config:name="ZoomValue" config:type="int">140</config:config-item>
        <config:config-item config:name="PageViewZoomValue" config:type="int">60</config:config-item>
        <config:config-item config:name="ShowGrid" config:type="boolean">true</config:config-item>
        <config:config-item config:name="AnchoredTextOverflowLegacy" config:type="boolean">false</config:config-item>
@@ -49,7 +49,7 @@
        <config:config-item config:name="PositionTop" config:type="int">0</config:config-item>
        <config:config-item config:name="PositionBottom" config:type="int">16</config:config-item>
        <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
-       <config:config-item config:name="ZoomValue" config:type="int">160</config:config-item>
+       <config:config-item config:name="ZoomValue" config:type="int">140</config:config-item>
        <config:config-item config:name="PageViewZoomValue" config:type="int">60</config:config-item>
        <config:config-item config:name="ShowGrid" config:type="boolean">true</config:config-item>
        <config:config-item config:name="AnchoredTextOverflowLegacy" config:type="boolean">false</config:config-item>
@@ -63,7 +63,7 @@
        <config:config-item config:name="PositionTop" config:type="int">0</config:config-item>
        <config:config-item config:name="PositionBottom" config:type="int">0</config:config-item>
        <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
-       <config:config-item config:name="ZoomValue" config:type="int">160</config:config-item>
+       <config:config-item config:name="ZoomValue" config:type="int">140</config:config-item>
        <config:config-item config:name="PageViewZoomValue" config:type="int">60</config:config-item>
        <config:config-item config:name="ShowGrid" config:type="boolean">true</config:config-item>
        <config:config-item config:name="AnchoredTextOverflowLegacy" config:type="boolean">false</config:config-item>
@@ -77,7 +77,7 @@
        <config:config-item config:name="PositionTop" config:type="int">0</config:config-item>
        <config:config-item config:name="PositionBottom" config:type="int">17</config:config-item>
        <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
-       <config:config-item config:name="ZoomValue" config:type="int">160</config:config-item>
+       <config:config-item config:name="ZoomValue" config:type="int">140</config:config-item>
        <config:config-item config:name="PageViewZoomValue" config:type="int">60</config:config-item>
        <config:config-item config:name="ShowGrid" config:type="boolean">true</config:config-item>
        <config:config-item config:name="AnchoredTextOverflowLegacy" config:type="boolean">false</config:config-item>
@@ -91,7 +91,7 @@
        <config:config-item config:name="PositionTop" config:type="int">0</config:config-item>
        <config:config-item config:name="PositionBottom" config:type="int">0</config:config-item>
        <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
-       <config:config-item config:name="ZoomValue" config:type="int">160</config:config-item>
+       <config:config-item config:name="ZoomValue" config:type="int">140</config:config-item>
        <config:config-item config:name="PageViewZoomValue" config:type="int">60</config:config-item>
        <config:config-item config:name="ShowGrid" config:type="boolean">true</config:config-item>
        <config:config-item config:name="AnchoredTextOverflowLegacy" config:type="boolean">false</config:config-item>
@@ -105,21 +105,21 @@
        <config:config-item config:name="PositionTop" config:type="int">0</config:config-item>
        <config:config-item config:name="PositionBottom" config:type="int">0</config:config-item>
        <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
-       <config:config-item config:name="ZoomValue" config:type="int">160</config:config-item>
+       <config:config-item config:name="ZoomValue" config:type="int">140</config:config-item>
        <config:config-item config:name="PageViewZoomValue" config:type="int">60</config:config-item>
        <config:config-item config:name="ShowGrid" config:type="boolean">true</config:config-item>
        <config:config-item config:name="AnchoredTextOverflowLegacy" config:type="boolean">false</config:config-item>
       </config:config-item-map-entry>
       <config:config-item-map-entry config:name="wcs-to-gps">
-       <config:config-item config:name="CursorPositionX" config:type="int">5</config:config-item>
-       <config:config-item config:name="CursorPositionY" config:type="int">7</config:config-item>
+       <config:config-item config:name="CursorPositionX" config:type="int">2</config:config-item>
+       <config:config-item config:name="CursorPositionY" config:type="int">4</config:config-item>
        <config:config-item config:name="ActiveSplitRange" config:type="short">2</config:config-item>
        <config:config-item config:name="PositionLeft" config:type="int">0</config:config-item>
        <config:config-item config:name="PositionRight" config:type="int">0</config:config-item>
        <config:config-item config:name="PositionTop" config:type="int">0</config:config-item>
        <config:config-item config:name="PositionBottom" config:type="int">0</config:config-item>
        <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
-       <config:config-item config:name="ZoomValue" config:type="int">160</config:config-item>
+       <config:config-item config:name="ZoomValue" config:type="int">140</config:config-item>
        <config:config-item config:name="PageViewZoomValue" config:type="int">60</config:config-item>
        <config:config-item config:name="ShowGrid" config:type="boolean">true</config:config-item>
        <config:config-item config:name="AnchoredTextOverflowLegacy" config:type="boolean">false</config:config-item>
@@ -128,7 +128,7 @@
      <config:config-item config:name="ActiveTable" config:type="string">elevation-z-axis</config:config-item>
      <config:config-item config:name="HorizontalScrollbarWidth" config:type="int">1823</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
-     <config:config-item config:name="ZoomValue" config:type="int">160</config:config-item>
+     <config:config-item config:name="ZoomValue" config:type="int">140</config:config-item>
      <config:config-item config:name="PageViewZoomValue" config:type="int">60</config:config-item>
      <config:config-item config:name="ShowPageBreakPreview" config:type="boolean">false</config:config-item>
      <config:config-item config:name="ShowZeroValues" config:type="boolean">true</config:config-item>
@@ -190,7 +190,7 @@
    <config:config-item config:name="LoadReadonly" config:type="boolean">false</config:config-item>
    <config:config-item config:name="PrinterName" config:type="string">HP_OfficeJet_Pro_8720_D5FDE5</config:config-item>
    <config:config-item config:name="PrinterPaperFromSetup" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrinterSetup" config:type="base64Binary">rQH+/0hQX09mZmljZUpldF9Qcm9fODcyMF9ENUZERTUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ1VQUzpIUF9PZmZpY2VKZXRfUHJvXzg3MjBfRDVGRAAWAAMAzgAAAAAAAAAEAAhSAAAEdAAASm9iRGF0YSAxCnByaW50ZXI9SFBfT2ZmaWNlSmV0X1Byb184NzIwX0Q1RkRFNQpvcmllbnRhdGlvbj1Qb3J0cmFpdApjb3BpZXM9MQpjb2xsYXRlPWZhbHNlCm1hcmdpbmFkanVzdG1lbnQ9MCwwLDAsMApjb2xvcmRlcHRoPTI0CnBzbGV2ZWw9MApwZGZkZXZpY2U9MQpjb2xvcmRldmljZT0wClBQRENvbnRleHREYXRhClBhZ2VTaXplOkE0AER1cGxleDpOb25lAAASAENPTVBBVF9EVVBMRVhfTU9ERQ8ARHVwbGV4TW9kZTo6T2Zm</config:config-item>
+   <config:config-item config:name="PrinterSetup" config:type="base64Binary">rQH+/0hQX09mZmljZUpldF9Qcm9fODcyMF9ENUZERTUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ1VQUzpIUF9PZmZpY2VKZXRfUHJvXzg3MjBfRDVGRAAWAAMAzgAAAAAAAAAEAAhSAAAEdAAASm9iRGF0YSAxCnByaW50ZXI9SFBfT2ZmaWNlSmV0X1Byb184NzIwX0Q1RkRFNQpvcmllbnRhdGlvbj1Qb3J0cmFpdApjb3BpZXM9MQpjb2xsYXRlPWZhbHNlCm1hcmdpbmFkanVzdG1lbnQ9MCwwLDAsMApjb2xvcmRlcHRoPTI0CnBzbGV2ZWw9MApwZGZkZXZpY2U9MQpjb2xvcmRldmljZT0wClBQRENvbnRleHREYXRhCkR1cGxleDpOb25lAFBhZ2VTaXplOkE0AAASAENPTVBBVF9EVVBMRVhfTU9ERQ8ARHVwbGV4TW9kZTo6T2Zm</config:config-item>
    <config:config-item config:name="RasterIsVisible" config:type="boolean">false</config:config-item>
    <config:config-item config:name="RasterResolutionX" config:type="int">1000</config:config-item>
    <config:config-item config:name="RasterResolutionY" config:type="int">1000</config:config-item>
@@ -224,7 +224,7 @@
      <config:config-item config:name="CodeName" config:type="string">elevation-z-axis</config:config-item>
     </config:config-item-map-entry>
     <config:config-item-map-entry config:name="wcs-to-gps">
-     <config:config-item config:name="CodeName" config:type="string">wcs-to-latlon</config:config-item>
+     <config:config-item config:name="CodeName" config:type="string">wcs-to-gps</config:config-item>
     </config:config-item-map-entry>
     <config:config-item-map-entry config:name="perspective-calcs">
      <config:config-item config:name="CodeName" config:type="string">perspective-calcs</config:config-item>
@@ -404,6 +404,9 @@
   </style:style>
   <style:style style:name="ce16" style:family="table-cell" style:parent-style-name="Default">
    <style:table-cell-properties fo:background-color="#ff4000"/>
+  </style:style>
+  <style:style style:name="ce17" style:family="table-cell" style:parent-style-name="Default">
+   <style:table-cell-properties fo:background-color="#ffbf00"/>
   </style:style>
   <style:page-layout style:name="pm1">
    <style:page-layout-properties style:writing-mode="lr-tb"/>
@@ -2607,11 +2610,11 @@
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>Hall of Flags Roof South-side</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="705" calcext:value-type="float">
-      <text:p>705</text:p>
+     <table:table-cell office:value-type="float" office:value="704" calcext:value-type="float">
+      <text:p>704</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="52" calcext:value-type="float">
-      <text:p>52</text:p>
+     <table:table-cell office:value-type="float" office:value="55" calcext:value-type="float">
+      <text:p>55</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="40.277209" calcext:value-type="float">
       <text:p>40.277209</text:p>
@@ -2625,11 +2628,11 @@
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>Hall of Flags Roof North-side</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="7511" calcext:value-type="float">
-      <text:p>7511</text:p>
+     <table:table-cell office:value-type="float" office:value="7510" calcext:value-type="float">
+      <text:p>7510</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="38" calcext:value-type="float">
-      <text:p>38</text:p>
+     <table:table-cell office:value-type="float" office:value="40" calcext:value-type="float">
+      <text:p>40</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="40.277943" calcext:value-type="float">
       <text:p>40.277943</text:p>
@@ -2643,11 +2646,11 @@
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>Courtyard lower-level West-side hatch</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="3429" calcext:value-type="float">
-      <text:p>3429</text:p>
+     <table:table-cell office:value-type="float" office:value="3428" calcext:value-type="float">
+      <text:p>3428</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="786" calcext:value-type="float">
-      <text:p>786</text:p>
+     <table:table-cell office:value-type="float" office:value="784" calcext:value-type="float">
+      <text:p>784</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="40.277544" calcext:value-type="float">
       <text:p>40.277544</text:p>
@@ -2661,8 +2664,11 @@
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>Courtyard upper-level East-side</text:p>
      </table:table-cell>
-     <table:table-cell table:number-columns-repeated="2" office:value-type="float" office:value="3283" calcext:value-type="float">
-      <text:p>3283</text:p>
+     <table:table-cell office:value-type="float" office:value="3297" calcext:value-type="float">
+      <text:p>3297</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="3266" calcext:value-type="float">
+      <text:p>3266</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="40.277664" calcext:value-type="float">
       <text:p>40.277664</text:p>
@@ -2679,8 +2685,8 @@
      <table:table-cell office:value-type="float" office:value="1277" calcext:value-type="float">
       <text:p>1277</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="4094" calcext:value-type="float">
-      <text:p>4094</text:p>
+     <table:table-cell office:value-type="float" office:value="4092" calcext:value-type="float">
+      <text:p>4092</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="float" office:value="40.277494" calcext:value-type="float">
       <text:p>40.277494</text:p>
@@ -2697,8 +2703,8 @@
      <table:table-cell table:style-name="ce16" office:value-type="float" office:value="5881" calcext:value-type="float">
       <text:p>5881</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce16" office:value-type="float" office:value="3819" calcext:value-type="float">
-      <text:p>3819</text:p>
+     <table:table-cell table:style-name="ce16" office:value-type="float" office:value="3818" calcext:value-type="float">
+      <text:p>3818</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="ce16" office:value-type="float" office:value="40.277966" calcext:value-type="float">
       <text:p>40.277966</text:p>
@@ -2708,6 +2714,135 @@
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>this entry reduces model accuracy</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell table:style-name="ce16" table:number-columns-repeated="5"/>
+     <table:table-cell/>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Feature</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>x</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>y</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>lat</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>lon</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Notes</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>HoF North lamp post</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="5287" calcext:value-type="float">
+      <text:p>5287</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="1051" calcext:value-type="float">
+      <text:p>1051</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="40.277759" calcext:value-type="float">
+      <text:p>40.277759</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="-111.714159" calcext:value-type="float">
+      <text:p>-111.714159</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>HoF South lamp post</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="1348" calcext:value-type="float">
+      <text:p>1348</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="1255" calcext:value-type="float">
+      <text:p>1255</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="40.277342" calcext:value-type="float">
+      <text:p>40.277342</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="-111.71385" calcext:value-type="float">
+      <text:p>-111.71385</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Woodbury North lamp post</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="3421" calcext:value-type="float">
+      <text:p>3421</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="3928" calcext:value-type="float">
+      <text:p>3928</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="40.277713" calcext:value-type="float">
+      <text:p>40.277713</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="-111.713622" calcext:value-type="float">
+      <text:p>-111.713622</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Woodbury South lamp post</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="2164" calcext:value-type="float">
+      <text:p>2164</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="2637" calcext:value-type="float">
+      <text:p>2637</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="40.277508" calcext:value-type="float">
+      <text:p>40.277508</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="-111.713713" calcext:value-type="float">
+      <text:p>-111.713713</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Sorrensen North lamp post</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="6605" calcext:value-type="float">
+      <text:p>6605</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="2175" calcext:value-type="float">
+      <text:p>2175</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="40.277961" calcext:value-type="float">
+      <text:p>40.277961</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="-111.714092" calcext:value-type="float">
+      <text:p>-111.714092</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell table:style-name="ce17" office:value-type="string" calcext:value-type="string">
+      <text:p>Sorrensen South lamp post</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce17" table:number-columns-repeated="2"/>
+     <table:table-cell table:style-name="ce17" office:value-type="float" office:value="40.277829" calcext:value-type="float">
+      <text:p>40.277829</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce17" office:value-type="float" office:value="-111.713562" calcext:value-type="float">
+      <text:p>-111.713562</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>this entry is not in frame</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="ro1">
