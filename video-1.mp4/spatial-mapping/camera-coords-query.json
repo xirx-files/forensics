@@ -1,16 +1,24 @@
 {
-    "landmarks_grid": {
-        "Tent back center banner frame": [3083, 53, 144.45],
-        "Tent middle center banner frame": [3087, 189, 144.45],
-        "Front Banner Lightning": [3090, 325, 159.17]
+    "wcs": {
+        "A": [3390, 680, 324.26],
+        "B": [3182, 988, 187.27],
+        "C": [3182, 690, 171.17],
+        "D": [3182, 842, 139.85],
+        "E": [3182, 1074, 102.69],
+        "F": [3182, 963, 71.60]
     },
-    "photo1": {
+    "photo": {
         "width": 886,
-        "height": 1920,
+        "height": 1575,
         "points": {
-            "Tent back center banner frame": [36, 862],
-            "Tent middle center banner frame": [175, 813],
-            "Front Banner Lightning": [432, 588]
-        }
+            "A": [606, 140],
+            "B": [427, 419],
+            "C": [31, 693],
+            "D": [125, 847],
+            "E": [675, 1251],
+            "F": [382, 1315]
+        },
+        "point-closest-to-camera": "E",
+        "point-furthest-from-camera": "A"
     }
 }
