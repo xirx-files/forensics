@@ -65,7 +65,7 @@ Table measurements
             "C": [31, 693],
             "D": [125, 847],
             "E": [675, 1251],
-        //     "F": [382, 1315]
+        //     "F": [341, 1317]
         },
         "point-closest-to-camera": "E",
         "point-furthest-from-camera": "A"
@@ -85,10 +85,14 @@ Figure camera-coords-query-wcs-yz.svg
 
 
 ```bash
-$ python ../../tools/gps-camera-solver.py 
-Verified Solution Found near [3130 1270  120]:
-   Optimized F: 3724.34 | Error: 378.89
-   Final World Pos (X, Y, Z): 3163.56, 1256.52, -6.96
+$ python ../../tools/wcs-camera-solver.py 
+Refined Camera Pos: [3114.53445721 1218.93667122  145.98463009]
+Point A:   33.15px [OK]
+Point B:  129.07px [OUTLIER]
+Point C:   18.79px [OK]
+Point D:   31.83px [OK]
+Point E:    8.29px [OK]
+Point F:    8.89px [OK]
 ```
 
 
@@ -96,8 +100,8 @@ Verified Solution Found near [3130 1270  120]:
 [
     {
         "Feature": "1.mp4 camera location",
-        "x": 3079.00, 
-        "y": 1262.00
+        "x": 3052, 
+        "y": 1300
     }
 ]
 ```
@@ -112,8 +116,8 @@ Approximate ground error: 0.143 meters
 ```json camera-location-gps.json
 [
     {
-        "lat": 40.27753069984355,
-        "lon": -111.71397180349506
+        "lat": 40.2775298545232,
+        "lon": -111.7139645487728
     }
 ]
 ```

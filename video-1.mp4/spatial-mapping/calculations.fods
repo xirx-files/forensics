@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:presentation="urn:oasis:names:tc:opendocument:xmlns:presentation:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:rpt="http://openoffice.org/2005/report" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" office:version="1.3" office:mimetype="application/vnd.oasis.opendocument.spreadsheet">
- <office:meta><meta:creation-date>2026-01-23T19:48:56.000563458</meta:creation-date><dc:date>2026-02-16T14:44:01.313249486</dc:date><meta:editing-duration>P1DT3H50M14S</meta:editing-duration><meta:editing-cycles>14</meta:editing-cycles><meta:generator>LibreOffice/7.4.7.2$Linux_X86_64 LibreOffice_project/40$Build-2</meta:generator><meta:document-statistic meta:table-count="1" meta:cell-count="74" meta:object-count="0"/></office:meta>
+ <office:meta><meta:creation-date>2026-01-23T19:48:56.000563458</meta:creation-date><dc:date>2026-02-17T16:19:40.310107241</dc:date><meta:editing-duration>P1DT9H11M37S</meta:editing-duration><meta:editing-cycles>15</meta:editing-cycles><meta:generator>LibreOffice/7.4.7.2$Linux_X86_64 LibreOffice_project/40$Build-2</meta:generator><meta:document-statistic meta:table-count="1" meta:cell-count="74" meta:object-count="0"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
    <config:config-item config:name="VisibleAreaTop" config:type="int">0</config:config-item>
@@ -13,8 +13,8 @@
      <config:config-item config:name="ViewId" config:type="string">view1</config:config-item>
      <config:config-item-map-named config:name="Tables">
       <config:config-item-map-entry config:name="Sheet1">
-       <config:config-item config:name="CursorPositionX" config:type="int">8</config:config-item>
-       <config:config-item config:name="CursorPositionY" config:type="int">27</config:config-item>
+       <config:config-item config:name="CursorPositionX" config:type="int">7</config:config-item>
+       <config:config-item config:name="CursorPositionY" config:type="int">13</config:config-item>
        <config:config-item config:name="ActiveSplitRange" config:type="short">2</config:config-item>
        <config:config-item config:name="PositionLeft" config:type="int">0</config:config-item>
        <config:config-item config:name="PositionRight" config:type="int">0</config:config-item>
@@ -76,7 +76,7 @@
    <config:config-item config:name="LoadReadonly" config:type="boolean">false</config:config-item>
    <config:config-item config:name="PrinterName" config:type="string">HP_OfficeJet_Pro_8720_D5FDE5</config:config-item>
    <config:config-item config:name="PrinterPaperFromSetup" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrinterSetup" config:type="base64Binary">rQH+/0hQX09mZmljZUpldF9Qcm9fODcyMF9ENUZERTUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ1VQUzpIUF9PZmZpY2VKZXRfUHJvXzg3MjBfRDVGRAAWAAMAzgAAAAAAAAAEAAhSAAAEdAAASm9iRGF0YSAxCnByaW50ZXI9SFBfT2ZmaWNlSmV0X1Byb184NzIwX0Q1RkRFNQpvcmllbnRhdGlvbj1Qb3J0cmFpdApjb3BpZXM9MQpjb2xsYXRlPWZhbHNlCm1hcmdpbmFkanVzdG1lbnQ9MCwwLDAsMApjb2xvcmRlcHRoPTI0CnBzbGV2ZWw9MApwZGZkZXZpY2U9MQpjb2xvcmRldmljZT0wClBQRENvbnRleHREYXRhCkR1cGxleDpOb25lAFBhZ2VTaXplOkE0AAASAENPTVBBVF9EVVBMRVhfTU9ERQ8ARHVwbGV4TW9kZTo6T2Zm</config:config-item>
+   <config:config-item config:name="PrinterSetup" config:type="base64Binary">rQH+/0hQX09mZmljZUpldF9Qcm9fODcyMF9ENUZERTUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ1VQUzpIUF9PZmZpY2VKZXRfUHJvXzg3MjBfRDVGRAAWAAMAzgAAAAAAAAAEAAhSAAAEdAAASm9iRGF0YSAxCnByaW50ZXI9SFBfT2ZmaWNlSmV0X1Byb184NzIwX0Q1RkRFNQpvcmllbnRhdGlvbj1Qb3J0cmFpdApjb3BpZXM9MQpjb2xsYXRlPWZhbHNlCm1hcmdpbmFkanVzdG1lbnQ9MCwwLDAsMApjb2xvcmRlcHRoPTI0CnBzbGV2ZWw9MApwZGZkZXZpY2U9MQpjb2xvcmRldmljZT0wClBQRENvbnRleHREYXRhClBhZ2VTaXplOkE0AER1cGxleDpOb25lAAASAENPTVBBVF9EVVBMRVhfTU9ERQ8ARHVwbGV4TW9kZTo6T2Zm</config:config-item>
    <config:config-item config:name="RasterIsVisible" config:type="boolean">false</config:config-item>
    <config:config-item config:name="RasterResolutionX" config:type="int">1000</config:config-item>
    <config:config-item config:name="RasterResolutionY" config:type="int">1000</config:config-item>
@@ -499,7 +499,9 @@
      <table:table-cell table:style-name="ce3" table:formula="of:=[.$B$6]-[.B14]" office:value-type="float" office:value="1360.15471698113" calcext:value-type="float">
       <text:p>1360.15</text:p>
      </table:table-cell>
-     <table:table-cell table:number-columns-repeated="8"/>
+     <table:table-cell table:number-columns-repeated="2"/>
+     <table:table-cell table:style-name="ce3"/>
+     <table:table-cell table:number-columns-repeated="5"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
      <table:table-cell table:style-name="ce2"/>
@@ -612,11 +614,11 @@
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>World Coordinate System</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="float" office:value="3079" calcext:value-type="float">
-      <text:p>3079.00</text:p>
+     <table:table-cell office:value-type="float" office:value="3053" calcext:value-type="float">
+      <text:p>3053.00</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce9" office:value-type="float" office:value="1262" calcext:value-type="float">
-      <text:p>1262.00</text:p>
+     <table:table-cell table:style-name="ce9" office:value-type="float" office:value="1300" calcext:value-type="float">
+      <text:p>1300.00</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="ce9" table:formula="of:=[.B6]-1383" office:value-type="float" office:value="117" calcext:value-type="float">
       <text:p>117.00</text:p>
@@ -668,187 +670,6 @@
     </table:table-row>
     <table:table-row table:style-name="ro1">
      <table:table-cell table:number-columns-repeated="14"/>
-    </table:table-row>
-   </table:table>
-   <table:table table:name="&apos;file:///home/ash/prj/xirx-files/forensics/video-1.mp4/spatial-mapping/calculations.fods&apos;#amphitheatre" table:print="false" table:style-name="ta_extref">
-    <table:table-source xlink:type="simple" xlink:href="" table:table-name="amphitheatre" table:mode="copy-results-only"/>
-    <table:table-column table:number-columns-repeated="3"/>
-    <table:table-row>
-     <table:table-cell table:number-columns-repeated="3"/>
-    </table:table-row>
-    <table:table-row>
-     <table:table-cell table:style-name="ce1" office:value-type="string">
-      <text:p>Google Earth yardstick</text:p>
-     </table:table-cell>
-     <table:table-cell table:style-name="ce1" office:value-type="float" office:value="1102">
-      <text:p>1102</text:p>
-     </table:table-cell>
-     <table:table-cell table:style-name="ce1" office:value-type="float" office:value="14700">
-      <text:p>14700</text:p>
-     </table:table-cell>
-    </table:table-row>
-    <table:table-row table:number-rows-repeated="2">
-     <table:table-cell table:number-columns-repeated="3"/>
-    </table:table-row>
-    <table:table-row>
-     <table:table-cell table:number-columns-repeated="2"/>
-     <table:table-cell table:style-name="ce1" office:value-type="float" office:value="1118">
-      <text:p>1118</text:p>
-     </table:table-cell>
-    </table:table-row>
-   </table:table>
-   <table:table table:name="&apos;file:///home/ash/prj/xirx-files/forensics/video-1.mp4/spatial-mapping/calculations.fods&apos;#tent" table:print="false" table:style-name="ta_extref">
-    <table:table-source xlink:type="simple" xlink:href="" table:table-name="tent" table:mode="copy-results-only"/>
-    <table:table-column table:number-columns-repeated="3"/>
-    <table:table-row table:number-rows-repeated="3">
-     <table:table-cell table:number-columns-repeated="3"/>
-    </table:table-row>
-    <table:table-row>
-     <table:table-cell table:style-name="ce1" office:value-type="string">
-      <text:p>Tent height</text:p>
-     </table:table-cell>
-     <table:table-cell/>
-     <table:table-cell table:style-name="ce1" office:value-type="float" office:value="2641.19782214156">
-      <text:p>2641.19782214156</text:p>
-     </table:table-cell>
-    </table:table-row>
-    <table:table-row table:number-rows-repeated="10">
-     <table:table-cell table:number-columns-repeated="3"/>
-    </table:table-row>
-    <table:table-row>
-     <table:table-cell table:number-columns-repeated="2"/>
-     <table:table-cell table:style-name="ce1" office:value-type="float" office:value="1561.9987120192">
-      <text:p>1561.9987120192</text:p>
-     </table:table-cell>
-    </table:table-row>
-    <table:table-row table:number-rows-repeated="3">
-     <table:table-cell table:number-columns-repeated="3"/>
-    </table:table-row>
-    <table:table-row>
-     <table:table-cell table:style-name="ce1" office:value-type="string">
-      <text:p>HoF lower window height</text:p>
-     </table:table-cell>
-     <table:table-cell/>
-     <table:table-cell table:style-name="ce1" office:value-type="float" office:value="4325.43991162314">
-      <text:p>4325.43991162314</text:p>
-     </table:table-cell>
-    </table:table-row>
-   </table:table>
-   <table:table table:name="&apos;file:///home/ash/prj/xirx-files/forensics/video-1.mp4/spatial-mapping/calculations.fods&apos;#tables" table:print="false" table:style-name="ta_extref">
-    <table:table-source xlink:type="simple" xlink:href="" table:table-name="tables" table:mode="copy-results-only"/>
-    <table:table-column table:number-columns-repeated="5"/>
-    <table:table-row table:number-rows-repeated="10">
-     <table:table-cell table:number-columns-repeated="5"/>
-    </table:table-row>
-    <table:table-row>
-     <table:table-cell table:number-columns-repeated="2"/>
-     <table:table-cell table:style-name="ce1" office:value-type="float" office:value="730">
-      <text:p>730</text:p>
-     </table:table-cell>
-    </table:table-row>
-    <table:table-row table:number-rows-repeated="13">
-     <table:table-cell table:number-columns-repeated="5"/>
-    </table:table-row>
-    <table:table-row>
-     <table:table-cell table:number-columns-repeated="4"/>
-     <table:table-cell table:style-name="ce1" office:value-type="float" office:value="955.128599544407">
-      <text:p>955.128599544407</text:p>
-     </table:table-cell>
-    </table:table-row>
-   </table:table>
-   <table:table table:name="&apos;file:///home/ash/prj/xirx-files/forensics/video-1.mp4/spatial-mapping/calculations.fods&apos;#stage-area" table:print="false" table:style-name="ta_extref">
-    <table:table-source xlink:type="simple" xlink:href="" table:table-name="stage-area" table:mode="copy-results-only"/>
-    <table:table-column table:number-columns-repeated="5"/>
-    <table:table-row table:number-rows-repeated="9">
-     <table:table-cell table:number-columns-repeated="5"/>
-    </table:table-row>
-    <table:table-row>
-     <table:table-cell table:number-columns-repeated="4"/>
-     <table:table-cell table:style-name="ce1" office:value-type="float" office:value="897.188132795875">
-      <text:p>897.188132795875</text:p>
-     </table:table-cell>
-    </table:table-row>
-    <table:table-row table:number-rows-repeated="7">
-     <table:table-cell table:number-columns-repeated="5"/>
-    </table:table-row>
-    <table:table-row>
-     <table:table-cell table:number-columns-repeated="2"/>
-     <table:table-cell table:style-name="ce1" office:value-type="float" office:value="1369.8018018018">
-      <text:p>1369.8018018018</text:p>
-     </table:table-cell>
-    </table:table-row>
-    <table:table-row table:number-rows-repeated="4">
-     <table:table-cell table:number-columns-repeated="5"/>
-    </table:table-row>
-    <table:table-row>
-     <table:table-cell table:number-columns-repeated="4"/>
-     <table:table-cell table:style-name="ce1" office:value-type="float" office:value="2366.40532388281">
-      <text:p>2366.40532388281</text:p>
-     </table:table-cell>
-    </table:table-row>
-    <table:table-row table:number-rows-repeated="6">
-     <table:table-cell table:number-columns-repeated="5"/>
-    </table:table-row>
-    <table:table-row>
-     <table:table-cell table:number-columns-repeated="2"/>
-     <table:table-cell table:style-name="ce1" office:value-type="float" office:value="2732.08257212679">
-      <text:p>2732.08257212679</text:p>
-     </table:table-cell>
-    </table:table-row>
-    <table:table-row table:number-rows-repeated="4">
-     <table:table-cell table:number-columns-repeated="5"/>
-    </table:table-row>
-    <table:table-row>
-     <table:table-cell table:number-columns-repeated="4"/>
-     <table:table-cell table:style-name="ce1" office:value-type="float" office:value="2513.78489111727">
-      <text:p>2513.78489111727</text:p>
-     </table:table-cell>
-    </table:table-row>
-    <table:table-row table:number-rows-repeated="3">
-     <table:table-cell table:number-columns-repeated="5"/>
-    </table:table-row>
-    <table:table-row>
-     <table:table-cell table:number-columns-repeated="4"/>
-     <table:table-cell table:style-name="ce1" office:value-type="float" office:value="2957.02498215561">
-      <text:p>2957.02498215561</text:p>
-     </table:table-cell>
-    </table:table-row>
-   </table:table>
-   <table:table table:name="&apos;file:///home/ash/prj/xirx-files/forensics/video-1.mp4/spatial-mapping/calculations.fods&apos;#people" table:print="false" table:style-name="ta_extref">
-    <table:table-source xlink:type="simple" xlink:href="" table:table-name="people" table:mode="copy-results-only"/>
-    <table:table-column table:number-columns-repeated="5"/>
-    <table:table-row table:number-rows-repeated="6">
-     <table:table-cell table:number-columns-repeated="5"/>
-    </table:table-row>
-    <table:table-row>
-     <table:table-cell table:number-columns-repeated="2"/>
-     <table:table-cell table:style-name="ce1" office:value-type="float" office:value="357.885883759019">
-      <text:p>357.885883759019</text:p>
-     </table:table-cell>
-    </table:table-row>
-    <table:table-row>
-     <table:table-cell table:number-columns-repeated="2"/>
-     <table:table-cell table:style-name="ce1" office:value-type="float" office:value="143.154353503608">
-      <text:p>143.154353503608</text:p>
-     </table:table-cell>
-    </table:table-row>
-    <table:table-row table:number-rows-repeated="19">
-     <table:table-cell table:number-columns-repeated="5"/>
-    </table:table-row>
-    <table:table-row>
-     <table:table-cell table:number-columns-repeated="4"/>
-     <table:table-cell table:style-name="ce1" office:value-type="float" office:value="1865.44978255659">
-      <text:p>1865.44978255659</text:p>
-     </table:table-cell>
-    </table:table-row>
-    <table:table-row table:number-rows-repeated="3">
-     <table:table-cell table:number-columns-repeated="5"/>
-    </table:table-row>
-    <table:table-row>
-     <table:table-cell table:number-columns-repeated="2"/>
-     <table:table-cell table:style-name="ce1" office:value-type="float" office:value="1863.33333333333">
-      <text:p>1863.33333333333</text:p>
-     </table:table-cell>
     </table:table-row>
    </table:table>
    <table:named-expressions/>
