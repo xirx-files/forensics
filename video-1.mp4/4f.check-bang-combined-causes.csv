@@ -1,0 +1,8 @@
+Test Name,Measured Value,Status
+Shockwave (Crack) Onset,ABSENT,FAIL
+Muzzle Blast (Bang) Onset,ABSENT,FAIL
+HE/Muzzle Ratio,6.81%,GUNSHOT
+PA Limit Ratio (>12kHz),7.43%,LIVE SHOT
+
+FINAL CONCLUSION,Acoustic Event Ambiguous
+CONFIDENCE LEVEL,Low (Clipped/Smeared)

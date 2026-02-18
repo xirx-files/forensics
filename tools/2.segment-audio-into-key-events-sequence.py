@@ -2,6 +2,7 @@ import numpy as np
 import scipy.io.wavfile as wav
 from scipy.signal import butter, sosfiltfilt
 import csv
+import argparse
 
 def apply_bandpass(data, low, high, fs, order=4):
     """4th order Butterworth bandpass (zero-phase) as per source [3, 4]."""
@@ -25,7 +26,13 @@ def detect_onset(rms_values, fs, hop, threshold_mult=6, baseline_end_sec=0.02):
     return None
 
 def main():
-    input_file = 'mono_event_audio.wav'
+    parser = argparse.ArgumentParser(description="Segment Audio into Key Events Sequence")
+    parser.add_argument("--audio", type=str, default='mono_event_audio.wav', help="Path to input audio (mono, 48kHz/44.1kHz, PCM float)")
+    parser.add_argument("-btt", "--bangTimeThresholdMult", type=float, default=6, help="Onset detection threshold multiplier for bang detection (Default: 6)")
+    parser.add_argument("-vtt", "--violenceTimeThresholdMult", type=float, default=10, help="Onset detection threshold multiplier for violence detection (Default: 10)")
+    args = parser.parse_args()
+
+    input_file = args.audio # 'mono_event_audio.wav'
     output_file = '2.segment-audio-into-key-events-sequence.csv'
     
     # 1. Load Audio (Locked Spec: Mono, 48kHz/44.1kHz, PCM float) [6, 7]
@@ -39,13 +46,13 @@ def main():
     # Bang Detection: 50-300 Hz (Low-frequency pressure arrival) [2]
     bang_data = apply_bandpass(data, 50, 300, fs)
     bang_rms = get_rms(bang_data, 256, 64)
-    bang_time = detect_onset(bang_rms, fs, 64, threshold_mult=6)
+    bang_time = detect_onset(bang_rms, fs, 64, threshold_mult=args.bangTimeThresholdMult)
     
     # Sibilance Detection: 3000-7000 Hz ("ess" phonetics in "violence") [1, 8]
     sib_data = apply_bandpass(data, 3000, 7000, fs)
     sib_rms = get_rms(sib_data, 128, 32)
     # Finding the 'violence' peak (assuming it occurs before the bang)
-    violence_time = detect_onset(sib_rms, fs, 32, threshold_mult=10)
+    violence_time = detect_onset(sib_rms, fs, 32, threshold_mult=args.violenceTimeThresholdMult)
 
     # 3. Define Intervals (Logical placeholders for sequencing) [1]
     # Based on Source [1], sequence is: Violence -> Silence_1 -> Great -> Silence_2 -> Bang
@@ -72,8 +79,8 @@ def main():
         seg = data[int(start*fs):int(end*fs)]
         return np.sqrt(np.mean(seg**2)) if len(seg) > 0 else float('inf')
 
-    rms_s1 = get_segment_rms(events[9], events[9][10])
-    rms_s2 = get_segment_rms(events[11][9], events[11][10])
+    rms_s1 = get_segment_rms(events[1][1], events[1][2])
+    rms_s2 = get_segment_rms(events[3][1], events[3][2])
     preferred_nr = "silence_1" if rms_s1 < rms_s2 else "silence_2"
 
     # 5. Export to CSV
@@ -82,7 +89,7 @@ def main():
         writer.writerow(["Event Name", "Start Interval (s)", "End Interval (s)", "Preferred NR Sample"])
         for e in events:
             is_preferred = "YES" if e == preferred_nr else "NO"
-            writer.writerow([e, f"{e[9]:.6f}", f"{e[10]:.6f}", is_preferred])
+            writer.writerow([e[0], f"{e[1]:.6f}", f"{e[2]:.6f}", is_preferred])
 
     print(f"Segmentation complete. Preferred NR: {preferred_nr}. Output: {output_file}")
 

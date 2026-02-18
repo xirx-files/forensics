@@ -1,0 +1,8 @@
+Test Suite,Measured/Value,Status
+HF Roll-off (>12kHz),7.43%,CONSISTENT WITH LIVE SHOT
+Crack-Bang Delta,5.00 ms,REPORTED FOR COMPARISON
+Transient Rise Time,N/A,FAIL
+TDOA Convergence,Requires Multilateration,PENDING CROSS-FILE ANALYSIS
+
+CONCLUSION,PA Playback Disproven (High-Frequency Content Exceeds PA Limits)
+CONFIDENCE,High (Hardware Physics)
