@@ -14,104 +14,111 @@ def get_rms(signal, frame_len, hop):
     return np.array([np.sqrt(np.mean(signal[i:i+frame_len]**2)) 
                      for i in range(0, len(signal) - frame_len, hop)])
 
-def detect_onset(rms_values, fs, hop, threshold_mult=6, hold_ms=6, is_crack=False):
-    """
-    Locked Spec Onset Detector. 
-    Uses a 0-20ms baseline to isolate direct sound from reflections.
-    """
-    baseline_len = int(0.02 * fs / hop)
-    baseline = rms_values[:baseline_len]
-    b_mean = np.mean(baseline)
-    b_std = np.std(baseline)
-    
-    # Spec [3]: Bang uses 6*std; Crack uses +60 (salience-based)
-    threshold = b_mean + (60 if is_crack else 6 * b_std)
-    
+def detect_onset_logic(rms_values, fs, hop, threshold, hold_ms=6):
+    """Locked Spec Onset Detector with fixed 6ms hold condition."""
     hold_frames = int(hold_ms * (fs / 1000) / hop)
     for i in range(len(rms_values) - hold_frames):
         if np.all(rms_values[i:i+hold_frames] > threshold):
-            return i * (hop / fs), threshold
-    return None, threshold
+            return i * (hop / fs)
+    return None
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--audio", default="mono_event_audio.wav")
+    parser.add_argument("--audio", required=True)
+    parser.add_argument("-t0", "--visual_onset", type=float, default=0.0, 
+                        help="Visual onset of collar motion as per spec")
     args = parser.parse_args()
 
     fs, data = wav.read(args.audio)
     if data.dtype != np.float32:
         data = data.astype(np.float32) / np.iinfo(data.dtype).max
     
+    # 1. DEFINE BASELINE (0-20ms after t0)
+    # This isolates the direct sound path from environmental reflections [2, 7]
+    t0_sample = int(args.visual_onset * fs)
+    baseline_window = data[t0_sample : t0_sample + int(0.02 * fs)]
+    
     results = []
 
-    # 1. SHOCKWAVE ANALYSIS (Theories 1, 3, 4, 5)
-    # Scanning high-frequency bands for N-wave signature [4]
-    crack_band = apply_filter(data, 3000, 7000, fs)
-    crack_rms = get_rms(crack_band, 128, 32)
-    crack_time, _ = detect_onset(crack_rms, fs, 32, is_crack=True)
-    has_crack = crack_time is not None
-
-    # 2. MUZZLE BLAST ANALYSIS (Theories 1-5, 8)
-    # Scanning low-frequency band (50-300 Hz) [5]
+    # 2. MUZZLE BLAST (BANG) DETECTION: 50-300 Hz [7-9]
     bang_band = apply_filter(data, 50, 300, fs)
-    bang_rms = get_rms(bang_band, 256, 64)
-    bang_time, _ = detect_onset(bang_rms, fs, 64)
+    bang_rms = get_rms(bang_band, 256, 64) # 5.33ms frame, 1.33ms hop
+    
+    b_base_rms = get_rms(apply_filter(baseline_window, 50, 300, fs), 256, 64)
+    b_threshold = np.mean(b_base_rms) + (6 * np.std(b_base_rms))
+    
+    bang_time = detect_onset_logic(bang_rms, fs, 64, b_threshold)
     has_bang = bang_time is not None
+    results.append(["Muzzle Blast (Bang)", f"{bang_time:.6f}" if has_bang else "ABSENT"])
 
-    # 3. SPECTRAL DIAGNOSTICS
-    # Energy Ratios to distinguish Gunshots from Explosions/Arcs [6]
-    he_band = apply_filter(data, 20, 100, fs)
-    muzzle_band = apply_filter(data, 100, 500, fs)
-    energy_he = np.sum(he_band**2)
-    energy_muzzle = np.sum(muzzle_band**2)
-    he_ratio = (energy_he / (energy_he + energy_muzzle + 1e-9)) * 100
+    # 3. MULTI-BAND CRACK DETECTION [1-3]
+    # Scan three specific bands to find the most salient transient
+    crack_bands = [(500, 1500), (1500, 3000), (3000, 7000)]
+    best_crack_time = None
+    max_salience = 0
 
-    # PA Roll-off check (>12kHz) for Playback Theory [7, 8]
-    pa_check_band = apply_filter(data, 12000, 17000, fs)
-    energy_pa_range = np.sum(pa_check_band**2)
-    hf_total_energy = np.sum(crack_band**2)
-    pa_ratio = (energy_pa_range / (hf_total_energy + 1e-9)) * 100
+    for low, high in crack_bands:
+        f_data = apply_filter(data, low, high, fs)
+        f_rms = get_rms(f_data, 128, 32) # 2.67ms frame, 0.67ms hop
+        
+        # Spec Threshold: baseline_mean + 60 (salience-weighted) [1]
+        f_base_rms = get_rms(apply_filter(baseline_window, low, high, fs), 128, 32)
+        f_mean = np.mean(f_base_rms)
+        f_std = np.std(f_base_rms) + 1e-9
+        f_threshold = f_mean + 60 # Using 60 as a fixed salience offset
+        
+        c_time = detect_onset_logic(f_rms, fs, 32, f_threshold)
+        
+        # Calculate Salience Score [1, 10]
+        salience = (np.max(f_rms[:int(0.12*fs/32)]) - f_mean) / f_std
+        
+        if c_time and salience > max_salience:
+            max_salience = salience
+            best_crack_time = c_time
 
-    # 4. DATA LOGGING
-    results.append(["Shockwave (Crack) Onset", f"{crack_time:.6f}" if has_crack else "ABSENT", "PASS" if has_crack else "FAIL"])
-    results.append(["Muzzle Blast (Bang) Onset", f"{bang_time:.6f}" if has_bang else "ABSENT", "PASS" if has_bang else "FAIL"])
-    
-    if has_crack and has_bang:
-        delta = (bang_time - crack_time) * 1000
-        results.append(["Crack-Bang Delta", f"{delta:.2f} ms", "GEOMETRY DEPENDENT"])
-        precedence = crack_time < bang_time
-        results.append(["Precedence Test", "Crack precedes Bang", "VALID" if precedence else "INVALID"])
-    
-    results.append(["HE/Muzzle Ratio", f"{he_ratio:.2f}%", "GUNSHOT" if he_ratio < 25 else "EXPLOSIVE/ARC"])
-    results.append(["PA Limit Ratio (>12kHz)", f"{pa_ratio:.2f}%", "LIVE SHOT" if pa_ratio > 2 else "PA PLAYBACK"])
+    has_crack = best_crack_time is not None
+    results.append(["Shockwave (Crack)", f"{best_crack_time:.6f}" if has_crack else "ABSENT"])
+    results.append(["Max Crack Salience", f"{max_salience:.2f}"])
 
-    # 5. COMBINED CONCLUSION LOGIC
-    confidence = "High"
-    if has_crack and has_bang and pa_ratio > 2:
-        conclusion = "Confirmed Supersonic Gunshot (Theories 1, 3, 4, or 5)"
-    elif has_bang and not has_crack:
-        if he_ratio > 40:
-            conclusion = "Explosion or Shaped Charge (Theory 7)"
-        else:
-            conclusion = "Subsonic Shot or Blank (Theory 2)"
-    elif has_crack and pa_ratio < 1:
-        conclusion = "Acoustic Playback via PA (Theory 8)"
-        confidence = "Medium (Requires TDOA check)"
+    # 4. SPECTRAL ENERGY RATIO (Gunshot vs. Explosion) [11, 12]
+    # Gunshots have ~25% energy in 3-7kHz; Explosions have ~2%
+    lf_energy = np.sum(apply_filter(data, 20, 100, fs)**2)
+    hf_energy = np.sum(apply_filter(data, 3000, 7000, fs)**2)
+    ratio_hf = (hf_energy / (lf_energy + hf_energy + 1e-9)) * 100
+    results.append(["3-7kHz Energy Ratio", f"{ratio_hf:.2f}%"])
+
+    # 5. HARDWARE LIMIT CHECK (PA Playback Verification) [12]
+    # Check 16-17 kHz band; PA speakers roll off above 10-15 kHz
+    pa_limit_band = apply_filter(data, 16000, 17000, fs)
+    pa_energy = np.sum(pa_limit_band**2)
+    pa_status = "LIVE SHOT" if pa_energy > (hf_energy * 0.05) else "PA LIMIT"
+    results.append(["PA Limit Status", pa_status])
+
+    # CONCLUSION LOGIC
+    if has_crack and has_bang and best_crack_time < bang_time:
+        conclusion = "Confirmed Supersonic Gunshot (Trajectory + Muzzle)"
+        confidence = "High"
+    elif has_crack and pa_status == "LIVE SHOT":
+        conclusion = "Likely Gunshot (Muzzle Shadowed/Distant)"
+        confidence = "Medium"
+    elif ratio_hf < 5:
+        conclusion = "Low-Frequency Explosive Event (Theories 6, 7)"
+        confidence = "High"
     else:
         conclusion = "Acoustic Event Ambiguous"
-        confidence = "Low (Clipped/Smeared)"
+        confidence = "Low"
 
-    # 6. EXPORT TO CSV
+    # EXPORT CSV
     output_file = '4f.check-bang-combined-causes.csv'
     with open(output_file, 'w', newline='') as f:
         writer = csv.writer(f)
-        writer.writerow(["Test Name", "Measured Value", "Status"])
+        writer.writerow(["Metric", "Value", "Notes"])
         writer.writerows(results)
         writer.writerow([])
         writer.writerow(["FINAL CONCLUSION", conclusion])
-        writer.writerow(["CONFIDENCE LEVEL", confidence])
+        writer.writerow(["CONFIDENCE", confidence])
 
-    print(f"Combined assessment complete. Conclusion: {conclusion}")
+    print(f"Analysis complete. Conclusion: {conclusion}")
 
 if __name__ == "__main__":
     main()
