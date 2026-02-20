@@ -133,3 +133,21 @@ Successfully processed 1 entries to camera-location-gps.json
     }
 ]
 ```
+
+
+## 5. Relative location
+
+```bash
+$ python ../../tools/calc-gps-dist.py -from 1.mp4-camera-gps.json -to ../../spatial-mapping/stage-area/stage-area-gps.json -out 1.mp4-gps.csv
+Successfully processed 6 pairs. Output saved to 1.mp4-gps.csv
+```
+
+```csv 1.mp4-gps.csv
+From_Feature,To_Feature,Distance_Meters,Lat_1,Lon_1,Ele_1,Lat_2,Lon_2,Ele_2
+1.mp4 camera location,North speaker,7.685,40.27753022102182,-111.71396884475594,1402.78747731397,40.27756276427676,-111.7140478186022,1403.732083
+1.mp4 camera location,Center north speaker,4.282,40.27753022102182,-111.71396884475594,1402.78747731397,40.27754661242621,-111.71401361238523,1403.513785
+1.mp4 camera location,Center south speaker,2.383,40.27753022102182,-111.71396884475594,1402.78747731397,40.2775165615533,-111.71398935134677,1403.366405
+1.mp4 camera location,South speaker,4.625,40.27753022102182,-111.71396884475594,1402.78747731397,40.277489974469745,-111.71396630015255,1403.957025
+1.mp4 camera location,CK microphone,5.68,40.27753022102182,-111.71396884475594,1402.78747731397,40.2775203851023,-111.714033649438,1401.955129
+1.mp4 camera location,Audience microphone stand,3.145,40.27753022102182,-111.71396884475594,1402.78747731397,40.2775314668336,-111.71400545920922,1402.369802
+```
