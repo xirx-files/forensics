@@ -14,34 +14,34 @@ Figure camera-coords-query-wcs.jpg
 
 ## 2. Summary
 
-| #  | Feature                                    | P-n-P height | Millimeters | Elevation Offset | POI-Elevation |  Ratio         | Base elevation (m) | Notes                                             |
-|----|--------------------------------------------|--------------|-------------|------------------|---------------|----------------|--------------------|---------------------------------------------------|
-| 1  | Amphitheatre                               |              |             |                  |               |                |                    |                                                   |
-| 2  | Google Earth yardstick                     | 1102.00      | 14700.00    |                  |               | 13.34          | 1401               |                                                   |
-| 3  |                                            |              |             |                  |               |                |                    |                                                   |
-| 4  |                                            | Z-value      |             |                  |               | Z-val inverted |                    |                                                   |
-| 5  | Buildings                                  | 1500.00      |             |                  |               |                |                    |                                                   |
-| 6  | A: HoF lower window height                 | 324.26       | 4325.44     | 0                | 1401.00       | 1175.74        |                    |                                                   |
-| 7  |                                            |              |             |                  |               |                |                    |                                                   |
-| 8  | Tent                                       |              |             |                  |               |                |                    |                                                   |
-| 9  | B: Tent banner lightning rod center height | 187.27       | 2498.04     | 0                | 1401.00       | 1312.73        |                    |                                                   |
-| 10 | C: Tent banner bottom height               | 171.17       | 2283.31     | 0                | 1401.00       | 1328.83        |                    |                                                   |
-| 11 |                                            |              |             |                  |               |                |                    |                                                   |
-| 12 | People                                     |              |             |                  |               |                |                    |                                                   |
-| 13 | D: Charlie’s head height (center)          | 139.85       | 1865.45     | 0                | 1401.00       | 1360.15        |                    |                                                   |
-| 14 |                                            |              |             |                  |               |                |                    |                                                   |
-| 15 | Stage-area                                 |              |             |                  |               |                |                    |                                                   |
-| 16 | E: Audience microphone stand               | 102.69       | 1369.80     | 0                | 1401.00       | 1397.31        |                    |                                                   |
-| 17 |                                            |              |             |                  |               |                |                    |                                                   |
-| 18 | Tables                                     |              |             |                  |               |                |                    |                                                   |
-| 19 | F: Charlie’s Table height                  | 71.60        | 955.13      | 0                | 1401.00       | 1428.40        |                    | This feature’s measurement is proving problematic |
-| 20 |                                            |              |             |                  |               |                |                    |                                                   |
-| 21 | 1.mp4 Camera Location                      | x            | y           | z                | lat           | lon            | elevation          |                                                   |
-| 22 | World Coordinate System                    | 3079.00      | 1262.00     | 117.00           |               |                | 1402.56070780399   |                                                   |
-| 23 | Google Earth GPS                           |              |             |                  | 40.277532     | -111.713973    |                    |                                                   |
+| #  | Feature                                   |                         |         | Editor Size (Pt) |  Ratio     | Millimeters |             |                  | Base elevation (m) | Notes |
+|----|-------------------------------------------|-------------------------|---------|------------------|------------|-------------|-------------|------------------|--------------------|-------|
+| 1  | Amphitheatre                              |                         |         |                  |            |             |             |                  |                    |       |
+| 2  | Google Earth yardstick                    |                         |         | 1102.00          | 13.34      | 14700.00    |             |                  | 1401               |       |
+| 3  |                                           | World Coordinate System |         |                  |            |             | Photo       |                  |                    |       |
+| 4  |                                           | x                       | y       | z                | z-inverted |             | x           | y                |                    |       |
+| 5  | Buildings                                 |                         |         | 1500.00          |            |             |             |                  |                    |       |
+| 6  | A: HoF lower window (south-bottom corner) | 3390.00                 | 680.00  | 324.26           | 1175.74    | 4325.44     | 614.00      | 134.00           |                    |       |
+| 7  |                                           |                         |         |                  |            |             |             |                  |                    |       |
+| 8  | Tent                                      |                         |         |                  |            |             |             |                  |                    |       |
+| 9  | B: Tent pole (east-top)                   | 3181.00                 | 988.00  | 198.00           | 1302.00    | 2641.20     | 442.00      | 323.00           |                    |       |
+| 10 | C: Tent banner height (east)              | 3181.00                 | 690.00  | 171.17           | 1328.83    | 2283.31     | 37.00       | 693.00           |                    |       |
+| 11 |                                           |                         |         |                  |            |             |             |                  |                    |       |
+| 12 | People                                    |                         |         |                  |            |             |             |                  |                    |       |
+| 13 | D: Charlie’s head (center)                | 3181.00                 | 847.00  | 139.85           | 1360.15    | 1865.45     | 120.00      | 843.00           |                    |       |
+| 14 |                                           |                         |         |                  |            |             |             |                  |                    |       |
+| 15 | Stage-area                                |                         |         |                  |            |             |             |                  |                    |       |
+| 16 | E: Audience microphone stand              | 3181.00                 | 1074.00 | 102.69           | 1397.31    | 1369.80     | 674.00      | 1221.00          |                    |       |
+| 17 |                                           |                         |         |                  |            |             |             |                  |                    |       |
+| 18 | Tables                                    |                         |         |                  |            |             |             |                  |                    |       |
+| 19 | F: Tent east table (front-center)         | 3181.00                 | 963.00  | 71.60            | 1428.40    | 955.13      | 360.00      | 1317.00          |                    |       |
+| 20 |                                           |                         |         |                  |            |             |             |                  |                    |       |
+| 21 | 1.mp4 Camera Location                     | x                       | y       | z                | z-inverted | lat         | lon         | elevation        |                    |       |
+| 22 | World Coordinate System                   | 3067.00                 | 1277.00 | 134.00           | 1366.00    |             |             |                  |                    |       |
+| 23 | Google Earth GPS                          |                         |         |                  |            | 40.277530   | -111.713969 | 1402.78747731397 |                    |       |
 
 
-Table measurements
+Table measurements & cross referencing
 
 
 ## 3. Configuration
@@ -50,28 +50,27 @@ Table measurements
 {
     "wcs": {
         "A": [3390, 680, 324.26],
-        "B": [3182, 988, 187.27],
-        "C": [3182, 690, 171.17],
-        "D": [3182, 842, 139.85],
-        "E": [3182, 1074, 102.69],
-        "F": [3182, 963, 71.60]
+        "B": [3181, 988, 198.00],
+        "C": [3181, 690, 171.17],
+        "D": [3181, 847, 139.85],
+        "E": [3181, 1074, 102.69],
+        "F": [3181, 963, 71.60]
     },
     "photo": {
         "width": 886,
         "height": 1575,
         "points": {
-            "A": [606, 140],
-            "B": [427, 419],
-            "C": [31, 693],
-            "D": [125, 847],
-            "E": [675, 1251],
-        //     "F": [341, 1317]
+            "A": [614, 134],
+            "B": [442, 323],
+            "C": [37, 693],
+            "D": [120, 843],
+            "E": [674, 1221],
+            "F": [360, 1317]
         },
         "point-closest-to-camera": "E",
         "point-furthest-from-camera": "A"
     }
 }
-
 ```
 
 ## 4. Resolution
@@ -85,14 +84,14 @@ Figure camera-coords-query-wcs-yz.svg
 
 
 ```bash
-$ python ../../tools/wcs-camera-solver.py 
-Refined Camera Pos: [3114.53445721 1218.93667122  145.98463009]
-Point A:   33.15px [OK]
-Point B:  129.07px [OUTLIER]
-Point C:   18.79px [OK]
-Point D:   31.83px [OK]
-Point E:    8.29px [OK]
-Point F:    8.89px [OK]
+$ python ../../tools/wcs-camera-solver.py
+Refined Camera Pos: [3111.66221448 1225.4178626   142.9004968 ]
+Point A:   31.80px [OK]
+Point B:  154.48px [OUTLIER]
+Point C:   27.77px [OK]
+Point D:   30.21px [OK]
+Point E:   13.16px [OK]
+Point F:   14.50px [OK]
 ```
 
 
@@ -100,8 +99,8 @@ Point F:    8.89px [OK]
 [
     {
         "Feature": "1.mp4 camera location",
-        "x": 3052, 
-        "y": 1300
+        "x": 3067.00, 
+        "y": 1277.00
     }
 ]
 ```
@@ -111,13 +110,26 @@ $ python ../../tools/world-coordinate-system.py -v ../../spatial-mapping/world-c
 --- Mapping Model Status ---
 RMSE: 0.00000129 Degrees
 Approximate ground error: 0.143 meters
+----------------------------
+Successfully processed 1 entries to camera-location-gps.json
 ```
 
 ```json camera-location-gps.json
 [
     {
-        "lat": 40.2775298545232,
-        "lon": -111.7139645487728
+        "lat": 40.27753022102182,
+        "lon": -111.71396884475594
+    }
+]
+```
+
+```json 1.mp4-camera-gps.json
+[
+    {
+        "Feature": "1.mp4 camera location",
+        "lat": 40.27753022102182,
+        "lon": -111.71396884475594,
+        "ele": 1402.78747731397
     }
 ]
 ```

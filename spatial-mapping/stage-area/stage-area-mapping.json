@@ -1,0 +1,32 @@
+[
+    {
+        "Feature": "North speaker",
+        "x": 3533.00, 
+        "y": 950.00
+    },
+    {
+        "Feature": "Center north speaker",
+        "x": 3316.00, 
+        "y": 1084.00
+    },
+    {
+        "Feature": "Center south speaker",
+        "x": 3025.00, 
+        "y": 1110.00
+    },
+    {
+        "Feature": "South speaker",
+        "x": 2763.00, 
+        "y": 1142.00
+    },
+    {
+        "Feature": "CK microphone",
+        "x": 3180.00, 
+        "y": 873.00
+    },
+    {
+        "Feature": "Audience microphone stand",
+        "x": 3181.00, 
+        "y": 1074.00
+    }
+]

@@ -27,6 +27,116 @@
 
 Table estimated measurements
 
+
+| #  |                        | P-n-P                   | Millimeters |        |                  |  Ratio            | Base elevation (m) |
+|----|------------------------|-------------------------|-------------|--------|------------------|-------------------|--------------------|
+| 1  | Google Earth yardstick | 1102.00                 | 14700.00    |        |                  | 13.34             | 1401               |
+| 2  |                        |                         |             |        |                  |                   |                    |
+| 3  |                        | World-coordinate-system |             |        | Google-earth-GPS |                   |                    |
+| 4  | Feature                | x                       | y           | z      | lat              | lon               | elevation          |
+| 5  | North post             | 3181.00                 | 690.00      | 198.00 | 40.2775105023712 | -111.714059450445 | 1403.641198        |
+| 6  | North-east post        | 3330.00                 | 690.00      | 198.00 | 40.2775266160513 | -111.714070000967 | 1403.641198        |
+| 7  | East post              | 3330.00                 | 839.00      | 198.00 | 40.2775347506995 | -111.714049051243 | 1403.641198        |
+| 8  | South-east post        | 3330.00                 | 988.00      | 198.00 | 40.2775428853477 | -111.714028101518 | 1403.641198        |
+| 9  | South post             | 3181.00                 | 988.00      | 198.00 | 40.2775267716675 | -111.714017550996 | 1403.641198        |
+| 10 | South-west post        | 3032.00                 | 988.00      | 198.00 | 40.2775106579874 | -111.714007000474 | 1403.641198        |
+| 11 | West post              | 3032.00                 | 839.00      | 198.00 | 40.2775025233393 | -111.714027950199 | 1403.641198        |
+| 12 | North-west post        | 3032.00                 | 690.00      | 198.00 | 40.2774943886911 | -111.714048899923 | 1403.641198        |
+
+Table coordinate system cross-reference
+
+
+```json tent-mapping.json
+[
+  {
+    "Feature": "North post",
+    "x": 3181.00,
+    "y": 690.00
+  },
+  {
+    "Feature": "North-east post",
+    "x": 3330.00,
+    "y": 690.00
+  },
+  {
+    "Feature": "East post",
+    "x": 3330.00,
+    "y": 839.00
+  },
+  {
+    "Feature": "South-east post",
+    "x": 3330.00,
+    "y": 988.00
+  },
+  {
+    "Feature": "South post",
+    "x": 3181.00,
+    "y": 988.00
+  },
+  {
+    "Feature": "South-west post",
+    "x": 3032.00,
+    "y": 988.00
+  },
+  {
+    "Feature": "West post",
+    "x": 3032.00,
+    "y": 839.00
+  },
+  {
+    "Feature": "North-west post",
+    "x": 3032.00,
+    "y": 690.00
+  }
+]
+```
+
+```bash
+$ python ../tools/world-coordinate-system.py -v world-coordinate-system_to_gps_lamp-posts.json tent/tent-mapping.json tent/tent-mapping-out.json 
+--- Mapping Model Status ---
+RMSE: 0.00000129 Degrees
+Approximate ground error: 0.143 meters
+----------------------------
+Successfully processed 8 entries to tent/tent-mapping-out.json
+```
+
+```json tent-mapping-out.json
+[
+    {
+        "lat": 40.277510502371214,
+        "lon": -111.714059450445
+    },
+    {
+        "lat": 40.27752661605133,
+        "lon": -111.714070000967
+    },
+    {
+        "lat": 40.2775347506995,
+        "lon": -111.7140490512427
+    },
+    {
+        "lat": 40.277542885347664,
+        "lon": -111.7140281015184
+    },
+    {
+        "lat": 40.277526771667546,
+        "lon": -111.7140175509964
+    },
+    {
+        "lat": 40.27751065798743,
+        "lon": -111.71400700047441
+    },
+    {
+        "lat": 40.27750252333926,
+        "lon": -111.71402795019871
+    },
+    {
+        "lat": 40.27749438869109,
+        "lon": -111.71404889992301
+    }
+]
+```
+
 ## Process
 
 1. Establish tent in context

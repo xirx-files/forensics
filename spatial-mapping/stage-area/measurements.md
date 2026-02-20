@@ -46,6 +46,94 @@
 Table estimated measurements
 
 
+
+| # |                           | P-n-P                   | Millimeters |        |                  |  Ratio            | Base elevation (m) |
+|---|---------------------------|-------------------------|-------------|--------|------------------|-------------------|--------------------|
+| 1 | Google Earth yardstick    | 1102.00                 | 14700.00    |        |                  | 13.34             | 1401               |
+| 2 |                           |                         |             |        |                  |                   |                    |
+| 3 |                           | World-coordinate-system |             |        | Google-earth-GPS |                   |                    |
+| 4 | Feature                   | x                       | y           | z      | lat              | lon               | elevation          |
+| 5 | North speaker             | 3533.00                 | 950.00      | 204.81 | 40.2775627642768 | -111.714047818602 | 1403.732083        |
+| 6 | Center north speaker      | 3316.00                 | 1084.00     | 188.45 | 40.2775466124262 | -111.714013612385 | 1403.513785        |
+| 7 | Center south speaker      | 3025.00                 | 1110.00     | 177.40 | 40.2775165615533 | -111.713989351347 | 1403.366405        |
+| 8 | South speaker             | 2763.00                 | 1142.00     | 221.68 | 40.2774899744697 | -111.713966300153 | 1403.957025        |
+| 9 | Audience microphone stand | 3181.00                 | 1074.00     | 102.69 | 40.2775314668336 | -111.714005459209 | 1402.369802        |
+
+Table coordinate system cross-reference
+
+```json stage-area-mapping.json
+[
+    {
+        "Feature": "North speaker",
+        "x": 3533.00, 
+        "y": 950.00
+    },
+    {
+        "Feature": "Center north speaker",
+        "x": 3316.00, 
+        "y": 1084.00
+    },
+    {
+        "Feature": "Center south speaker",
+        "x": 3025.00, 
+        "y": 1110.00
+    },
+    {
+        "Feature": "South speaker",
+        "x": 2763.00, 
+        "y": 1142.00
+    },
+    {
+        "Feature": "CK microphone",
+        "x": 3180.00, 
+        "y": 873.00
+    },
+    {
+        "Feature": "Audience microphone stand",
+        "x": 3181.00, 
+        "y": 1074.00
+    }
+]
+```
+
+```bash
+$ python ../tools/world-coordinate-system.py -v world-coordinate-system_to_gps_lamp-posts.json stage-area/stage-area-mapping.json  stage-area/stage-area-mapping-out.json 
+--- Mapping Model Status ---
+RMSE: 0.00000129 Degrees
+Approximate ground error: 0.143 meters
+----------------------------
+Successfully processed 6 entries to stage-area/stage-area-mapping-out.json
+```
+
+```json stage-area-mapping-out.json
+[
+    {
+        "lat": 40.27756276427676,
+        "lon": -111.7140478186022
+    },
+    {
+        "lat": 40.27754661242621,
+        "lon": -111.71401361238523
+    },
+    {
+        "lat": 40.2775165615533,
+        "lon": -111.71398935134677
+    },
+    {
+        "lat": 40.277489974469745,
+        "lon": -111.71396630015255
+    },
+    {
+        "lat": 40.277520385102314,
+        "lon": -111.71403364943782
+    },
+    {
+        "lat": 40.2775314668336,
+        "lon": -111.71400545920922
+    }
+]
+```
+
 ## Process
 
 1. Calculate barricade height

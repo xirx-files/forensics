@@ -43,6 +43,56 @@
 
 Table estimated measurements
 
+
+| # |                        | P-n-P                   | Millimeters |        |                  |  Ratio            | Base elevation (m) |
+|---|------------------------|-------------------------|-------------|--------|------------------|-------------------|--------------------|
+| 1 | Google Earth yardstick | 1102.00                 | 14700.00    |        |                  | 13.34             | 1401               |
+| 2 |                        |                         |             |        |                  |                   |                    |
+| 3 |                        | World-coordinate-system |             |        | Google-earth-GPS |                   |                    |
+| 4 | Feature                | x                       | y           | z      | lat              | lon               | elevation          |
+| 5 | Charlie’s head         | 3181.00                 | 847.00      | 139.85 | 40.277519073779  | -111.714037375903 | 1402.865450        |
+| 6 | Hunter’s height        | 3182.00                 | 1119.00     | 139.69 | 40.277534031752  | -111.71399920292  | 1402.863333        |
+
+Table coordinate system cross-reference
+
+
+```json people-mapping.json
+[
+  {
+    "Feature": "Charlie Kirk",
+    "x": "3134",
+    "y": "236"
+  },
+  {
+    "Feature": "Hunter Kozak",
+    "x": "3095", 
+    "y": "449"
+  }
+]
+```
+
+```bash
+$ python ../tools/world-coordinate-system.py -v world-coordinate-system_to_gps_lamp-posts.json people/people-mapping.json  people/people-mapping-out.json
+--- Mapping Model Status ---
+RMSE: 0.00000129 Degrees
+Approximate ground error: 0.143 meters
+----------------------------
+Successfully processed 2 entries to people/people-mapping-out.json
+```
+
+```json people-mapping-out.json
+[
+    {
+        "lat": 40.27751907377901,
+        "lon": -111.71403737590329
+    },
+    {
+        "lat": 40.27753403175204,
+        "lon": -111.71399920292015
+    }
+]
+```
+
 ## Process
 
 1. Establish tent in context

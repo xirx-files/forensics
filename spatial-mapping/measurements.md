@@ -34,7 +34,7 @@ Figure Cross-referenced map with local coordinates
 
 ## 3. JSON configuration
 
-```json world-coordinate-system_to_gps_map.json
+```json world-coordinate-system_to_gps_base-placemarks.json
 [
   {
     "Feature": "Hall of Flags Roof South-side",
@@ -59,8 +59,8 @@ Figure Cross-referenced map with local coordinates
   },
   {
     "Feature": "Courtyard upper-level East-side",
-    "x": "3284",
-    "y": "3282",
+    "x": "3297",
+    "y": "3266",
     "lat": "40.277664",
     "lon": "-111.713705"
   },
@@ -70,6 +70,46 @@ Figure Cross-referenced map with local coordinates
     "y": "4092",
     "lat": "40.277494",
     "lon": "-111.713453"
+  }
+]
+```
+
+```json world-coordinate-system_to_gps_lamp-posts.json
+[
+  {
+    "Feature": "HoF North lamp post",
+    "x": "5287",
+    "y": "1051",
+    "lat": "40.277759",
+    "lon": "-111.714159"
+  },
+  {
+    "Feature": "HoF South lamp post",
+    "x": "1348",
+    "y": "1255",
+    "lat": "40.277342",
+    "lon": "-111.71385"
+  },
+  {
+    "Feature": "Woodbury North lamp post",
+    "x": "3421",
+    "y": "3928",
+    "lat": "40.277713",
+    "lon": "-111.713622"
+  },
+  {
+    "Feature": "Woodbury South lamp post",
+    "x": "2164",
+    "y": "2637",
+    "lat": "40.277508",
+    "lon": "-111.713713"
+  },
+  {
+    "Feature": "Sorrensen North lamp post",
+    "x": "6605",
+    "y": "2175",
+    "lat": "40.277961",
+    "lon": "-111.714092"
   }
 ]
 ```
@@ -92,7 +132,7 @@ Figure Cross-referenced map with local coordinates
 ```
 
 ```bash
-$ python ../tools/world-coordinate-system.py -v world-coordinate-system_to_gps_map.json test-case-input.json 
+$ python ../tools/world-coordinate-system.py -v world-coordinate-system_to_gps_base-placemarks.json test-case-input.json 
 --- Mapping Model Status ---
 RMSE: 0.00000127 Degrees
 Approximate ground error: 0.140 meters

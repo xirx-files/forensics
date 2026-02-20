@@ -1,0 +1,42 @@
+[
+  {
+    "Feature": "North post",
+    "x": 3181.00,
+    "y": 690.00
+  },
+  {
+    "Feature": "North-east post",
+    "x": 3330.00,
+    "y": 690.00
+  },
+  {
+    "Feature": "East post",
+    "x": 3330.00,
+    "y": 839.00
+  },
+  {
+    "Feature": "South-east post",
+    "x": 3330.00,
+    "y": 988.00
+  },
+  {
+    "Feature": "South post",
+    "x": 3181.00,
+    "y": 988.00
+  },
+  {
+    "Feature": "South-west post",
+    "x": 3032.00,
+    "y": 988.00
+  },
+  {
+    "Feature": "West post",
+    "x": 3032.00,
+    "y": 839.00
+  },
+  {
+    "Feature": "North-west post",
+    "x": 3032.00,
+    "y": 690.00
+  }
+]
