@@ -1,6 +1,0 @@
-Test Name,Measured Value,Result Status
-Sample Rate Check,44100Hz,PASS
-Clipping Analysis,0.0000% clipped,PASS
-DC Offset,0.000195,PASS
-Digital Silence Check,0.06% silent,PASS
-Crest Factor (AGC Test),8.72,PASS

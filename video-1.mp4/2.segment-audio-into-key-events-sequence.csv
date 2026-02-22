@@ -1,6 +1,0 @@
-Event Name,Start Interval (s),End Interval (s),Preferred NR Sample
-violence,0.043333,0.643333,NO
-silence_1,0.653333,1.043333,NO
-great,1.053333,-0.322667,NO
-silence_2,-0.312667,0.167333,NO
-bang,0.177333,0.397333,NO

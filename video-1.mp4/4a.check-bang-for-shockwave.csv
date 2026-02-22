@@ -1,8 +1,0 @@
-Test Suite,Measured/Value,Status
-High-Frequency Transient,0.862,DETECTED
-Precedence Test,0.862 < 0.867292,PASS
-Salience Score,622.47,HIGH
-HF/LF Energy Ratio,5.58%,INCONSISTENT
-
-CONCLUSION,Shockwave Present (Supersonic Projectile)
-CONFIDENCE,Medium (Smeared/Clipped)

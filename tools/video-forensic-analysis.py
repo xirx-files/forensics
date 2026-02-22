@@ -4,8 +4,14 @@ import argparse
 from pathlib import Path
 from scipy.ndimage import gaussian_filter
 
+def add_overlay_suffix(x):
+    p = Path(x)
+    # p.with_name replaces the entire filename (stem + suffix)
+    # p.stem is 'hello' or 'test'
+    return str(p.with_name(f"{p.stem}-kenetic-overlay.mp4"))
+
 class ForensicEpicenterDetector:
-    def __init__(self, output_dir: str = 'forensic_analysis'):
+    def __init__(self, output_dir: str = './'):
         self.output_dir = Path(output_dir)
         self.output_dir.mkdir(exist_ok=True)
 
@@ -38,7 +44,7 @@ class ForensicEpicenterDetector:
         h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
         
         fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-        out_path = str(self.output_dir / 'forensic_sync_output.mp4')
+        out_path = str(self.output_dir / add_overlay_suffix(video_path))
         out = cv2.VideoWriter(out_path, fourcc, fps, (w, h))
 
         # 1. Insert Blank Zero Frame for Audio Sync (Frame 1 / 0.000000s)

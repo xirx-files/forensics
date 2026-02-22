@@ -257,7 +257,7 @@ Recommended Next Step:
 Provide the expected camera focal length or the sensor model to refine the intrinsic matrix, and try to identify a fourth landmark in the photo to eliminate mathematical ambiguity.
 
 
-    i am performing this forensic analysis on 16 different samples from the event. for eg, i have generated the metadata using "exiftool ../../sources/archive.org-ks/1.mp4 > metadata.txt". therefore, i cannot apply a constant camera focal length or the sensor model event eve if this value was found in the metadata. btw, i am shocked that the z-axis is intended to be "depth" rather than the height of that landmark. in order to determine depth, a reference "from" point is needed (which implies that the camera position is known).
+    i am performing this forensic analysis on 16 different samples from the event. for eg, i have generated the metadata using "exiftool ../../sources/archive.org/1.mp4 > metadata.txt". therefore, i cannot apply a constant camera focal length or the sensor model event eve if this value was found in the metadata. btw, i am shocked that the z-axis is intended to be "depth" rather than the height of that landmark. in order to determine depth, a reference "from" point is needed (which implies that the camera position is known).
 
 
 In forensic analysis where focal lengths vary across samples, the error in your camera position estimate likely stems from two fundamental issues: mathematical ambiguity and incorrect axis mapping.

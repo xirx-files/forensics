@@ -1,8 +1,0 @@
-Test Suite,Measured/Value,Status
-Low-Frequency Onset,N/A,ABSENT
-Crack Absence Test,Crack at 0.834,FAIL (Disproves Electrocution)
-LF-to-HF Ratio,53.55%,LOW (Gunshot-like)
-Peak Pressure,0.323291,VALID
-
-CONCLUSION,No Significant Low-Frequency Event
-CONFIDENCE,High

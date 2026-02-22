@@ -1,8 +1,0 @@
-Test Suite,Measured/Value,Status
-Low-Frequency Onset,N/A,ABSENT
-Crack-Bang Separation,Crack at 0.834,FAIL (Disproves Explosion)
-LF Energy Distribution,53.55%,EXPLOSIVE (>40%)
-Shaped Charge Check,Single-Point Signature,POSSIBLE
-
-CONCLUSION,Explosion Disproven (Supersonic Projectile Detected)
-CONFIDENCE,High (Geometric Conflict)
