@@ -163,20 +163,21 @@ The key sequence should start around 0.78s. Note, line 52 from the metadata tabl
 
 
 ```bash
-ffmpeg -ss 0.766667 -i ../../sources/archive.org/1.mp4 \
-  -filter_complex "[0:v]trim=duration=1.466670,setpts=PTS-STARTPTS[v]; \
-                   [0:a:0]atrim=duration=1.466670,asetpts=PTS-STARTPTS,aresample=async=1[a]; \
-                   [v]split=1[v_out]; [a]asplit=2[a_mov][a_wav]" \
-  -map "[v_out]" -map "[a_mov]" -c:v libx264 -crf 18 -c:a pcm_s16le ./video-analysis/key-seq-video.mov \
-  -map "[a_wav]" -c:a pcm_f32le ./audio-analysis/key-seq-audio.wav
+ffmpeg -i ../../sources/archive.org/1.mp4 \
+  -filter_complex \
+  "[0:v]trim=start=0.766667:duration=1.466667,setpts=PTS-STARTPTS[v]; \
+   [0:a:0]atrim=start=0.766667:duration=1.466667,asetpts=PTS-STARTPTS,aresample=48000,asplit=2[a1][a2]" \
+  -map "[v]" -c:v ffv1 -level 3 -g 1 \
+  -map "[a1]" -c:a pcm_s16le ./.bin/key-seq-video.mkv \
+  -map "[a2]" -c:a pcm_s16le ./.bin/key-seq-audio.wav \
+  -y
 ```
 
 Check for consistency in generated output durations.
 ```bash
-ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 ./video-analysis/key-seq-video.mov
+ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 ./.bin/key-seq-video.mkv
 # 1.467000
-
-ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 ./audio-analysis/key-seq-audio.wav
+ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 ./.bin/key-seq-audio.wav
 # 1.464667
 ```
 
@@ -185,36 +186,85 @@ ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:no
 
 | #  | FrameIndex | Timestamp | MotionMetric | Threshold | Status             |
 |----|------------|-----------|--------------|-----------|--------------------|
-| 1  | 18         | 0.6       | 1.717317     | 10.173344 | STABLE             |
-| 2  | 19         | 0.633333  | 3.301683     | 10.173344 | STABLE             |
-| 3  | 20         | 0.666667  | 0.00209      | 10.173344 | STABLE             |
-| 4  | 21         | 0.7       | 1.131566     | 10.173344 | STABLE             |
-| 5  | 22         | 0.733333  | 3.152664     | 10.173344 | STABLE             |
-| 6  | 23         | 0.766667  | 0.004656     | 10.173344 | STABLE             |
-| 7  | 24         | 0.8       | 4.080758     | 10.173344 | STABLE             |
-| 8  | 25         | 0.833333  | 0.007464     | 10.173344 | STABLE             |
-| 9  | 26         | 0.866667  | 2.19804      | 10.173344 | STABLE             |
-| 10 | 27         | 0.9       | 0.871338     | 10.173344 | STABLE             |
-| 11 | 28         | 0.933333  | 0.534649     | 10.173344 | STABLE             |
-| 12 | 29         | 0.966667  | 12.726921    | 10.173344 | DEVIATION_DETECTED |
-| 13 | 30         | 1         | 6.887399     | 10.173344 | STABLE             |
-| 14 | 31         | 1.033333  | 10.650967    | 10.173344 | DEVIATION_DETECTED |
-| 15 | 32         | 1.066667  | 11.587164    | 10.173344 | DEVIATION_DETECTED |
-| 16 | 33         | 1.1       | 15.929962    | 10.173344 | DEVIATION_DETECTED |
-| 17 | 34         | 1.133333  | 12.095077    | 10.173344 | DEVIATION_DETECTED |
-| 18 | 35         | 1.166667  | 9.545898     | 10.173344 | STABLE             |
-| 19 | 36         | 1.2       | 8.918169     | 10.173344 | STABLE             |
-| 20 | 37         | 1.233333  | 6.851216     | 10.173344 | STABLE             |
-| 21 | 38         | 1.266667  | 14.516001    | 10.173344 | DEVIATION_DETECTED |
-| 22 | 39         | 1.3       | 18.566072    | 10.173344 | DEVIATION_DETECTED |
-| 23 | 40         | 1.333333  | 11.162679    | 10.173344 | DEVIATION_DETECTED |
-| 24 | 41         | 1.366667  | 7.711784     | 10.173344 | STABLE             |
-| 25 | 42         | 1.4       | 4.534672     | 10.173344 | STABLE             |
-| 26 | 43         | 1.433333  | 4.176903     | 10.173344 | STABLE             |
+| 1  | 18         | 0.6       | 1.665965     | 10.249804 | STABLE             |
+| 2  | 19         | 0.633     | 3.231421     | 10.249804 | STABLE             |
+| 3  | 20         | 0.667     | 0.001586     | 10.249804 | STABLE             |
+| 4  | 21         | 0.7       | 1.074298     | 10.249804 | STABLE             |
+| 5  | 22         | 0.733     | 2.916995     | 10.249804 | STABLE             |
+| 6  | 23         | 0.767     | 0.003735     | 10.249804 | STABLE             |
+| 7  | 24         | 0.8       | 4.361578     | 10.249804 | STABLE             |
+| 8  | 25         | 0.833     | 0.003041     | 10.249804 | STABLE             |
+| 9  | 26         | 0.867     | 2.076575     | 10.249804 | STABLE             |
+| 10 | 27         | 0.9       | 0.897609     | 10.249804 | STABLE             |
+| 11 | 28         | 0.933     | 0.507605     | 10.249804 | STABLE             |
+| 12 | 29         | 0.967     | 12.344831    | 10.249804 | DEVIATION_DETECTED |
+| 13 | 30         | 1         | 6.42137      | 10.249804 | STABLE             |
+| 14 | 31         | 1.033     | 9.897811     | 10.249804 | STABLE             |
+| 15 | 32         | 1.067     | 11.9776      | 10.249804 | DEVIATION_DETECTED |
+| 16 | 33         | 1.1       | 15.699114    | 10.249804 | DEVIATION_DETECTED |
+| 17 | 34         | 1.133     | 12.689017    | 10.249804 | DEVIATION_DETECTED |
+| 18 | 35         | 1.167     | 9.142685     | 10.249804 | STABLE             |
+| 19 | 36         | 1.2       | 8.505435     | 10.249804 | STABLE             |
+| 20 | 37         | 1.233     | 7.530118     | 10.249804 | STABLE             |
+| 21 | 38         | 1.267     | 14.918163    | 10.249804 | DEVIATION_DETECTED |
+| 22 | 39         | 1.3       | 18.812845    | 10.249804 | DEVIATION_DETECTED |
+| 23 | 40         | 1.333     | 11.168832    | 10.249804 | DEVIATION_DETECTED |
+| 24 | 41         | 1.367     | 7.528182     | 10.249804 | STABLE             |
+| 25 | 42         | 1.4       | 4.33578      | 10.249804 | STABLE             |
+| 26 | 43         | 1.433     | 4.002197     | 10.249804 | STABLE             |
 
 Table impact detection
 
 
-In the table above, row 12 outlines that the first frame that exhibits a significant deviation from the previous motion measurements. Therefore, frame 29 with timestamp 0.966667s will be applied as visual time zero.
+In the table above, row 12 outlines that the first frame that exhibits a significant deviation from the previous motion measurements. Therefore, frame 29 with timestamp 0.967 will be applied as visual time zero.
 
 
+## 5. Motion & Behavior Assessment
+
+| #  | Offset(ms) | Vel   | Accel   | Jerk      | Curl    | Type    | Origin        |
+|----|------------|-------|---------|-----------|---------|---------|---------------|
+| 1  | 0          | 6.98  | 209.36  | 6280.75   | 0.0367  | KINETIC | West (Behind) |
+| 2  | 33.33      | 3.48  | -104.91 | -9428.06  | -0.0248 |         | West (Behind) |
+| 3  | 66.67      | 4.38  | 27.09   | 3960.12   | 0.0743  |         | N/A           |
+| 4  | 100        | 6.86  | 74.28   | 1415.54   | -0.0544 |         | South         |
+| 5  | 133.33     | 12.08 | 156.69  | 2472.28   | -0.005  |         | West (Behind) |
+| 6  | 166.67     | 10.33 | -52.48  | -6275     | 0.072   |         | South         |
+| 7  | 200        | 3.63  | -201.18 | -4461.17  | 0.0257  |         | West (Behind) |
+| 8  | 233.33     | 7.63  | 120.03  | 9636.4    | -0.0351 |         | South         |
+| 9  | 266.67     | 9     | 40.99   | -2371.22  | 0.0111  |         | East (Front)  |
+| 10 | 300        | 21.28 | 368.68  | 9830.83   | -0.0161 | KINETIC | West (Behind) |
+| 11 | 333.33     | 20.75 | -16.06  | -11542.28 | 0.0918  |         | West (Behind) |
+| 12 | 366.67     | 12.18 | -257.23 | -7234.95  | 0.0409  |         | West (Behind) |
+| 13 | 400        | 7.66  | -135.51 | 3651.38   | -0.1218 |         | South         |
+| 14 | 433.33     | 5.9   | -52.67  | 2485.22   | -0.067  |         | South         |
+| 15 | 466.67     | 7.51  | 48.14   | 3024.38   | -0.0784 |         | South         |
+
+Table Motion analysis
+
+
+| Event Number | Offset(ms) | Velocity | Accel  | Jerk    | Nature                                                     | Origin        |
+|--------------|------------|----------|--------|---------|------------------------------------------------------------|---------------|
+| 0            | 0          | 6.98     | 209.36 | 6280.75 | Direct Kinetic Transfer (Initial Impact/Shockwave)         | West (Behind) |
+| 1            | 133.33     | 12.08    | 156.69 | 2472.28 | Secondary Kinetic Strike or High-Velocity Reflex           | West (Behind) |
+| 2            | 300        | 21.28    | 368.68 | 9830.83 | Physically Impossible Human Move (External Force Override) | West (Behind) |
+
+Table Forensic event summary
+
+
+![key-seq-video-cropped-kenetic-overlay.gif](./video-analysis/key-seq-video-cropped-kenetic-overlay.gif)
+Figure key-seq-video-cropped-kenetic-overlay.gif
+
+![3b.analyze-motion-behavior-peak-motion-overlay-event-0.jpg](./video-analysis/3b.analyze-motion-behavior-peak-motion-overlay-event-0.jpg)
+Figure Event 0
+
+![3b.analyze-motion-behavior-peak-motion-overlay-event-1.jpg](./video-analysis/3b.analyze-motion-behavior-peak-motion-overlay-event-1.jpg)
+Figure Event 1
+
+![3b.analyze-motion-behavior-peak-motion-overlay-event-2.jpg](./video-analysis/3b.analyze-motion-behavior-peak-motion-overlay-event-2.jpg)
+Figure Event 2
+
+![3b.kinematic-profile.png](./video-analysis/3b.kinematic-profile.png)
+Figure Kinematic profile
+
+
+The motion and behavioral analysis of CK's body indicates that there forces applied from both the west (ie. behind CK) and south (ie. to the right of CK). These are analysed as three seperate events.
