@@ -1,0 +1,4 @@
+Source_File,Selected_Channel,C1_Noise,C2_Noise,C1_Dyn,C2_Dyn,C1_DC,C2_DC,Reasoning
+../.bin/key-seq-audio.wav,1,-27.262171,-28.580742,95.33569,93.904729,1.9e-05,0.000371,"Channel 1 chosen: Noise Floor -27.262171 dB, Dyn Range 95.33569 dB."
+../.bin/key-seq-audio.wav,SINGLE CHANNEL (1),0.0,C1 lower DC Offset; C1 better Dynamic Range; C2 lower Noise Floor
+../.bin/key-seq-audio.wav,SINGLE CHANNEL (1),0.0,C1 lower DC Offset; C1 better Dynamic Range; C2 lower Noise Floor

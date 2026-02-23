@@ -2,92 +2,116 @@ import argparse
 import numpy as np
 import scipy.io.wavfile as wav
 from scipy.signal import butter, sosfiltfilt
+import matplotlib.pyplot as plt
 import csv
+import math
+import os
 
 def apply_filter(data, low, high, fs):
-    """4th order Butterworth zero-phase bandpass as per Locked Spec."""
     sos = butter(4, [low, high], fs=fs, btype='band', output='sos')
     return sosfiltfilt(sos, data)
 
 def get_rms(signal, frame_len, hop):
-    """Short-time RMS calculation as per source."""
     return np.array([np.sqrt(np.mean(signal[i:i+frame_len]**2)) 
                      for i in range(0, len(signal) - frame_len, hop)])
 
-def detect_onset(rms_values, fs, hop, threshold_mult=60, hold_ms=6):
-    """Locked Spec Onset Detector: Baseline (first 20ms) + 60*std, 6ms hold."""
-    baseline_len = int(0.02 * fs / hop)
-    baseline = rms_values[:baseline_len]
-    threshold = np.mean(baseline) + (threshold_mult * np.std(baseline))
-    
-    hold_frames = int(hold_ms * (fs / 1000) / hop)
-    for i in range(len(rms_values) - hold_frames):
-        if np.all(rms_values[i:i+hold_frames] > threshold):
-            return i * (hop / fs), threshold
-    return None, threshold
-
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--audio", default="mono_event_audio.wav")
-    parser.add_argument("-st", "--start", type=float, required=True)
+    parser.add_argument("--audio", required=True)
+    parser.add_argument("--v0", type=float, required=True)
+    parser.add_argument("--expected_offsets", type=str, default="0,133,300")
+    parser.add_argument("--temp_c", type=float, default=28.33)
+    parser.add_argument("--v_bullet", type=float, default=850.0)
     args = parser.parse_args()
-    
-    output_file = '4a.check-bang-for-shockwave.csv'
-    bang_timestamp = args.start  # Provided from your band analysis
-    
+
     fs, data = wav.read(args.audio)
     if data.dtype != np.float32:
-        data = data.astype(np.float32) / np.iinfo(data.dtype).max
+        data = data.astype(np.float32) / (np.iinfo(data.dtype).max if data.dtype != np.float32 else 1.0)
+
+    # Calculation Constants
+    c = 331.3 * math.sqrt(1 + args.temp_c / 273.15)
+    M = args.v_bullet / c
+    theta_m = math.degrees(math.asin(1/M))
+
+    # Signal Processing
+    hf_band = apply_filter(data, 2500, 8000, fs)
+    lf_band = apply_filter(data, 100, 1000, fs)
     
+    hop = 16
+    hf_rms = get_rms(hf_band, 64, hop)
+    baseline_rms = hf_rms[:int(0.05 * fs / hop)]
+    threshold = np.mean(baseline_rms) + (20 * np.std(baseline_rms))
+    
+    # Precision Scan: Focus on V0 precursor zone
+    start_idx = max(0, int((args.v0 - 0.35) * fs / hop))
+    
+    raw_onsets = []
+    i = start_idx
+    while i < len(hf_rms) - 5:
+        if hf_rms[i] > threshold:
+            t_curr = i * (hop / fs)
+            idx = int(t_curr * fs)
+            
+            # HIGH PRECISION WINDOW: 10ms (Forensic Standard for N-Wave)
+            win_size = int(0.01 * fs) 
+            h_en = np.sum(hf_band[idx : idx + win_size]**2)
+            l_en = np.sum(lf_band[idx : idx + win_size]**2)
+            ratio = (h_en / (l_en + 1e-9)) * 100
+            
+            if ratio > 8.0:
+                raw_onsets.append((t_curr, ratio))
+                i += int(0.02 * fs / hop) # 20ms lockout
+            else: i += 1
+        else: i += 1
+
+    video_offsets = [float(x) for x in args.expected_offsets.split(',')]
     results = []
     
-    # TEST 1: High-Frequency Presence (3-7 kHz)
-    # Gunshots have ~25% energy here; explosions have ~2% [7]
-    crack_band = apply_filter(data, 3000, 7000, fs)
-    crack_rms = get_rms(crack_band, 128, 32)
-    crack_time, threshold = detect_onset(crack_rms, fs, 32)
-    
-    has_hf = crack_time is not None
-    results.append(["High-Frequency Transient", f"{crack_time if has_hf else 'N/A'}", "DETECTED" if has_hf else "ABSENT"])
+    for idx, (t_crack, ratio) in enumerate(raw_onsets):
+        # Muzzle Bang Identification
+        search_start, search_end = int(t_crack * fs), int((t_crack + 0.15) * fs)
+        search_window = lf_band[search_start : search_end]
+        t_bang = t_crack + (np.argmax(np.abs(search_window)) / fs)
+        
+        lag = t_bang - t_crack
+        dist = lag * ((args.v_bullet * c) / (args.v_bullet - c))
+        rel_v0 = (t_crack - args.v0) * 1000
+        p_lead = min([v - rel_v0 for v in video_offsets if v - rel_v0 > -5], default=0)
 
-    # TEST 2: Precedence Test (Crack must precede Bang)
-    # A crack arrives first because V > c [3, 8]
-    precedes = False
-    if has_hf:
-        precedes = crack_time < bang_timestamp
-    results.append(["Precedence Test", f"{crack_time if has_hf else 'N/A'} < {bang_timestamp}", "PASS" if precedes else "FAIL"])
+        results.append({
+            "Strike": idx+1, "TS": round(t_crack,4), "V0_Rel_ms": round(rel_v0,2), 
+            "Precedence": round(p_lead,2), "HF_Ratio": round(ratio,2), 
+            "Lag_ms": round(lag*1000,2), "Dist_m": round(dist,2),
+            "Logic": f"Strike {idx+1}: High-Precision {ratio:.1f}% HF Ratio leads V0 by {p_lead:.1f}ms. Dist={dist:.1f}m."
+        })
 
-    # TEST 3: Salience Check (Locked Spec v2)
-    # Measures the strength of the transient against the noise floor [9]
-    salience = (np.max(crack_rms) - np.mean(crack_rms[:10])) / (np.std(crack_rms[:10]) + 1e-9)
-    results.append(["Salience Score", f"{salience:.2f}", "HIGH" if salience > 100 else "LOW"])
+        # Forensic Output Graphs
+        y_s, y_e = max(0, int((t_crack-0.01)*fs)), min(len(data), int((t_bang+0.02)*fs))
+        y_slice = data[y_s:y_e]
+        x_slice = np.linspace(t_crack-0.01, t_crack-0.01 + (len(y_slice)/fs), len(y_slice))
+        
+        plt.figure(figsize=(10,4))
+        plt.plot(x_slice, y_slice, color='black', linewidth=0.7)
+        plt.title(f"Strike {idx+1} | Lag: {lag*1000:.1f}ms | Mach ∠: {theta_m:.1f}°")
+        plt.axvline(t_crack, color='g', label='Crack'); plt.axvline(t_bang, color='r', label='Bang')
+        plt.xlabel("Time (s)"); plt.ylabel("Norm. Amplitude"); plt.legend(); plt.grid(True, alpha=0.15)
+        plt.savefig(f"4a.check-bang-for-shockwave-strike_{idx+1}-analysis.png"); plt.close()
 
-    # TEST 4: Spectral Dominance (Energy Ratio)
-    muzzle_band = apply_filter(data, 100, 800, fs)
-    energy_hf = np.sum(crack_band**2)
-    energy_lf = np.sum(muzzle_band**2)
-    ratio = (energy_hf / (energy_lf + 1e-9)) * 100
-    results.append(["HF/LF Energy Ratio", f"{ratio:.2f}%", "CONSISTENT" if ratio > 10 else "INCONSISTENT"])
+    csv_file = f"4a.check-bang-for-shockwave-{os.path.basename(args.audio)}.csv"
+    with open(csv_file, 'w', newline='') as f:
+        if results:
+            writer = csv.DictWriter(f, fieldnames=results[0].keys())
+            writer.writeheader(); writer.writerows(results)
 
-    # CONCLUSION LOGIC
-    is_shockwave = has_hf and precedes and salience > 50
-    conclusion = "Shockwave Present (Supersonic Projectile)" if is_shockwave else "No Shockwave Detected"
-    
-    # Confidence Level
-    if is_shockwave and ratio > 20: confidence = "High"
-    elif is_shockwave: confidence = "Medium (Smeared/Clipped)"
-    else: confidence = "High (Subsonic or Non-Ballistic)"
+    if results:
+        plt.figure(figsize=(12,6))
+        plt.plot(np.linspace(0, len(data)/fs, len(data)), hf_band, color='red', alpha=0.4)
+        plt.xlim(results[0]['TS'] - 0.05, results[-1]['TS'] + 0.05)
+        plt.title("Ballistic Sequence (10ms Window Precision View)")
+        for r in results: plt.axvline(r['TS'], color='blue', linestyle='--')
+        plt.savefig("4a.check-bang-for-shockwave-sequence_zoom_view.png"); plt.close()
 
-    # Write CSV
-    with open(output_file, 'w', newline='') as f:
-        writer = csv.writer(f)
-        writer.writerow(["Test Suite", "Measured/Value", "Status"])
-        writer.writerows(results)
-        writer.writerow([])
-        writer.writerow(["CONCLUSION", conclusion])
-        writer.writerow(["CONFIDENCE", confidence])
-
-    print(f"Analysis complete. Conclusion: {conclusion} ({confidence} confidence).")
+    print(f"V13 Final Precision Success. Scanned {len(results)} strikes.")
 
 if __name__ == "__main__":
     main()

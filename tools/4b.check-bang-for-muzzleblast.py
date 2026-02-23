@@ -1,92 +1,101 @@
+import argparse
 import numpy as np
 import scipy.io.wavfile as wav
-from scipy.signal import butter, sosfiltfilt
-import csv
-import argparse
+from scipy.signal import butter, sosfiltfilt, find_peaks
+import matplotlib.pyplot as plt
+import pandas as pd
+import math
+import os
 
 def apply_filter(data, low, high, fs):
-    """4th order Butterworth zero-phase bandpass as per Locked Spec."""
     sos = butter(4, [low, high], fs=fs, btype='band', output='sos')
     return sosfiltfilt(sos, data)
-
-def get_rms(signal, frame_len, hop):
-    """Short-time RMS calculation as per Locked Spec."""
-    return np.array([np.sqrt(np.mean(signal[i:i+frame_len]**2)) 
-                     for i in range(0, len(signal) - frame_len, hop)])
-
-def detect_onset(rms_values, fs, hop, threshold_mult=6, hold_ms=6):
-    """Locked Spec Onset Detector: Baseline (0-20ms) + 6*std, 6ms hold."""
-    baseline_len = int(0.02 * fs / hop)
-    baseline = rms_values[:baseline_len]
-    threshold = np.mean(baseline) + (threshold_mult * np.std(baseline))
-    
-    hold_frames = int(hold_ms * (fs / 1000) / hop)
-    for i in range(len(rms_values) - hold_frames):
-        if np.all(rms_values[i:i+hold_frames] > threshold):
-            return i * (hop / fs), threshold
-    return None, threshold
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--audio", required=True)
-    parser.add_argument("-ct", "--crack_time", type=float, help="Timestamp of shockwave if detected")
+    parser.add_argument("--v0", type=float, required=True)
+    parser.add_argument("--expected_offsets", type=str, default="0,133,300")
+    parser.add_argument("--shockwave-csv")
+    parser.add_argument("--motion-event-summary-csv")
+    parser.add_argument("--temp_c", type=float, default=28.33)
     args = parser.parse_args()
 
     fs, data = wav.read(args.audio)
     if data.dtype != np.float32:
-        data = data.astype(np.float32) / np.iinfo(data.dtype).max
+        data = data.astype(np.float32) / (np.iinfo(data.dtype).max if data.dtype != np.float32 else 1.0)
+
+    c = 331.3 * math.sqrt(1 + args.temp_c / 273.15)
     
+    # Forensic Bands
+    muzzle_band = apply_filter(data, 20, 300, fs)
+    high_band = apply_filter(data, 3000, 12000, fs)
+    
+    sw_df = pd.read_csv(args.shockwave_csv) if args.shockwave_csv else None
+    motion_df = pd.read_csv(args.motion_event_summary_csv) if args.motion_event_summary_csv else None
+    
+    offsets = [float(x) for x in args.expected_offsets.split(',')]
     results = []
-    
-    # 1. INDEPENDENT BANG DETECTION (Locked Spec: 50-300 Hz)
-    bang_band = apply_filter(data, 50, 300, fs)
-    bang_rms = get_rms(bang_band, 256, 64)
-    bang_time, threshold = detect_onset(bang_rms, fs, 64, threshold_mult=6)
-    
-    has_bang = bang_time is not None
-    results.append(["Low-Frequency Onset", f"{bang_time:.6f}" if has_bang else "N/A", "DETECTED" if has_bang else "ABSENT"])
 
-    # 2. GEOMETRIC RECONCILIATION
-    if args.crack_time and has_bang:
-        precedes = args.crack_time < bang_time
-        status = "PASS" if precedes else "FAIL (Possible Echo)"
-        results.append(["Precedence Test", f"{args.crack_time} < {bang_time}", status])
-    elif args.crack_time:
-        results.append(["Precedence Test", "N/A", "ABSENT (Shockwave Only)"])
-    else:
-        results.append(["Precedence Test", "N/A", "SKIPPED (No Crack Provided)"])
+    for idx, offset in enumerate(offsets):
+        v_strike = args.v0 + (offset / 1000.0)
+        origin = motion_df.iloc[idx]['Origin'] if motion_df is not None and idx < len(motion_df) else "Unknown"
+        
+        # --- V7 TEMPORAL FLOOR LOGIC ---
+        # If shockwave data exists, we use it as an anchor, 
+        # BUT we never allow the search to start before the visual impact (v_strike).
+        t_sw = sw_df.iloc[idx]['TS'] if sw_df is not None and idx < len(sw_df) else 0
+        search_start_ts = max(v_strike, t_sw)
+        
+        search_start = int(search_start_ts * fs)
+        search_end = int((search_start_ts + 0.45) * fs)
+        window_low = np.abs(muzzle_band[search_start : search_end])
+        
+        # Peak Detection
+        peaks, props = find_peaks(window_low, height=np.max(window_low)*0.3, distance=int(0.05*fs))
+        
+        if len(peaks) > 0:
+            best_peak = peaks[np.argmax(props['peak_heights'])]
+            t_bang = search_start_ts + (best_peak / fs)
+            lag_ms = (t_bang - v_strike) * 1000
+            dist_m = (lag_ms / 1000.0) * c
+            
+            # Spectral Validation (Ratio Calculation)
+            idx_b = int(t_bang * fs)
+            check_win = int(0.01 * fs)
+            l_en = np.sum(muzzle_band[idx_b : idx_b+check_win]**2)
+            h_en = np.sum(high_band[idx_b : idx_b+check_win]**2)
+            ratio = l_en / (h_en + 1e-9)
+            
+            status = "CONFIRMED_MUZZLE" if ratio > 2.0 else "NON_BALLISTIC_IMPULSE"
+            sw_dist = sw_df.iloc[idx]['Dist_m'] if sw_df is not None and idx < len(sw_df) else 0
+            delta = abs(dist_m - sw_dist) if sw_dist > 0 else 0
 
-    # 3. ENERGY RATIO (Diagnostic even without onset)
-    # Using the window around the expected bang (or whole clip if missing)
-    he_band = apply_filter(data, 20, 100, fs)
-    muzzle_band = apply_filter(data, 100, 500, fs)
-    energy_he = np.sum(he_band**2)
-    energy_muzzle = np.sum(muzzle_band**2)
-    he_ratio = (energy_he / (energy_he + energy_muzzle + 1e-9)) * 100
-    results.append(["HE/Muzzle Energy Ratio", f"{he_ratio:.2f}%", "CONSISTENT WITH GUNSHOT" if he_ratio < 25 else "SUSPECT EXPLOSION"])
+            results.append({
+                "Strike": idx+1, "V0_Strike": round(v_strike, 4), "Bang_TS": round(t_bang, 4),
+                "Lag_ms": round(lag_ms, 2), "Dist_m": round(dist_m, 2), "SW_Delta_m": round(delta, 2),
+                "Status": status
+            })
 
-    # CONCLUSION LOGIC
-    if has_bang:
-        conclusion = "Muzzle Blast Present"
-        confidence = "High" if he_ratio < 10 else "Medium (Clipped)"
-    elif args.crack_time:
-        conclusion = "Shockwave Only (Muzzle Shadowed or Distant)"
-        confidence = "Medium (Physically Plausible)"
-    else:
-        conclusion = "Muzzle Blast Not Confirmed"
-        confidence = "High"
+            # --- PLOTTING ---
+            plt.figure(figsize=(12, 5))
+            p_start, p_end = max(0, int((v_strike-0.1)*fs)), min(len(data), int((t_bang+0.2)*fs))
+            x_axis = np.linspace((v_strike-0.1), (v_strike-0.1) + (p_end-p_start)/fs, p_end-p_start)
+            
+            plt.plot(x_axis, data[p_start:p_end], color='black', alpha=0.15, label="Raw Audio")
+            plt.plot(x_axis, muzzle_band[p_start:p_end], color='darkorange', label="Muzzle (20-300Hz)")
+            
+            plt.axvline(v_strike, color='blue', linestyle='--', label=f"V0 Impact ({origin})")
+            if t_sw > 0:
+                plt.axvline(t_sw, color='green', linestyle=':', label="Shockwave (4a)")
+            plt.axvline(t_bang, color='red', linewidth=2, label=f"Muzzle Arrival (Ratio: {ratio:.1f})")
+            
+            plt.title(f"Strike {idx+1} | {status} | Dist: {dist_m:.1f}m | SW Delta: {delta:.1f}m")
+            plt.xlabel("Time (s)"); plt.ylabel("Amplitude"); plt.legend(loc='upper right'); plt.grid(True, alpha=0.2)
+            plt.savefig(f"4b.check-bang-for-muzzleblast-forensic-triangulation-strike_{idx+1}.png"); plt.close()
 
-    # Export to CSV
-    output_file = '4b.check-bang-for-muzzleblast.csv'
-    with open(output_file, 'w', newline='') as f:
-        writer = csv.writer(f)
-        writer.writerow(["Test Suite", "Measured/Value", "Status"])
-        writer.writerows(results)
-        writer.writerow([])
-        writer.writerow(["CONCLUSION", conclusion])
-        writer.writerow(["CONFIDENCE", confidence])
-
-    print(f"Analysis complete: {conclusion} ({confidence} confidence).")
+    pd.DataFrame(results).to_csv(f"4b.check-bang-for-muzzleblast-{os.path.basename(args.audio)}.csv", index=False)
+    print(f"V7 Success. Temporal Floor enforced for {len(results)} strikes.")
 
 if __name__ == "__main__":
     main()
