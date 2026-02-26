@@ -23,7 +23,7 @@ ffplay -i ../.bin/key-seq-video.mkv -vf "crop=350:520:0:940"
 ```
 
 
-## Export a cropped focus region for improved signal to noise ration
+## Export a cropped focus region for improved signal to noise ratio
 
 ```bash
 ffmpeg -i ../.bin/key-seq-video.mkv \
@@ -83,6 +83,9 @@ FrameIndex,Timestamp,MotionMetric,Threshold,Status
 Dataset 3a.visual-motion-analysis.csv 
 
 
+Use timestamp 0.967s as Visual Time Zero going forward.
+
+
 ## Motion & behavior analysis
 
 ```bash
@@ -124,14 +127,14 @@ Dataset 3b.analyze-motion-behavior-forensic-event-summary.csv
 
 
 ![3b.analyze-motion-behavior-peak-motion-overlay-event-0.jpg](./3b.analyze-motion-behavior-peak-motion-overlay-event-0.jpg)
-Figure Event 0
+Figure Motion Event 0
 
 ![3b.analyze-motion-behavior-peak-motion-overlay-event-1.jpg](./3b.analyze-motion-behavior-peak-motion-overlay-event-1.jpg)
-Figure Event 1
+Figure Motion Event 1
 
 ![3b.analyze-motion-behavior-peak-motion-overlay-event-2.jpg](./3b.analyze-motion-behavior-peak-motion-overlay-event-2.jpg)
-Figure Event 2
+Figure Motion Event 2
 
 ![3b.kinematic-profile.png](./3b.kinematic-profile.png)
-Figure Kinematic profile
+Figure Kinematic Motion Profile
 

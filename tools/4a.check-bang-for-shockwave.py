@@ -20,7 +20,7 @@ def main():
     parser.add_argument("--audio", required=True)
     parser.add_argument("--v0", type=float, required=True)
     parser.add_argument("--expected_offsets", type=str, default="0,133,300")
-    parser.add_argument("--temp_c", type=float, default=28.33)
+    parser.add_argument("--temp_c", type=float, default=30.00)
     parser.add_argument("--v_bullet", type=float, default=850.0)
     args = parser.parse_args()
 

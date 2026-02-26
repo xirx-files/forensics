@@ -1,4 +1,4 @@
 Strike,TS,V0_Rel_ms,Precedence,HF_Ratio,Lag_ms,Dist_m,Logic
-1,0.8667,-100.33,100.33,5881.36,39.69,23.39,Strike 1: High-Precision 5881.4% HF Ratio leads V0 by 100.3ms. Dist=23.4m.
-2,0.8973,-69.67,69.67,77.04,9.0,5.3,Strike 2: High-Precision 77.0% HF Ratio leads V0 by 69.7ms. Dist=5.3m.
-3,0.9217,-45.33,45.33,366.55,10.65,6.27,Strike 3: High-Precision 366.6% HF Ratio leads V0 by 45.3ms. Dist=6.3m.
+1,0.8667,-100.33,100.33,5881.36,39.69,23.5,Strike 1: High-Precision 5881.4% HF Ratio leads V0 by 100.3ms. Dist=23.5m.
+2,0.8973,-69.67,69.67,77.04,9.0,5.33,Strike 2: High-Precision 77.0% HF Ratio leads V0 by 69.7ms. Dist=5.3m.
+3,0.9217,-45.33,45.33,366.55,10.65,6.3,Strike 3: High-Precision 366.6% HF Ratio leads V0 by 45.3ms. Dist=6.3m.

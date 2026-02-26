@@ -250,7 +250,7 @@ im using a "Automated Forensic "Rules-Based" Analyzer" that you created earlier 
 ;version 4
 ;type analyze
 
-(setq sound-speed 348.47) ; 28.333C
+(setq sound-speed 348.47) ; 30.003C
 (setq sensitivity 0.01)  ; General amplitude threshold
 
 (defun forensic-rules (sig)

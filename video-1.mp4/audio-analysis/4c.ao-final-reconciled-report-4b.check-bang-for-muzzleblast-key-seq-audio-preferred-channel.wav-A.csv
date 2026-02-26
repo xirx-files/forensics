@@ -1,3 +1,0 @@
-Shot_ID,Muzzle_TS,S_M_Interval_ms,Dist_m,Ratio,Classification,True_Range
-1,1.1256,203.9,55.2,15.59,SUPERSONIC_CONFIRMED,55.2
-2,1.3094,0.0,119.17,152.58,SUBSONIC_OR_NO_SW,119.17
