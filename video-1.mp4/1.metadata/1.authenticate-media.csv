@@ -1,0 +1,7 @@
+Test/Metric,Value,Result Status
+SHA-256 Hash,2a43ccfa0667bb1fe925e8f31775bc981980aaa01ef3665ab8c43f802d46eb71,VERIFIED
+Encoder Signature,Unknown,PASS (Native/Unknown)
+Video Codec,h264,INFO
+Frame Rate,30/1,PASS
+Freeze/Pause Detection,0 detected,PASS
+Creation Metadata,Missing,WARNING

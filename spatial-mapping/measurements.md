@@ -132,22 +132,23 @@ Figure Cross-referenced map with local coordinates
 ```
 
 ```bash
-$ python ../tools/world-coordinate-system.py -v world-coordinate-system_to_gps_base-placemarks.json test-case-input.json 
+$ python ../tools/2.world-coordinate-system.py -v world-coordinate-system_to_gps_lamp-posts.json test-case-input.json 
 --- Mapping Model Status ---
-RMSE: 0.00000127 Degrees
-Approximate ground error: 0.140 meters
+RMSE: 0.00000129 Degrees
+Approximate ground error: 0.143 meters
 ----------------------------
+Successfully processed 2 entries to output.json
 ```
 
 ```json output.json
 [
     {
-        "lat": 40.277654591769085,
-        "lon": -111.71393916871833
+        "lat": 40.27765324578341,
+        "lon": -111.71393670919618
     },
     {
-        "lat": 40.27796563760388,
-        "lon": -111.71409727052112
+        "lat": 40.27776700183629,
+        "lon": -111.7138512434923
     }
 ]
 ```

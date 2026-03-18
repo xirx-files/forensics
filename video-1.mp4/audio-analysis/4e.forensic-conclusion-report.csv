@@ -1,8 +1,0 @@
-Timestamp,Event,Details
-0.8667,Shockwave Precursor,Supersonic arrival (HF Ratio: 5881.36)
-0.8973,Shockwave Precursor,Supersonic arrival (HF Ratio: 77.04)
-0.9217,Shockwave Precursor,Supersonic arrival (HF Ratio: 366.55)
-0.967,Visual Impact (Event 0),Direct Kinetic Transfer. Origin: West (Behind)
-1.1255,Acoustic: PETN_RIG_DETONATION,"Verdict: STAGED BALLISTIC EVENT. Non-causal delay of 158.5ms identified. Body moved at 0.967s, but PETN_RIG_DETONATION sound arrived at 1.1255s. Mimics 55.2m distance."
-1.267,Visual Impact (Event 2),Kinetic Strike. Origin: West (Behind)
-1.3094,Acoustic: GENUINE_MUZZLE_BLAST,Verdict: REAL KINETIC EVENT. Causal delay of 42.4ms. Sharp decay (4.37) confirms a genuine muzzle blast at 14.8m.

@@ -1,7 +1,0 @@
-Test Name,Measured Value,Result Status
-Sample Rate Check,44100Hz,PASS
-Clipping Analysis,0.0000% clipped,PASS
-DC Offset,0.000061,PASS
-Digital Silence Check,2.54% silent,PASS
-Crest Factor (AGC Test),6.00,PASS
-Video Frame Rate,30.0 fps,PASS

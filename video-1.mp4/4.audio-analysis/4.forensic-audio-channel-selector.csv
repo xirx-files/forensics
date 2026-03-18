@@ -1,0 +1,3 @@
+Source,Mode,Correlation,Logic
+../.bin/key-seq-audio-preferred-channel.wav,MONO (Ch 1),0.0,Denoised via anlmdn
+../.bin/key-seq-audio-stereo-clean.wav,STEREO (Denoised),0.0,Denoised via anlmdn

@@ -1,0 +1,4 @@
+Key_Event#,Motion_Ref,V_Time,Offset(ms),Onset_V_Time,Vel_mps,Accel_mps2,Jerk_mps3,Nature,Tag,Origin
+0,3,0.967,100.0,0.9449,1.27,29.0,1208.86,Aggressive Voluntary/Reflexive Movement,REFLEX_ONSET,SW (227°)
+1,7,1.1,233.33,1.0299,2.2,28.53,450.21,Aggressive Voluntary/Reflexive Movement,REFLEX_ONSET,W (258°)
+2,12,1.267,400.0,1.1888,3.88,67.14,1790.22,Kinetic Strike/Secondary Force (6.8G),TDOA_SYNC_PRIORITY_1,SW (241°)
