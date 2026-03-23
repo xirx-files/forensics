@@ -66,5 +66,5 @@ if __name__ == "__main__":
     parser.add_argument("--a", required=True, help="Path to clipped .wav")
     args = parser.parse_args()
     
-    out_report = "./alignment_verification.png"
+    out_report = "./1.verify-visual-audio-alignment.png"
     generate_sync_visual(args.v, args.a, out_report)

@@ -1,3 +1,4 @@
+# Forensic Impulse Classification and Acoustic Analysis Script
 import argparse
 import numpy as np
 import scipy.io.wavfile as wav
@@ -91,6 +92,23 @@ def main():
         if nature == []:
             nature.append("UNDETERMINED_IMPULSE")
 
+        # --- Logic: 1-ORDER vs REFLECTION ---
+        source_type = "1-ORDER" # Default for first event
+        if len(results) > 0:
+            prev = results[-1]
+            time_diff = t_abs - prev["A_Time"]
+            
+            # If it happens very quickly (<150ms) AND the spectral signature is 
+            # nearly identical (within 20% variance), it's likely a reflection.
+            # If the signature changes significantly, it's a new strike (1-ORDER).
+            m_var = abs(m_ratio - prev["Muzzle_Ratio"]) / (prev["Muzzle_Ratio"] + 1e-9)
+            pa_var = abs(pa_ratio - prev["PA_Bias"]) / (prev["PA_Bias"] + 1e-9)
+            
+            if time_diff < 0.25 and (m_var < 0.25 and pa_var < 0.25):
+                source_type = "REFLECTION"
+            else:
+                source_type = "1-ORDER"
+
         results.append({
             "A_Time": round(t_abs, 4),
             "Muzzle_Ratio": round(m_ratio, 2),
@@ -99,6 +117,7 @@ def main():
             "e_mid": round(e_mid, 2),
             "e_high": round(e_high, 2),
             "Decay_Factor": round(decay, 2),
+            "Source_Type": source_type,
             "Classification": f"{';'.join(nature)}"
         })
 

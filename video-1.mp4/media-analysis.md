@@ -106,8 +106,8 @@ Table metadata.txt
 
 ### Visual/Audio Alignment Verification
 
-![alignment_verification.png](./1.metadata/alignment_verification.png)
-Figure alignment_verification.png
+![1.verify-visual-audio-alignment.png](./1.verify-visual-audio-alignment.png)
+Figure 1.verify-visual-audio-alignment.png
 
 
 ## 2. Spatial Analysis
@@ -117,23 +117,24 @@ Refer [resolution source](./2.spatial-analysis/analysis.md#4-resolution)
 ![camera-coords-query-wcs-xy.svg](./2.spatial-analysis/camera-coords-query-wcs-xy.svg)
 Figure camera-coords-query-wcs-xy.svg
 
+![camera-coords-query-wcs-yz.svg](./2.spatial-analysis/camera-coords-query-wcs-yz.svg)
+Figure camera-coords-query-wcs-yz.svg
+
 
 | # | From_Feature              |                 | Lat_1            | Lon_1             | Ele_1            |
 |---|---------------------------|-----------------|------------------|-------------------|------------------|
-| 1 | 1.mp4 camera location     |                 | 40.2775302210218 | -111.713968844756 | 1402.78747731397 |
+| 1 | 1.mp4 camera location     |                 | 40.2775289232758 | -111.713967995049 | 1402.78747731397 |
 | 2 |                           |                 |                  |                   |                  |
 | 3 | To_Feature                | Distance_Meters | Lat_2            | Lon_2             | Ele_2            |
-| 4 | North speaker             | 7.685           | 40.2775627642768 | -111.714047818602 | 1403.732083      |
-| 5 | Center north speaker      | 4.282           | 40.2775466124262 | -111.714013612385 | 1403.513785      |
-| 6 | Center south speaker      | 2.383           | 40.2775165615533 | -111.713989351347 | 1403.366405      |
-| 7 | South speaker             | 4.625           | 40.2774899744697 | -111.713966300153 | 1403.957025      |
-| 8 | CK microphone             | 5.68            | 40.2775203851023 | -111.714033649438 | 1401.955129      |
-| 9 | Audience microphone stand | 3.145           | 40.2775314668336 | -111.714005459209 | 1402.369802      |
+| 4 | North speaker             | 7.817           | 40.2775627642768 | -111.714047818602 | 1403.732083      |
+| 5 | Center north speaker      | 4.409           | 40.2775466124262 | -111.714013612385 | 1403.513785      |
+| 6 | Center south speaker      | 2.349           | 40.2775165615533 | -111.713989351347 | 1403.366405      |
+| 7 | South speaker             | 4.483           | 40.2774899744697 | -111.713966300153 | 1403.957025      |
+| 8 | CK microphone             | 5.724           | 40.2775203851023 | -111.714033649438 | 1401.955129      |
+| 9 | Audience microphone stand | 3.226           | 40.2775314668336 | -111.714005459209 | 1402.369802      |
 
 Table 1.mp4 camera location with respect to stage features
 
-
-Use 19.58 as HFOV
 
 
 ## 3. Video Analysis

@@ -124,20 +124,25 @@ Figure Cross-referenced map with local coordinates
         "y": 1916
     },
     {
-        "Feature": "Sorrensen lamp post",
-        "x": 6632,  
-        "y": 2177
+        "Feature": "Water feature lamp post",
+        "x": 4476, 
+        "y": 2823
+    },
+    {
+        "Feature": "Subject Facing Point",
+        "x": 3180, 
+        "y": 4319
     }
 ]
 ```
 
 ```bash
-$ python ../tools/2.world-coordinate-system.py -v world-coordinate-system_to_gps_lamp-posts.json test-case-input.json 
+$ python ../tools/2.world-coordinate-system.py -v -m world-coordinate-system_to_gps_lamp-posts.json -i test-case-input.json -o output.json 
 --- Mapping Model Status ---
 RMSE: 0.00000129 Degrees
 Approximate ground error: 0.143 meters
 ----------------------------
-Successfully processed 2 entries to output.json
+Successfully processed 3 entries to output.json
 ```
 
 ```json output.json
@@ -149,6 +154,10 @@ Successfully processed 2 entries to output.json
     {
         "lat": 40.27776700183629,
         "lon": -111.7138512434923
+    },
+    {
+        "lat": 40.27770851931429,
+        "lon": -111.7135491343376
     }
 ]
 ```

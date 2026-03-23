@@ -1,3 +1,4 @@
+# Forensic Motion and Kinetic Impact Analysis System
 import cv2
 import numpy as np
 import argparse
@@ -32,14 +33,11 @@ def calculate_bearing(lat1, lon1, lat2, lon2):
     bearing = math.degrees(math.atan2(y, x))
     return (bearing + 360) % 360
 
-def get_gps_metadata(gps_file):
-    with open(gps_file, 'r') as f:
-        data = json.load(f)
-    
+def get_gps_metadata(gps_data):
     # Haversine distance
     R = 6371000  # Earth radius in meters
-    lat1, lon1 = math.radians(data['camera']['lat']), math.radians(data['camera']['lon'])
-    lat2, lon2 = math.radians(data['target']['lat']), math.radians(data['target']['lon'])
+    lat1, lon1 = math.radians(gps_data['camera']['lat']), math.radians(gps_data['camera']['lon'])
+    lat2, lon2 = math.radians(gps_data['target']['lat']), math.radians(gps_data['target']['lon'])
     
     dlat = lat2 - lat1
     dlon = lon2 - lon1
@@ -196,30 +194,78 @@ def group_overlapping_events(events, temporal_window=0.05):
         
     return final_output
 
+def calculate_gps_metrics(gps_data):
+    """Calculates distance and bearing FROM camera TO target."""
+    R = 6371000 
+    lat1, lon1 = math.radians(gps_data['camera']['lat']), math.radians(gps_data['camera']['lon'])
+    lat2, lon2 = math.radians(gps_data['target']['lat']), math.radians(gps_data['target']['lon'])
+    
+    # Haversine Distance
+    dlat, dlon = lat2 - lat1, lon2 - lon1
+    a = math.sin(dlat/2)**2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon/2)**2
+    distance = R * (2 * math.atan2(math.sqrt(a), math.sqrt(1-a)))
+    
+    # Bearing from Camera to Target (Lens Line of Sight)
+    y = math.sin(dlon) * math.cos(lat2)
+    x = math.cos(lat1) * math.sin(lat2) - math.sin(lat1) * math.cos(lat2) * math.cos(dlon)
+    bearing = (math.degrees(math.atan2(y, x)) + 360) % 360
+    return distance, bearing
+
+def calculate_dynamic_hfov(gps_data, hfov_config):
+    """Refined logic to switch reference width based on GPS arrival angle."""
+    dist_m, cam_to_sub_bearing = calculate_gps_metrics(gps_data)
+    
+    sub_facing = hfov_config['subject_dimensions']['subject_facing_bearing']
+    threshold = hfov_config['logic_thresholds']['catchment_angle_deg']
+    px_width = hfov_config['subject_dimensions']['pixel_width']
+    frame_w = hfov_config['camera_specs']['frame_width_px']
+
+    # 1. Calculate Shortest Relative Angle (Line-of-Sight)
+    # This ensures we get the minimal difference regardless of the 360/0 wrap.
+    # Resulting 'diff' will be: 0 (Face-on), 90 (Profile), 180 (Back-on)
+    diff = (cam_to_sub_bearing - sub_facing + 180) % 360 - 180
+    diff = abs(diff) # Convert to absolute offset from the face-on vector
+
+    # 2. Automated Reference Switching (Catchment Rule)
+    # Front-on: diff near 0 | Back-on: diff near 180
+    # Both these 'longitudinal' views see the SHOULDER_WIDTH.
+    if diff <= threshold or diff >= (180 - threshold):
+        ref_width = hfov_config['subject_dimensions']['shoulder_width_m']
+        mode = "SHOULDER_WIDTH"
+    else:
+        # Side-on/Profile: diff near 90
+        # These 'lateral' views see the CHEST_DEPTH.
+        ref_width = hfov_config['subject_dimensions']['chest_depth_m']
+        mode = "CHEST_DEPTH"
+
+    # 3. Calculate HFOV from Reference Object
+    hfov_rad = 2 * math.atan((frame_w * ref_width) / (2 * px_width * dist_m))
+    hfov_deg = math.degrees(hfov_rad)
+    
+    return dist_m, sub_facing, cam_to_sub_bearing, hfov_deg, diff, mode
+
 def main():
     parser = argparse.ArgumentParser(description="Forensic Motion & Kinetic Analysis")
     parser.add_argument("--video", required=True)
     parser.add_argument("-t0", type=float, required=True, help="Start time in seconds")
-    parser.add_argument("-hfov", type=float, default=70, help="Camera Horizontal Field of View")
-    parser.add_argument("-fs", "--fontScale", type=float, default=0.8, help="Font scale for overlay")
-    parser.add_argument("--gps", required=True, help="Path to JSON with camera/target GPS")
-    parser.add_argument("-sb", "--subjectBearing", type=float, default=63, required=True, help="Subject's Facing Bearing")
-    # parser.add_argument("-lr", "--lateralRange", nargs=2, type=float, default=[18, 108], 
-    #                 help="Camera bearing range [min, max] for Lateral HFOV basis")
+    parser.add_argument("-fs", "--font-scale", type=float, default=0.8, help="Font scale for overlay")
+    parser.add_argument("-lyp", "--label-y-pos", type=int, default=50, help="Label/timsetamp y position")
+    parser.add_argument("--gps-json", required=True, help="Path to JSON with camera/target GPS")
+    parser.add_argument("--hfov-json", required=True, help="Path to hfov-config.json")
     args = parser.parse_args()
 
+    with open(args.gps_json, 'r') as f: gps_data = json.load(f)
+    with open(args.hfov_json, 'r') as f: hfov_data = json.load(f)
+
     # 1. Spatial Calibration
-    dist_m, bearing = get_gps_metadata(args.gps)
+    dist_m, sub_facing, bearing, hfov_deg, relative_angle, mode = calculate_dynamic_hfov(gps_data, hfov_data)
     cap = cv2.VideoCapture(args.video)
     fps = cap.get(cv2.CAP_PROP_FPS)
     w_px = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
-    m_per_px = get_pixel_calibration(dist_m, w_px, args.hfov)
+    m_per_px = get_pixel_calibration(dist_m, w_px, hfov_deg)
     dt = 1.0 / fps
 
-    relative_angle, is_low_confidence = calc_relative_angle(args.subjectBearing, bearing)
-    status = "LOW_CONFIDENCE (Longitudinal Gain)" if is_low_confidence else "HIGH_CONFIDENCE (Lateral Gain)"
-
-    print(f"Dist: {dist_m:.2f}m | Subject-Bearing: {args.subjectBearing:.2f}° | Camera-Bearing: {bearing:.2f}° | relative_angle: {relative_angle:.2f}° |  {status} | Scaling: {m_per_px:.4f} m/px")
+    print(f"Dist: {dist_m:.2f}m | Subject-Bearing: {sub_facing:.2f}° | Camera-Bearing: {bearing:.2f}° | hfov_deg: {hfov_deg:.2f}° | relative_angle: {relative_angle:.2f}° |  {mode} | Scaling: {m_per_px:.4f} m/px")
 
     cap.set(cv2.CAP_PROP_POS_MSEC, (args.t0 - 0.05) * 1000)
     ret, prev_frame = cap.read()
@@ -233,7 +279,9 @@ def main():
         writer = csv.DictWriter(f, fieldnames=['Motion_Ref', 'V_Time', 'Offset(ms)', 'Vel_mps', 'Accel_mps2', 'Jerk_mps3', 'Origin'])
         writer.writeheader()
 
-        for i in range(int(fps * 0.6)):
+        i = 0
+        while True:
+            i += 1
             ret, frame = cap.read()
             if not ret: break
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -309,19 +357,19 @@ def main():
                 heatmap_img = generate_heatmap(event_img, event_flow)
                 
                 # Combine them side-by-side
-                combined = np.hstack((overlay_img, heatmap_img))
+                combined = np.hstack((event_img, overlay_img, heatmap_img))
                 
                 # Annotations
                 text_lines = [
-                    f"Key_Event# {idx} | {e['V_Time']}s | {cat}",
-                    f"Vel: {e['Vel_mps']:.2f} | Accel: {e['Accel_mps2']:.2f} | Origin: {e['Origin']}"
+                    f"Key_Event# {idx} | {e['V_Time']}s | {cat} / {tag} | Vel: {e['Vel_mps']:.2f} | Accel: {e['Accel_mps2']:.2f} | Origin: {e['Origin']}"
                 ]
                 for line_idx, line in enumerate(text_lines):
-                    y_pos = 50 + (line_idx * int(40 * args.fontScale))
+                    y_pos = args.label_y_pos
+                    y_pos = y_pos + (line_idx * int(40 * args.font_scale))
                     cv2.putText(combined, line, (40, y_pos), cv2.FONT_HERSHEY_SIMPLEX, 
-                                args.fontScale, (255, 255, 255), 3, cv2.LINE_AA)
+                                args.font_scale, (255, 255, 255), 3, cv2.LINE_AA)
                     cv2.putText(combined, line, (40, y_pos), cv2.FONT_HERSHEY_SIMPLEX, 
-                                args.fontScale, (0, 0, 255), 1, cv2.LINE_AA)
+                                args.font_scale, (0, 0, 255), 1, cv2.LINE_AA)
                 
                 out_name = f"3.identify-impact-events-motion-overlay-{idx}.jpg"
                 cv2.imwrite(out_name, combined)
@@ -343,7 +391,9 @@ def main():
     plt.savefig("3.identify-impact-events-kinematic-profile.png")
 
     print(f"\nAnalysis complete with GPS Reference Bearing: {round(bearing, 2)}°")
-    print(f"- Reports: {summary_path}")
+    print(f"- Reports:")
+    print(f"    1. 3.identify-impact-events.csv")
+    print(f"    2. {summary_path}")
     print(f"- Visuals: 3.identify-impact-events-kinematic-profile.png, {len(events)} event overlay(s) generated.")
 
 if __name__ == "__main__":

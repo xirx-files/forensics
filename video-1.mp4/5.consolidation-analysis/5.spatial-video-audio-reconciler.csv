@@ -1,0 +1,4 @@
+Event_Type,Shock_Time,Onset_V_Time,Peak_V_Time,A_Time,TDOA_ms,Visual_Origin,Est_Dist_m,Dist_Error_m,Mach_Est_Dist_m,Nature
+ARC_FLASH_TRIGGER,,0.9437,0.967,0.8366,0.0,SW (227°),37.429,31.058,0.0,Kinetic Strike/Secondary Force (11.5G)
+PETN_RIG_DETONATION,1.0411666666666666,1.0278,1.1,1.1335,-0.7083333333333334,W (258°),36.94,30.569,64.537,Kinetic Strike/Secondary Force (11.3G)
+ELECTRICAL_EQUIP_FAILURE;GENUINE_MUZZLE_BLAST,1.1013125,1.188,1.267,1.3174,-3.333333333333333,SW (241°),45.223,38.851,151.037,Kinetic Strike/Secondary Force (26.5G)

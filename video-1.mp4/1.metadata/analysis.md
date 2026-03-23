@@ -129,20 +129,26 @@ Start Key-Sequence video clipping at 0.766667 b/c this is the prior video frame 
 ### Key-Sequence Acquisition
 
 ```bash
-$ python ../../tools/1.clipped-media-preparation.py --input ../../../sources/archive.org/1.mp4 --start 0.766667  --duration 1.466667
---- Forensic Prep: 1.mp4 ---
-Native Sample Rate: 48000Hz
-✓ Saved Lossless Video: ../.bin/key-seq-video.mkv
-✓ Saved Bit-Perfect Audio: ../.bin/key-seq-audio.wav
+$ python ../../tools/1.clipped-media-preparation.py --input ../../../sources/archive.org/1.mp4 --start 0.766667 --duration 3.233333
+
+--- Clip Verified: 1.mp4 ---
+Sync Bias: 0.000000s
+✓ Video: ../.bin/key-seq-video.mkv
+✓ Audio: ../.bin/key-seq-audio.wav
 ```
 
 ```bash
-python ../../tools/1.verify-visual-audio-alignment.py  --v ../.bin/key-seq-video.mkv --a ../.bin/key-seq-audio.wav
+$ python ../../tools/1.verify-visual-audio-alignment.py  --v ../.bin/key-seq-video.mkv --a ../.bin/key-seq-audio.wav
+--- Alignment Verification Complete ---
+Video Start PTS: 0.000000
+Audio Start:     0.000000 (File Start)
+Sync Report Saved: ./1.verify-visual-audio-alignment.png
 
-ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 ../.bin/key-seq-video.mkv
-# 1.467000
-ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 ../.bin/key-seq-audio.wav
-# 1.464667
+$ ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 ../.bin/key-seq-video.mkv
+3.233000
+
+$ ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 ../.bin/key-seq-audio.wav
+3.231333
 ```
 
 
