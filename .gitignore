@@ -5,8 +5,9 @@ __pycache__/
 *.py[codz]
 *$py.class
 
-# drawio
+# drawio/libreoffice
 *.bkp
+.~lock.*
 
 # C extensions
 *.so

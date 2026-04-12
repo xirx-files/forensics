@@ -25,7 +25,9 @@ Creation Metadata,Missing,WARNING
 ## Metadata
 
 ```bash
-exiftool ../../sources/archive.org/1.mp4 > metadata.txt # follow up with \s+:\s(?=.) -> |
+exiftool ../../sources/archive.org/1.mp4 > metadata.txt 
+
+# editor find/repl for markdown: \s+:\s(?=.) -> |
 ```
 
 ```text
