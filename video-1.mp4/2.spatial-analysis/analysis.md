@@ -161,3 +161,38 @@ From_Feature,To_Feature,Distance_Meters,Lat_1,Lon_1,Ele_1,Lat_2,Lon_2,Ele_2
 1.mp4 camera location,CK microphone,5.724,40.27752892327577,-111.71396799504947,1402.78747731397,40.2775203851023,-111.714033649438,1401.955129
 1.mp4 camera location,Audience microphone stand,3.226,40.27752892327577,-111.71396799504947,1402.78747731397,40.2775314668336,-111.71400545920922,1402.369802
 ```
+
+
+## 6. HFOV & Subject-Camera Configuration
+
+```json target-camera-gps.json
+{
+    "target": {
+        "lat": 40.27751907377901,
+        "lon": -111.71403737590329,
+        "alt": 1402.865450
+    },
+    "camera": {
+        "lat": 40.27753022102182,
+        "lon": -111.71396884475594,
+        "alt": 1402.78747731397
+    }
+}
+```
+
+```json hfov-config.json
+{
+    "subject_dimensions": {
+        "shoulder_width_m": 0.480,
+        "chest_depth_m": 0.216,
+        "subject_facing_bearing": 63,
+        "pixel_width": 200
+    },
+    "camera_specs": {
+        "frame_width_px": 886
+    },
+    "logic_thresholds": {
+        "catchment_angle_deg": 45
+    }
+}
+```

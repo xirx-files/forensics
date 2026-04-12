@@ -1,0 +1,68 @@
+[
+    {
+        "event": 0,
+        "nature": "Impulse/Electrical Discharge Case",
+        "timestamp": "01.033s",
+        "artifact": "event_0_evidence_strip.jpg"
+    },
+    {
+        "event": 1,
+        "nature": "Aggressive Voluntary/Reflexive Movement",
+        "timestamp": "01.167s",
+        "artifact": "event_1_evidence_strip.jpg"
+    },
+    {
+        "event": 2,
+        "nature": "Kinetic Strike/Secondary Force (10.5G)",
+        "timestamp": "01.333s",
+        "artifact": "event_2_evidence_strip.jpg"
+    },
+    {
+        "event": 3,
+        "nature": "Minor Kinetic Deviation",
+        "timestamp": "01.800s",
+        "artifact": "event_3_evidence_strip.jpg"
+    },
+    {
+        "event": 4,
+        "nature": "Minor Kinetic Deviation",
+        "timestamp": "02.500s",
+        "artifact": "event_4_evidence_strip.jpg"
+    },
+    {
+        "event": 5,
+        "nature": "Minor Kinetic Deviation",
+        "timestamp": "02.667s",
+        "artifact": "event_5_evidence_strip.jpg"
+    },
+    {
+        "event": 6,
+        "nature": "Minor Kinetic Deviation",
+        "timestamp": "02.733s",
+        "artifact": "event_6_evidence_strip.jpg"
+    },
+    {
+        "event": 7,
+        "nature": "Aggressive Voluntary/Reflexive Movement",
+        "timestamp": "02.900s",
+        "artifact": "event_7_evidence_strip.jpg"
+    },
+    {
+        "event": 8,
+        "nature": "Kinetic Strike/Secondary Force (5.6G)",
+        "timestamp": "03.000s",
+        "artifact": "event_8_evidence_strip.jpg"
+    },
+    {
+        "event": 9,
+        "nature": "Kinetic Strike/Secondary Force (5.6G)",
+        "timestamp": "03.067s",
+        "artifact": "event_9_evidence_strip.jpg"
+    },
+    {
+        "event": 10,
+        "nature": "Minor Kinetic Deviation",
+        "timestamp": "03.133s",
+        "artifact": "event_10_evidence_strip.jpg"
+    }
+]

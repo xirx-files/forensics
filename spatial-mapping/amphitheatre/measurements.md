@@ -2,21 +2,24 @@
 
 ## Summary
 
-| #  | Feature                            | Editor Size (Pt) | Millimeters |  Ratio      | Notes                                                              |
-|----|------------------------------------|------------------|-------------|-------------|--------------------------------------------------------------------|
-| 1  | Google Earth yardstick             | 1102.00          | 14700.00    | 13.34       | Horiz & diag measurements                                          |
-| 2  | Tent width & depth (east side)     | 297.00           | 3961.80     |             | Adjusted to be 13ft                                                |
-| 3  | Barricade width                    | 182.77           | 2438.00     |             | Standard Size (8-foot): Approximately 2,438 mm (L) x 1,118 mm (H). |
-| 4  | Barricade height                   |                  | 1118.00     |             |                                                                    |
-| 5  | AV table width                     | 135.00           | 1800.82     |             |                                                                    |
-| 6  | AV table front setback             | 60.00            | 800.36      |             |                                                                    |
-| 7  | AV table rear setback              | 103.00           | 1373.96     |             |                                                                    |
-| 8  | AV table overhang depth            | 42.50            | 566.92      |             | Full visible AV table depth is hidden                              |
-| 9  |                                    |                  |             |             |                                                                    |
-| 10 | Stage-area                         |                  |             |             |                                                                    |
-| 11 | Center South speaker front setback | 121.92           | 1626.35     |             |                                                                    |
-| 12 | Center North speaker front setback | 106.04           | 1414.46     |             |                                                                    |
-| 13 | Audience microphone setfront       | 85.73            | 1143.61     |             |                                                                    |
+| #  | Feature                             | Editor Size (Pt) | Millimeters |  Ratio      | Notes                                                              |
+|----|-------------------------------------|------------------|-------------|-------------|--------------------------------------------------------------------|
+| 1  | Google Earth yardstick              | 1102.00          | 14700.00    | 13.34       | Horiz & diag measurements                                          |
+| 2  | Tent width & depth (east side)      | 297.00           | 3961.80     |             | Adjusted to be 13ft                                                |
+| 3  | Barricade width                     | 182.77           | 2438.00     |             | Standard Size (8-foot): Approximately 2,438 mm (L) x 1,118 mm (H). |
+| 4  | Barricade height                    |                  | 1118.00     |             |                                                                    |
+| 5  | AV table width                      | 135.00           | 1800.82     |             |                                                                    |
+| 6  | AV table front setback              | 60.00            | 800.36      |             |                                                                    |
+| 7  | AV table rear setback               | 103.00           | 1373.96     |             |                                                                    |
+| 8  | AV table overhang depth             | 42.50            | 566.92      |             | Full visible AV table depth is hidden                              |
+| 9  |                                     |                  |             |             |                                                                    |
+| 10 | Stage-area                          |                  |             |             |                                                                    |
+| 11 | Center South speaker front setfront | 121.92           | 1626.35     |             |                                                                    |
+| 12 | Center North speaker front setfront | 106.04           | 1414.46     |             |                                                                    |
+| 13 | CK speaker (under table) setback    | 58.00            | 773.68      |             |                                                                    |
+| 14 | CK microphone setback               | 113.00           | 1507.35     | 733.67      | base                                                               |
+| 15 | CK speaker/mic hypotenuse           |                  | 1381.93     | 1171.10     | height                                                             |
+| 16 | Audience microphone setfront        | 85.73            | 1143.61     |             |                                                                    |
 
 Table estimated measurements
 

@@ -31,20 +31,21 @@
 | 25 | Tent height (wrt south facing)        | 389.33           | 2641.20     |        |                     |
 | 26 | Tent height (wrt center)              | 530.00           | 2641.20     | 4.98   | AVG:                |
 | 27 | Charlie’s head height                 | 374.00           | 1863.79     |        | 1865.45             |
-| 28 |                                       |                  |             |        |                     |
-| 29 | Hunter south east view                |                  |             |        |                     |
-| 30 | Barricade height (wrt Hunter)         | 270.00           | 1118.00     | 4.14   | Use standard height |
-| 31 | Hunter’s height height                | 450.00           | 1863.33     |        |                     |
-| 32 |                                       |                  |             |        |                     |
-| 33 | Model                                 |                  |             |        |                     |
-| 34 | Tent width                            | 297.00           | 3961.80     | 13.34  |                     |
-| 35 | Large peoples Head est. front-to-back | 16.49            | 220.00      |        |                     |
-| 36 | Large peoples Head est. side-to-side  | 13.49            | 180.00      |        |                     |
+| 28 | Charlie’s lap height (ie mic)         | 235.00           | 1171.10     |        |                     |
+| 29 |                                       |                  |             |        |                     |
+| 30 | Hunter south east view                |                  |             |        |                     |
+| 31 | Barricade height (wrt Hunter)         | 270.00           | 1118.00     | 4.14   | Use standard height |
+| 32 | Hunter’s height height                | 450.00           | 1863.33     |        |                     |
+| 33 |                                       |                  |             |        |                     |
+| 34 | Model                                 |                  |             |        |                     |
+| 35 | Tent width                            | 297.00           | 3961.80     | 13.34  |                     |
+| 36 | Large peoples Head est. front-to-back | 16.49            | 220.00      |        |                     |
+| 37 | Large peoples Head est. side-to-side  | 13.49            | 180.00      |        |                     |
 
 Table estimated measurements
 
 
-| # |                        | P-n-P                   | Millimeters |        |                  |  Ratio            | Base elevation (m) |
+| # |                        | Editor Size (Pt)        | Millimeters |        |                  |  Ratio            | Base elevation (m) |
 |---|------------------------|-------------------------|-------------|--------|------------------|-------------------|--------------------|
 | 1 | Google Earth yardstick | 1102.00                 | 14700.00    |        |                  | 13.34             | 1401               |
 | 2 |                        |                         |             |        |                  |                   |                    |
@@ -60,19 +61,19 @@ Table coordinate system cross-reference
 [
   {
     "Feature": "Charlie Kirk",
-    "x": "3134",
-    "y": "236"
+    "x": 3181.00,
+    "y": 847.00
   },
   {
     "Feature": "Hunter Kozak",
-    "x": "3095", 
-    "y": "449"
+    "x": 3182.00, 
+    "y": 1119.00
   }
 ]
 ```
 
 ```bash
-$ python ../tools/world-coordinate-system.py -v world-coordinate-system_to_gps_lamp-posts.json people/people-mapping.json  people/people-mapping-out.json
+$ python ../tools/2.world-coordinate-system.py -v -m world-coordinate-system_to_gps_lamp-posts.json -i people/people-mapping.json -o people/people-mapping-out.json 
 --- Mapping Model Status ---
 RMSE: 0.00000129 Degrees
 Approximate ground error: 0.143 meters

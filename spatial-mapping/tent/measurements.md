@@ -19,16 +19,19 @@
 | 13 | Tent height (wrt center)                 | 372.00           | 2641.20     | 7.10   |                        |
 | 14 | Tent roof height (wrt center)            | 220.00           | 1562.00     |        | Preferred calculations |
 | 15 |                                          |                  |             |        |                        |
-| 16 | Elevated south side view                 |                  |             |        |                        |
-| 17 | North side Tent height (wrt west facing) | 138.00           | 2641.20     | 19.14  |                        |
-| 18 | HoF lower window height                  | 226.00           | 4325.44     |        |                        |
-| 19 | Tent height (wrt center)                 | 143.00           | 2641.20     | 18.47  |                        |
-| 20 | Tent roof height (wrt center)            | 83.00            | 1533.00     |        |                        |
+| 16 |                                          |                  |             |        |                        |
+| 17 | Elevated south side view                 |                  |             |        |                        |
+| 18 | North side Tent height (wrt west facing) | 138.00           | 2641.20     | 19.14  |                        |
+| 19 | HoF lower window height                  | 226.00           | 4325.44     |        |                        |
+| 20 | Tent height (wrt center)                 | 143.00           | 2641.20     | 18.47  |                        |
+| 21 | Tent roof height (wrt center)            | 83.00            | 1533.00     |        |                        |
+| 22 |                                          |                  |             |        |                        |
+| 23 | Tent + roof height                       |                  | 4203.20     |        |                        |
 
 Table estimated measurements
 
 
-| #  |                        | P-n-P                   | Millimeters |        |                  |  Ratio            | Base elevation (m) |
+| #  |                        | Editor Size (Pt)        | Millimeters |        |                  |  Ratio            | Base elevation (m) |
 |----|------------------------|-------------------------|-------------|--------|------------------|-------------------|--------------------|
 | 1  | Google Earth yardstick | 1102.00                 | 14700.00    |        |                  | 13.34             | 1401               |
 | 2  |                        |                         |             |        |                  |                   |                    |
@@ -92,7 +95,7 @@ Table coordinate system cross-reference
 ```
 
 ```bash
-$ python ../tools/world-coordinate-system.py -v world-coordinate-system_to_gps_lamp-posts.json tent/tent-mapping.json tent/tent-mapping-out.json 
+$ python ../tools/2.world-coordinate-system.py -v -m world-coordinate-system_to_gps_lamp-posts.json -i tent/tent-mapping.json -o tent/tent-mapping-out.json 
 --- Mapping Model Status ---
 RMSE: 0.00000129 Degrees
 Approximate ground error: 0.143 meters
@@ -171,5 +174,4 @@ Figure south-east-side-view-measurement.jpg
 ### 5. Elevated South side view
 
 ![elevated-south-side-view-measurement.jpg](elevated-south-side-view-measurement.jpg)
-
 Figure elevated-south-side-view-measurement.jpg

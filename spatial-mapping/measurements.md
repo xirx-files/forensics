@@ -163,39 +163,6 @@ Successfully processed 3 entries to output.json
 ```
 
 
-## 5. Height measurements
-
-
-| #  | Feature                                 | P-n-P height | Millimeters | Elevation Offset | POI-Elevation |  Ratio | Base elevation (m) | Notes |
-|----|-----------------------------------------|--------------|-------------|------------------|---------------|--------|--------------------|-------|
-| 1  | Amphitheatre                            |              |             |                  |               |        |                    |       |
-| 2  | Google Earth yardstick                  | 1102.00      | 14700.00    |                  |               | 13.34  | 1401               |       |
-| 3  |                                         |              |             |                  |               |        |                    |       |
-| 4  |                                         | Z-value      |             |                  |               |        |                    |       |
-| 5  | Tent                                    |              |             |                  |               |        |                    |       |
-| 6  | Tent height                             | 198.00       | 2641.20     | 0                | 1401.00       |        |                    |       |
-| 7  | Tent roof height (wrt center)           | 315.10       | 4203.20     | 0                | 1401.00       |        |                    |       |
-| 8  | Tent banner lightning rod center height | 187.27       | 2498.04     | 0                | 1401.00       |        |                    |       |
-| 9  | Tent banner bottom height               | 171.17       | 2283.31     | 0                | 1401.00       |        |                    |       |
-| 10 |                                         |              |             |                  |               |        |                    |       |
-| 11 | Tables                                  |              |             |                  |               |        |                    |       |
-| 12 | Charlie’s Table height                  | 71.60        | 955.13      | 0                | 1401.00       |        |                    |       |
-| 13 | AV Table height                         | 54.73        | 730.00      | 0                | 1401.00       |        |                    |       |
-| 14 |                                         |              |             |                  |               |        |                    |       |
-| 15 | Stage-area                              |              |             |                  |               |        |                    |       |
-| 16 | Barricade height                        | 83.81        | 1118.00     | 0                | 1401.00       |        |                    |       |
-| 17 | Speaker tripod base height              | 67.26        | 897.19      | 0                | 1401.00       |        |                    |       |
-| 18 | Center north speaker height             | 188.45       | 2513.78     | 0                | 1401.00       |        |                    |       |
-| 19 | Center south speaker height             | 177.40       | 2366.41     | 0                | 1401.00       |        |                    |       |
-| 20 | North speaker height                    | 204.81       | 2732.08     | 0                | 1401.00       |        |                    |       |
-| 21 | South speaker height                    | 221.68       | 2957.02     | 0                | 1401.00       |        |                    |       |
-| 22 | Audience microphone stand               | 102.69       | 1369.80     | 0                | 1401.00       |        |                    |       |
-| 23 |                                         |              |             |                  |               |        |                    |       |
-| 24 | People                                  |              |             |                  |               |        |                    |       |
-| 25 | Charlie’s head height (center)          | 139.85       | 1865.45     | 0                | 1401.00       |        |                    |       |
-| 26 | Hunter’s head height (center)           | 139.69       | 1863.33     | 0                | 1401.00       |        |                    |       |
-
-
 # References
 
 1. https://docs.opencv.org/4.x/d5/d1f/calib3d_solvePnP.html

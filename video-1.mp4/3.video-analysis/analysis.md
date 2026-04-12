@@ -188,130 +188,424 @@ Frame 29 with timestamp (0.967000s) is the first motion deviation from a stable 
 In order to identify the key impact events in the motion we will start from a stable state of 3 frames prior to Frame 29 (ie. Frame 26 0.867000).
 
 ```bash
-$ python ../../tools/3.identify-impact-events.py --video ../.bin/key-seq-video-cropped.mkv -t0 0.867000 -lyp -10 -fs 0.4 --gps-json ../2.spatial-analysis/target-camera-gps.json --hfov
--json ../2.spatial-analysis/hfov-config.json 
-Dist: 5.94m | Subject-Bearing: 63.00° | Camera-Bearing: 257.96° | hfov_deg: 20.28° | relative_angle: 165.04° |  SHOULDER_WIDTH | Scaling: 0.0061 m/px
+$ python ../../tools/3.identify-impact-events.py --video ../.bin/key-seq-video-cropped.mkv -t0 0.867000 -lyp -10 -fs 0.4 --gps-json ../2.spatial-analysis/target-camera-gps.jso
+n --hfov-json ./hfov-config.json 
+Dist: 5.94m | Subject-Bearing: 63.00° | Camera-Bearing: 257.96° | hfov_deg: 8.08° | relative_angle: 165.04° |  SHOULDER_WIDTH | Scaling: 0.0024 m/px
 
 Analysis complete with GPS Reference Bearing: 257.96°
 - Reports:
     1. 3.identify-impact-events.csv
     2. 3.identify-impact-events-motion-summary.csv
-- Visuals: 3.identify-impact-events-kinematic-profile.png, 18 event overlay(s) generated.
+- Visuals: 3.identify-impact-events-kinematic-profile.png, 11 event overlay(s) generated.
 ```
 
 ```csv 3.identify-impact-events.csv
 Motion_Ref,V_Time,Offset(ms),Vel_mps,Accel_mps2,Jerk_mps3,Origin
-1,0.9,33.33,3.55,106.38,3191.49,E (100°)
-2,0.934,66.67,2.64,-27.24,-4008.66,E (96°)
-3,0.967,100.0,1.18,-43.78,-496.19,SE (156°)
-4,1.0,133.33,4.93,112.41,4685.64,SW (227°)
-5,1.034,166.67,2.46,-74.05,-5593.79,W (254°)
-6,1.067,200.0,3.09,19.12,2795.23,N/A
-7,1.1,233.33,4.84,52.43,999.15,N (9°)
-8,1.134,266.67,8.53,110.6,1745.04,W (258°)
-9,1.167,300.0,7.29,-37.04,-4429.17,N (341°)
-10,1.2,333.33,2.56,-142.01,-3148.9,W (284°)
-11,1.234,366.67,5.38,84.72,6801.81,NW (307°)
-12,1.267,400.0,6.35,28.93,-1673.72,E (71°)
-13,1.3,433.33,15.02,260.23,6939.04,SW (241°)
-14,1.334,466.67,14.65,-11.34,-8147.06,W (259°)
-15,1.367,500.0,8.59,-181.56,-5106.75,W (292°)
-16,1.4,533.33,5.41,-95.65,2577.31,N (338°)
-17,1.434,566.67,4.17,-37.18,1754.18,NW (318°)
-18,1.467,600.0,5.3,33.98,2134.74,NE (25°)
-19,1.5,633.33,3.31,-59.61,-2807.58,NE (49°)
-20,1.534,666.67,4.11,23.98,2507.65,NE (36°)
-21,1.567,700.0,3.22,-26.71,-1520.63,NE (39°)
-22,1.6,733.33,2.63,-17.75,268.77,NE (35°)
-23,1.634,766.67,2.69,1.73,584.19,NW (319°)
-24,1.667,800.0,1.85,-25.2,-807.81,N/A
-25,1.7,833.33,2.2,10.63,1074.95,N (340°)
-26,1.734,866.67,2.92,21.51,326.47,NW (313°)
-27,1.767,900.0,4.29,41.07,586.66,NW (334°)
-28,1.8,933.33,4.02,-8.01,-1472.43,N (353°)
-29,1.834,966.67,2.49,-45.99,-1139.23,NW (337°)
-30,1.867,1000.0,3.67,35.38,2441.1,N (344°)
-31,1.9,1033.33,2.35,-39.64,-2250.77,S (178°)
-32,1.934,1066.67,2.2,-4.34,1059.06,N/A
-33,1.967,1100.0,2.13,-2.1,67.24,NW (306°)
-34,2.0,1133.33,2.78,19.44,646.28,NW (293°)
-35,2.034,1166.67,3.38,18.12,-39.71,W (285°)
-36,2.067,1200.0,3.39,0.24,-536.49,NW (308°)
-37,2.1,1233.33,3.02,-11.26,-344.93,NW (308°)
-38,2.134,1266.67,2.86,-4.81,193.47,NW (313°)
-39,2.167,1300.0,2.21,-19.39,-437.42,NW (304°)
-40,2.2,1333.33,2.8,17.74,1113.86,W (292°)
-41,2.234,1366.67,2.55,-7.64,-761.22,W (263°)
-42,2.267,1400.0,2.78,6.9,436.11,NW (297°)
-43,2.3,1433.33,2.54,-6.98,-416.3,SW (238°)
-44,2.334,1466.67,3.49,28.26,1057.13,W (248°)
-45,2.367,1500.0,4.15,19.8,-253.93,W (261°)
-46,2.4,1533.33,2.72,-42.9,-1880.9,W (248°)
-47,2.434,1566.67,2.19,-15.82,812.45,SW (221°)
-48,2.467,1600.0,3.56,41.18,1710.0,SW (225°)
-49,2.5,1633.33,1.78,-53.51,-2840.78,S (164°)
-50,2.534,1666.67,2.69,27.25,2422.96,SE (122°)
-51,2.567,1700.0,2.99,9.22,-540.92,SE (131°)
-52,2.6,1733.33,2.52,-14.24,-703.81,SE (141°)
-53,2.634,1766.67,3.82,39.0,1597.19,E (96°)
-54,2.667,1800.0,3.74,-2.36,-1240.98,SE (131°)
-55,2.7,1833.33,5.06,39.73,1262.7,SE (132°)
-56,2.734,1866.67,6.14,32.37,-220.81,SE (136°)
-57,2.767,1900.0,2.73,-102.32,-4040.59,S (162°)
-58,2.8,1933.33,2.66,-2.27,3001.42,E (110°)
-59,2.834,1966.67,4.21,46.61,1466.37,SE (137°)
-60,2.867,2000.0,7.19,89.34,1282.14,SE (131°)
-61,2.9,2033.33,5.78,-42.11,-3943.75,N (16°)
-62,2.934,2066.67,4.33,-43.7,-47.65,S (177°)
-63,2.967,2100.0,8.94,138.26,5458.92,S (180°)
-64,3.0,2133.33,0.05,-266.56,-12144.53,W (264°)
-65,3.034,2166.67,4.66,138.42,12149.2,S (201°)
-66,3.067,2200.0,2.82,-55.44,-5815.81,S (166°)
-67,3.1,2233.33,4.46,49.39,3144.87,N (338°)
-68,3.134,2266.67,5.02,16.59,-983.86,E (68°)
-69,3.167,2300.0,5.37,10.78,-174.43,SE (132°)
-70,3.2,2333.33,5.8,12.72,58.35,E (73°)
-71,3.234,2366.67,19.24,403.16,11713.33,N (353°)
+1,0.9,33.33,1.4,42.02,1260.75,E (100°)
+2,0.934,66.67,1.04,-10.76,-1583.56,E (96°)
+3,0.967,100.0,0.47,-17.29,-196.01,SE (156°)
+4,1.0,133.33,1.95,44.41,1850.99,SW (227°)
+5,1.034,166.67,0.97,-29.25,-2209.74,W (254°)
+6,1.067,200.0,1.22,7.55,1104.21,N/A
+7,1.1,233.33,1.91,20.71,394.7,N (9°)
+8,1.134,266.67,3.37,43.69,689.35,W (258°)
+9,1.167,300.0,2.88,-14.63,-1749.67,N (341°)
+10,1.2,333.33,1.01,-56.1,-1243.92,W (284°)
+11,1.234,366.67,2.13,33.47,2686.94,NW (307°)
+12,1.267,400.0,2.51,11.43,-661.17,E (71°)
+13,1.3,433.33,5.93,102.8,2741.16,SW (241°)
+14,1.334,466.67,5.79,-4.48,-3218.37,W (259°)
+15,1.367,500.0,3.39,-71.72,-2017.34,W (292°)
+16,1.4,533.33,2.14,-37.79,1018.12,N (338°)
+17,1.434,566.67,1.65,-14.69,692.96,NW (318°)
+18,1.467,600.0,2.09,13.42,843.3,NE (25°)
+19,1.5,633.33,1.31,-23.55,-1109.09,NE (49°)
+20,1.534,666.67,1.62,9.47,990.61,NE (36°)
+21,1.567,700.0,1.27,-10.55,-600.7,NE (39°)
+22,1.6,733.33,1.04,-7.01,106.18,NE (35°)
+23,1.634,766.67,1.06,0.68,230.78,NW (319°)
+24,1.667,800.0,0.73,-9.96,-319.11,N/A
+25,1.7,833.33,0.87,4.2,424.64,N (340°)
+26,1.734,866.67,1.15,8.5,128.97,NW (313°)
+27,1.767,900.0,1.69,16.22,231.75,NW (334°)
+28,1.8,933.33,1.59,-3.17,-581.66,N (353°)
+29,1.834,966.67,0.98,-18.17,-450.03,NW (337°)
+30,1.867,1000.0,1.45,13.98,964.32,N (344°)
+31,1.9,1033.33,0.93,-15.66,-889.13,S (178°)
+32,1.934,1066.67,0.87,-1.71,418.37,N/A
+33,1.967,1100.0,0.84,-0.83,26.56,NW (306°)
+34,2.0,1133.33,1.1,7.68,255.3,NW (293°)
+35,2.034,1166.67,1.34,7.16,-15.69,W (285°)
+36,2.067,1200.0,1.34,0.09,-211.93,NW (308°)
+37,2.1,1233.33,1.19,-4.45,-136.26,NW (308°)
+38,2.134,1266.67,1.13,-1.9,76.43,NW (313°)
+39,2.167,1300.0,0.87,-7.66,-172.8,NW (304°)
+40,2.2,1333.33,1.11,7.01,440.01,W (292°)
+41,2.234,1366.67,1.01,-3.02,-300.71,W (263°)
+42,2.267,1400.0,1.1,2.73,172.28,NW (297°)
+43,2.3,1433.33,1.0,-2.76,-164.45,SW (238°)
+44,2.334,1466.67,1.38,11.16,417.6,W (248°)
+45,2.367,1500.0,1.64,7.82,-100.31,W (261°)
+46,2.4,1533.33,1.07,-16.95,-743.02,W (248°)
+47,2.434,1566.67,0.86,-6.25,320.95,SW (221°)
+48,2.467,1600.0,1.41,16.27,675.51,SW (225°)
+49,2.5,1633.33,0.7,-21.14,-1122.21,S (164°)
+50,2.534,1666.67,1.06,10.77,957.15,SE (122°)
+51,2.567,1700.0,1.18,3.64,-213.68,SE (131°)
+52,2.6,1733.33,0.99,-5.62,-278.03,SE (141°)
+53,2.634,1766.67,1.51,15.41,630.94,E (96°)
+54,2.667,1800.0,1.48,-0.93,-490.23,SE (131°)
+55,2.7,1833.33,2.0,15.69,498.81,SE (132°)
+56,2.734,1866.67,2.43,12.79,-87.23,SE (136°)
+57,2.767,1900.0,1.08,-40.42,-1596.17,S (162°)
+58,2.8,1933.33,1.05,-0.9,1185.66,E (110°)
+59,2.834,1966.67,1.66,18.41,579.27,SE (137°)
+60,2.867,2000.0,2.84,35.29,506.49,SE (131°)
+61,2.9,2033.33,2.28,-16.64,-1557.92,N (16°)
+62,2.934,2066.67,1.71,-17.26,-18.83,S (177°)
+63,2.967,2100.0,3.53,54.62,2156.46,S (180°)
+64,3.0,2133.33,0.02,-105.3,-4797.5,W (264°)
+65,3.034,2166.67,1.84,54.68,4799.35,S (201°)
+66,3.067,2200.0,1.11,-21.9,-2297.44,S (166°)
+67,3.1,2233.33,1.76,19.51,1242.33,N (338°)
+68,3.134,2266.67,1.98,6.55,-388.66,E (68°)
+69,3.167,2300.0,2.12,4.26,-68.9,SE (132°)
+70,3.2,2333.33,2.29,5.02,23.05,E (73°)
+71,3.234,2366.67,7.6,159.26,4627.16,N (353°)
 ```
 Dataset 3.identify-impact-events.csv
 
 
 ```csv 3.identify-impact-events-motion-summary.csv
 Key_Event#,Motion_Ref,V_Time,Offset(ms),Onset_V_Time,Vel_mps,Accel_mps2,Jerk_mps3,Nature,Tag,Origin
-0,4,1.0,133.33,0.9767,4.93,112.41,4685.64,Kinetic Strike/Secondary Force (11.5G),TDOA_SYNC_PRIORITY_1,SW (227°)
-1,8,1.134,266.67,1.0609,8.53,110.6,1745.04,Kinetic Strike/Secondary Force (11.3G),TDOA_SYNC_PRIORITY_1,W (258°)
-2,13,1.3,433.33,1.2216,15.02,260.23,6939.04,Kinetic Strike/Secondary Force (26.5G),TDOA_SYNC_PRIORITY_1,SW (241°)
-3,18,1.467,600.0,1.4522,5.3,33.98,2134.74,Impulse/Electrical Discharge Case,TDOA_SYNC_PRIORITY_2,NE (25°)
-4,20,1.534,666.67,1.5251,4.11,23.98,2507.65,Impulse/Electrical Discharge Case,TDOA_SYNC_PRIORITY_2,NE (36°)
-5,27,1.767,900.0,1.6921,4.29,41.07,586.66,Aggressive Voluntary/Reflexive Movement,REFLEX_ONSET,NW (334°)
-6,30,1.867,1000.0,1.8535,3.67,35.38,2441.1,Impulse/Electrical Discharge Case,TDOA_SYNC_PRIORITY_2,N (344°)
-7,34,2.0,1133.33,1.9733,2.78,19.44,646.28,Minor Kinetic Deviation,LOW_CONFIDENCE,NW (293°)
-8,40,2.2,1333.33,2.186,2.8,17.74,1113.86,Minor Kinetic Deviation,LOW_CONFIDENCE,W (292°)
-9,44,2.334,1466.67,2.3087,3.49,28.26,1057.13,Aggressive Voluntary/Reflexive Movement,REFLEX_ONSET,W (248°)
-10,48,2.467,1600.0,2.4443,3.56,41.18,1710.0,Impulse/Electrical Discharge Case,TDOA_SYNC_PRIORITY_2,SW (225°)
-11,50,2.534,1666.67,2.5234,2.69,27.25,2422.96,Impulse/Electrical Discharge Case,TDOA_SYNC_PRIORITY_2,SE (122°)
-12,53,2.634,1766.67,2.6104,3.82,39.0,1597.19,Impulse/Electrical Discharge Case,TDOA_SYNC_PRIORITY_2,E (96°)
-13,55,2.7,1833.33,2.6704,5.06,39.73,1262.7,Aggressive Voluntary/Reflexive Movement,REFLEX_ONSET,SE (132°)
-14,60,2.867,2000.0,2.803,7.19,89.34,1282.14,Kinetic Strike/Secondary Force (9.1G),TDOA_SYNC_PRIORITY_1,SE (131°)
-15,63,2.967,2100.0,2.9423,8.94,138.26,5458.92,Kinetic Strike/Secondary Force (14.1G),TDOA_SYNC_PRIORITY_1,S (180°)
-16,65,3.034,2166.67,3.0225,4.66,138.42,12149.2,Kinetic Strike/Secondary Force (14.1G),TDOA_SYNC_PRIORITY_1,S (201°)
-17,67,3.1,2233.33,3.0851,4.46,49.39,3144.87,Kinetic Strike/Secondary Force (5.0G),TDOA_SYNC_PRIORITY_1,N (338°)
+0,4,1.0,133.33,0.9773,1.95,44.41,1850.99,Impulse/Electrical Discharge Case,TDOA_SYNC_PRIORITY_2,SW (227°)
+1,8,1.134,266.67,1.062,3.37,43.69,689.35,Aggressive Voluntary/Reflexive Movement,REFLEX_ONSET,W (258°)
+2,13,1.3,433.33,1.2221,5.93,102.8,2741.16,Kinetic Strike/Secondary Force (10.5G),TDOA_SYNC_PRIORITY_1,SW (241°)
+3,27,1.767,900.0,1.6949,1.69,16.22,231.75,Minor Kinetic Deviation,LOW_CONFIDENCE,NW (334°)
+4,48,2.467,1600.0,2.4461,1.41,16.27,675.51,Minor Kinetic Deviation,LOW_CONFIDENCE,SW (225°)
+5,53,2.634,1766.67,2.6123,1.51,15.41,630.94,Minor Kinetic Deviation,LOW_CONFIDENCE,E (96°)
+6,55,2.7,1833.33,2.6728,2.0,15.69,498.81,Minor Kinetic Deviation,LOW_CONFIDENCE,SE (132°)
+7,60,2.867,2000.0,2.8051,2.84,35.29,506.49,Aggressive Voluntary/Reflexive Movement,REFLEX_ONSET,SE (131°)
+8,63,2.967,2100.0,2.9428,3.53,54.62,2156.46,Kinetic Strike/Secondary Force (5.6G),TDOA_SYNC_PRIORITY_1,S (180°)
+9,65,3.034,2166.67,3.0228,1.84,54.68,4799.35,Kinetic Strike/Secondary Force (5.6G),TDOA_SYNC_PRIORITY_1,S (201°)
+10,67,3.1,2233.33,3.086,1.76,19.51,1242.33,Minor Kinetic Deviation,LOW_CONFIDENCE,N (338°)
 ```
 Dataset 3.identify-impact-events-motion-summary.csv
 
 
 
-### Generate Impact Events Contact Sheet
+### Gemini frame-by-frame (FBF) forensic audit
 
 ```bash
-tail -n +2 3.identify-impact-events-motion-summary.csv | while IFS=',' read -r Key_Event Motion_Ref V_Time Offset Onset_V_Time Vel_mps Accel_mps2 Jerk_mps3 Nature Tag Origin; do
-    
-    input_img="3.identify-impact-events-motion-overlay-${Key_Event}.jpg"
-    
-    label_text="Event #${Key_Event} | Onset: ${Onset_V_Time}s | Time: ${V_Time}s | ${Nature} / ${Tag} | Vel: ${Vel_mps} | Accel: ${Accel_mps2} | Origin: ${Origin}"
-    
-    convert "$input_img" \
-        -gravity South -background white -splice 0x20 \
-        -annotate +0+2 "$label_text" miff:-
-        done | montage - -tile 1x -geometry +0+0 3.identify-impact-events-motion-overlay-contact-sheet.jpg
+$ python ../../tools/3.prepare-fbf-observation-artifacts.py --video ../.bin/key-seq-video-cropped.mkv -t0 0.867000 --motion-summary ./3.identify-impact-events-motion-summary.csv -o ./observations --contact-sheet
+Artifacts ready in ./observations.
 ```
+
+
+Objective: Perform a frame-by-frame (FBF) audit of events. I am investigating five specific hypotheses (or combinations of):
+
+   1. Arc Flash: Look for localized luminosity spikes, frame-blooming, or rapid expansion of "plasma" signatures.
+   2. Electrocution: Identify "lock-on" (tetanic contraction) followed by a "release" phase. Pay specific attention to the movement of the hinged wedding ring between fingers microphone—does it appear to be repelled or dropped during a loss of muscle control?
+   3. Shaped Charge: Look for high-velocity, unidirectional debris or "jets" originating from a single point.
+   4. Gunshot/Projectile: Look for entry/exit signatures and the specific timing of the "Reflex Onset" tags vs. the "Kinetic Strike" tags.
+   5. Staged Event: Look for prosthentics, squibs and atypical blood flow.
+
+Sources:
+    1. forensic_contact_sheet.jpg
+    2. manifest.json (refer "event": 0)
+
+Requirement: 
+The event_0_evidence_strip.jpg refers to the first strip in the forensic_contact_sheet.jpg file. Each strip contains five consecutive frames from the source video with the strip's center frame representing the key kenetic event. The pre/post accompanying frames help identify changes.
+
+The task here is for each key event to make relevant observations (that contradict voluntary muscle movement) including the following:
+* body
+    - head and head hair
+    - facial deformation
+    - neck cavitation
+    - muscle movement including clenched fists, clamping knee caps, shoulder/back expansion etc
+    - projectile entry/exit wound
+    - blood flow/loss
+* clothing
+    - tshirt
+* accessories
+    - hinged wedding ring
+    - broken necklace chain propulsion
+    - microphone
+
+For event report the following
+- Event ID
+- Timestamp
+- Nature
+- Observation
+- Hypothesis evaluation
+
+Report on any "Secondary Force" signatures that exceed human reflexive capabilities (>5G).
+
+
+```json manifest.json
+[
+    {
+        "event": 1,
+        "nature": "Kinetic Strike/Secondary Force (11.3G)",
+        "timestamp": "01.167s",
+        "artifact": "event_1_evidence_strip.jpg"
+    },
+]
+```
+
+
+### Notebooklm 
+
+
+Objective: Perform a frame-by-frame (FBF) audit of events. I am investigating five specific hypotheses (or combinations of):
+
+   1. Arc Flash: Look for localized luminosity spikes, frame-blooming, or rapid expansion of "plasma" signatures.
+   2. Electrocution: Identify "lock-on" (tetanic contraction) followed by a "release" phase. Pay specific attention to the movement of the hinged wedding ring between fingers microphone—does it appear to be repelled or dropped during a loss of muscle control?
+   3. Shaped Charge: Look for high-velocity, unidirectional debris or "jets" originating from a single point.
+   4. Gunshot/Projectile: Look for entry/exit signatures and the specific timing of the "Reflex Onset" tags vs. the "Kinetic Strike" tags.
+   5. Staged Event: Look for prosthentics, squibs and atypical blood flow.
+
+Sources:
+    1. forensic_contact_sheet.jpg
+    2. manifest.json (refer "event": 0)
+
+Requirement: 
+The event_0_evidence_strip.jpg refers to the first strip in the forensic_contact_sheet.jpg file. Each strip contains five consecutive frames from the source video with the strip's center frame representing the key kenetic event. The pre/post accompanying frames help identify changes.
+
+The task here is for each key event to make relevant observations (that contradict voluntary muscle movement) including the following:
+* body
+    - head and head hair
+    - facial deformation
+    - neck cavitation
+    - muscle movement including clenched fists, clamping knee caps, shoulder/back expansion etc
+    - projectile entry/exit wound
+    - blood flow/loss
+* clothing
+    - tshirt
+* accessories
+    - hinged wedding ring
+    - broken necklace chain propulsion
+    - microphone
+
+For event report the following
+- Event ID
+- Timestamp
+- Nature
+- Observation
+- Hypothesis evaluation
+
+Report on any "Secondary Force" signatures that exceed human reflexive capabilities (>5G).
+
+
+---
+
+
+Deepseek
+
+
+### **Prompt: Frame-by-Frame Forensic Audit of Events**
+
+You are tasked with performing a high-precision, frame-by-frame (FBF) forensic audit of a sequence of events captured in a video. Your analysis must be based exclusively on the provided visual and metadata sources.
+
+#### **Sources**
+1.  **`forensic_contact_sheet.jpg`**: A single composite image containing multiple horizontal strips. Each strip consists of five consecutive video frames, with the center frame (the third frame) representing a key kinetic event. The two frames before and after provide context for movement and change.
+2.  **`manifest.json`**: A structured file listing each event, its timestamp, its nature, and the artifact name that maps to a specific strip in `forensic_contact_sheet.jpg`. For example, `event_0_evidence_strip.jpg` refers to the first strip in the contact sheet.
+3.  **Image Scaling**: The spatial resolution is **0.0024 meters per pixel (m/px)**. All observations of distance, displacement, or deformation must be quantified using this scale where applicable.
+
+#### **Analysis Methodology**
+For each event entry in `manifest.json`:
+1.  **Locate the Strip**: Identify the corresponding strip in `forensic_contact_sheet.jpg` using the `artifact` field.
+2.  **Analyze the Sequence**: Perform a frame-by-frame analysis across all five frames of the strip. Use the pre-impact frames (frames 1-2) to establish baseline positioning and the post-impact frames (frames 4-5) to identify changes, movements, or effects resulting from the key event.
+3.  **Focus on the Center Frame**: The center frame (the third frame) captures the apex of the key kinetic event. Your detailed observations must prioritize this frame while contextualizing it with changes observed across the sequence.
+
+#### **Observable Features of Interest**
+Systematically examine the following features for each event. Note both presence and absence of these features. Quantify changes (e.g., displacement in meters, angular rotation) using the image scale (0.0024 m/px) where possible.
+
+- **Body**:
+    - **Head**: Head and head hair movement (direction, velocity), facial deformation (e.g., cheek compression, eye closure).
+    - **Neck**: Cavitation, torsion, or rapid flexion/extension.
+    - **Torso**: Chest compression or expansion, shoulder/back expansion, spinal alignment changes.
+    - **Limbs**: Position and movement of fingers, hands, arms, legs. Note muscle contractions such as clenched fists, clamping knee caps, or rigid posturing.
+    - **Trauma**: Appearance of projectile entry/exit wounds (location, size, shape). Blood flow/loss (pattern, trajectory, volume).
+
+- **Clothing**:
+    - Unusual t-shirt movement (e.g., billowing, snapping, tearing) that indicates force transfer or projectile passage.
+
+- **Accessories**:
+    - **Wedding Ring**: Movement of a hinged wedding ring, particularly displacement between fingers or rotation.
+    - **Necklace**: Broken necklace chain propulsion—note trajectory, velocity, and final resting position relative to the body.
+    - **Handheld Microphone**: Movement, displacement, or loss of grip. **Note**: There was no wired earpiece; therefore, any microphone movement is independent of a tether.
+
+#### **Output Format**
+For each event, provide a report structured as follows:
+
+```
+### Event ID: [ID]
+- **Timestamp**: [Timestamp from manifest]
+- **Nature**: [Nature from manifest]
+- **Center Frame Analysis**: A concise summary of the key kinetic event as seen in the third frame.
+- **Detailed Observations**:
+    - **Baseline (Frames 1-2)**: Briefly describe the pre-impact state of relevant observable features.
+    - **Key Event (Frame 3)**: Detail observations with respect to all relevant observable features, quantifying motion or deformation using the scale where possible.
+    - **Post-Event Changes (Frames 4-5)**: Describe how observable features have changed from the center frame, noting new positions, continuing movement, or emerging effects (e.g., blood flow, secondary movements).
+- **Quantified Measurements** (if applicable): List any calculated displacements, velocities, or angular changes in meters or m/s, referencing the image scale.
+```
+
+#### **Example Entry (Illustrative)**
+
+```
+### Event ID: 0
+- **Timestamp**: 01.033s
+- **Nature**: Impulse/Electrical Discharge Case
+- **Center Frame Analysis**: Sudden rigid extension of the torso and arms, accompanied by rapid head hair displacement.
+- **Detailed Observations**:
+    - **Baseline (Frames 1-2)**: Subject is standing with relaxed posture. Hands are open, held at waist level. Head hair is still.
+    - **Key Event (Frame 3)**: Torso extends backward ~0.12m (approx. 50px). Head hair is fully displaced upward and outward. Fingers are hyperextended. No projectile wound visible on the chest.
+    - **Post-Event Changes (Frames 4-5)**: Subject begins to fall backward. Torso compression returns to baseline. Head hair begins to settle. No blood loss observed.
+- **Quantified Measurements**: Torso displacement: 0.12m posterior. Head hair rise: 0.07m.
+```
+
+---
+
+#### **Instructions for Execution**
+1.  Begin by reviewing `manifest.json` to understand the sequence and nature of events.
+2.  Load `forensic_contact_sheet.jpg` and sequentially analyze each strip per the methodology.
+3.  Ensure every observation is tied to a specific frame (e.g., “Frame 2 shows...”) to maintain forensic traceability.
+4.  If a feature is not observable (e.g., obscured, out of frame), explicitly state “Not observable in this strip.”
+5.  Maintain a neutral, objective tone. Avoid inferring intent or causation unless directly supported by visual evidence across frames.
+
+Proceed with the forensic audit.
+
+Based on a high-precision frame-by-frame analysis of `forensic_contact_sheet.jpg` and the metadata in `manifest.json`, here is the forensic audit of events 0 through 10.
+
+---
+
+### Event ID: 0
+- **Timestamp**: 01.033s
+- **Nature**: Impulse/Electrical Discharge Case
+- **Center Frame Analysis**: Frame 3 captures the sudden onset of rigid extension throughout the body. The torso is thrust backward and upward, while the arms are forcefully extended downward.
+- **Detailed Observations**:
+    - **Baseline (Frames 1-2)**: Subject is standing in a neutral, relaxed posture. The head is upright, and the arms are held loosely at the sides. The t-shirt fits normally against the torso. No facial deformation is visible.
+    - **Key Event (Frame 3)**: The subject’s body is in a state of rigid extension. The head is thrown back, causing the hair to displace upward. The chest appears expanded and the torso is arched backward. The arms are fully extended downward with fingers splayed. The t-shirt shows significant tension across the chest and shoulders, but no billowing indicative of a projectile passage is observed.
+    - **Post-Event Changes (Frames 4-5)**: The body begins to relax from the extended posture. The subject is descending back toward a neutral stance, with the head and arms returning toward the baseline position. No blood loss or secondary movements are observed.
+- **Quantified Measurements**: Head displacement: Approx. 0.10m (42px) upward. Torso extension: Approx. 0.07m (29px) backward.
+
+---
+
+### Event ID: 1
+- **Timestamp**: 01.167s
+- **Nature**: Aggressive Voluntary/Reflexive Movement
+- **Center Frame Analysis**: Frame 3 shows a rapid, forceful flexion of the arms and torso forward from the baseline posture established in Event 0.
+- **Detailed Observations**:
+    - **Baseline (Frames 1-2)**: The subject is returning to a neutral stance after Event 0. The posture is upright, and the arms are beginning to relax at the sides.
+    - **Key Event (Frame 3)**: The torso snaps forward into a crouching position. The arms are thrust forward and downward. The head is also forward, obscuring facial detail. The t-shirt bunches around the neck and shoulders, indicating rapid deceleration of the torso.
+    - **Post-Event Changes (Frames 4-5)**: The subject remains in the forward-flexed, crouched posture. There is a slight settling of the clothing but no further gross motor movement. No blood loss is observed.
+- **Quantified Measurements**: Torso displacement: Approx. 0.09m (38px) forward.
+
+---
+
+### Event ID: 2
+- **Timestamp**: 01.333s
+- **Nature**: Kinetic Strike/Secondary Force (10.5G)
+- **Center Frame Analysis**: Frame 3 captures the precise moment of impact to the subject’s left side, resulting in visible cavitation of the left torso and a high-velocity rotation of the head and hair.
+- **Detailed Observations**:
+    - **Baseline (Frames 1-2)**: The subject is in a stable, forward-crouched posture. The t-shirt hangs evenly around the torso. The head is stable, with hair still.
+    - **Key Event (Frame 3)**: A distinct, localized compression is observed on the left side of the torso, causing the t-shirt to snap taut against the chest. The head is violently rotated to the right (subject’s left), with hair fully displaced in the direction of rotation. The arms remain extended forward, but the left shoulder appears to be driven downward.
+    - **Post-Event Changes (Frames 4-5)**: The compression on the left torso has released. The subject begins to be driven backward from the crouched position. The head continues its rotation to the right before starting to settle. No blood loss is observed.
+- **Quantified Measurements**: Torso compression: Approx. 0.05m (21px) inward. Head rotation: Approx. 45 degrees rightward. Estimated head velocity: ~4.3 m/s (based on displacement over 0.033s).
+
+---
+
+### Event ID: 3
+- **Timestamp**: 01.800s
+- **Nature**: Minor Kinetic Deviation
+- **Center Frame Analysis**: Frame 3 depicts a subtle but sharp lateral displacement of the head and torso, indicative of a low-energy transfer.
+- **Detailed Observations**:
+    - **Baseline (Frames 1-2)**: The subject is beginning to recover from the previous kinetic strike, with posture uprighting and head centering.
+    - **Key Event (Frame 3)**: The subject’s head and upper torso are rapidly displaced to the left (subject’s right). The head hair shows a distinct snap in that direction. The t-shirt shows no localized compression or billowing.
+    - **Post-Event Changes (Frames 4-5)**: The subject’s body begins to correct its posture, returning toward a neutral vertical alignment. The hair settles. No blood loss or clothing damage is observed.
+- **Quantified Measurements**: Head displacement: Approx. 0.05m (21px) lateral. Torso displacement: Approx. 0.04m (17px) lateral.
+
+---
+
+### Event ID: 4
+- **Timestamp**: 02.500s
+- **Nature**: Minor Kinetic Deviation
+- **Center Frame Analysis**: Frame 3 shows a sharp backward rotation of the head, with visible tension in the neck and shoulder area.
+- **Detailed Observations**:
+    - **Baseline (Frames 1-2)**: The subject is standing with a stable, upright posture. Head is facing forward, and the t-shirt is motionless against the torso.
+    - **Key Event (Frame 3)**: The head is thrust backward and to the left (subject’s right), causing the hair to be displaced in that direction. The neck shows visible torsion. The shoulders are square, but the right shoulder is slightly raised.
+    - **Post-Event Changes (Frames 4-5)**: The head returns to a neutral position. The hair settles. The t-shirt remains undisturbed. No blood loss observed.
+- **Quantified Measurements**: Head displacement: Approx. 0.08m (33px) backward. Neck rotation: Approx. 30 degrees.
+
+---
+
+### Event ID: 5
+- **Timestamp**: 02.667s
+- **Nature**: Minor Kinetic Deviation
+- **Center Frame Analysis**: Frame 3 captures a rapid, forward flexion of the head and a tensing of the upper back, causing the t-shirt to snap taut across the shoulders.
+- **Detailed Observations**:
+    - **Baseline (Frames 1-2)**: The subject’s head is in a neutral position after Event 4. Posture is upright, and the t-shirt fits normally.
+    - **Key Event (Frame 3)**: The head is snapped forward, with the chin moving toward the chest. The upper back appears to expand, creating a “caving” effect in the t-shirt across the shoulders and upper back. The arms remain at the sides.
+    - **Post-Event Changes (Frames 4-5)**: The head returns to a neutral position. The tension in the t-shirt relaxes, and it returns to its normal drape. No blood loss observed.
+- **Quantified Measurements**: Head displacement: Approx. 0.07m (29px) forward. T-shirt shoulder expansion: Approx. 0.04m (17px).
+
+---
+
+### Event ID: 6
+- **Timestamp**: 02.733s
+- **Nature**: Minor Kinetic Deviation
+- **Center Frame Analysis**: Frame 3 shows a downward, compressive force on the torso, causing a distinct buckling of the t-shirt at the waistline.
+- **Detailed Observations**:
+    - **Baseline (Frames 1-2)**: The subject is in a neutral, upright posture. The t-shirt is motionless.
+    - **Key Event (Frame 3)**: A downward compression is visible on the torso. The waistline of the t-shirt appears to fold or buckle inward. The head and shoulders remain relatively stable, suggesting the force is directed downward through the core. Arms are still.
+    - **Post-Event Changes (Frames 4-5)**: The torso returns to its normal height, and the t-shirt unfolds to its baseline drape. No blood loss or further movement observed.
+- **Quantified Measurements**: Torso compression: Approx. 0.03m (13px) vertical reduction.
+
+---
+
+### Event ID: 7
+- **Timestamp**: 02.900s
+- **Nature**: Aggressive Voluntary/Reflexive Movement
+- **Center Frame Analysis**: Frame 3 captures a powerful, upward thrust of both arms, with the hands rising above the head in a defensive or startle posture.
+- **Detailed Observations**:
+    - **Baseline (Frames 1-2)**: The subject’s arms are relaxed and down at the sides.
+    - **Key Event (Frame 3)**: Both arms are forcefully thrown upward. The hands are open, with fingers splayed, and are elevated above the head. The torso is extended slightly backward, and the head is thrown back in response to the upward momentum of the arms.
+    - **Post-Event Changes (Frames 4-5)**: The arms begin to descend from the apex of their movement. The head returns to a forward-facing position. The t-shirt is pulled up, exposing the lower abdomen before settling back.
+- **Quantified Measurements**: Arm displacement: Approx. 0.55m (229px) upward.
+
+---
+
+### Event ID: 8
+- **Timestamp**: 03.000s
+- **Nature**: Kinetic Strike/Secondary Force (5.6G)
+- **Center Frame Analysis**: Frame 3 depicts a high-energy transfer to the upper chest, resulting in a distinct, localized compression of the torso and a violent backward snap of the head.
+- **Detailed Observations**:
+    - **Baseline (Frames 1-2)**: The subject’s arms are descending from the previous movement, and posture is upright.
+    - **Key Event (Frame 3)**: A distinct, focused compression is visible on the upper right chest. The t-shirt is driven inward, creating a deep “pocket” in the fabric. The head is violently snapped backward, with the hair fully displaced. The arms are driven outward and upward from the force of the impact.
+    - **Post-Event Changes (Frames 4-5)**: The compression on the chest releases, and the t-shirt snaps back to its baseline shape. The subject’s body is driven backward from the impact, and the head continues its backward rotation. No blood loss observed.
+- **Quantified Measurements**: Chest compression depth: Approx. 0.07m (29px). Head displacement: 0.12m (50px) backward.
+
+---
+
+### Event ID: 9
+- **Timestamp**: 03.067s
+- **Nature**: Kinetic Strike/Secondary Force (5.6G)
+- **Center Frame Analysis**: Frame 3 shows a second, distinct kinetic transfer to the left side of the abdomen, causing lateral compression of the torso and a rapid rotation of the head.
+- **Detailed Observations**:
+    - **Baseline (Frames 1-2)**: The subject is still in motion from Event 8, moving backward with head thrown back.
+    - **Key Event (Frame 3)**: A localized compression is observed on the left side of the abdomen. The t-shirt is driven inward. The head, which was already in motion, is violently rotated to the right (subject’s left), causing the hair to whip in that direction. The arms are driven away from the body.
+    - **Post-Event Changes (Frames 4-5)**: The torso compression releases. The subject’s backward momentum is arrested, and the body begins to crumple forward. The head continues its rotation before slowing.
+- **Quantified Measurements**: Torso compression: Approx. 0.06m (25px). Head rotation: Approx. 35 degrees rightward from its previous position.
+
+---
+
+### Event ID: 10
+- **Timestamp**: 03.133s
+- **Nature**: Minor Kinetic Deviation
+- **Center Frame Analysis**: Frame 3 captures a sharp, isolated movement of the right arm and shoulder, with no corresponding movement of the head or torso.
+- **Detailed Observations**:
+    - **Baseline (Frames 1-2)**: The subject’s body is in a state of collapse after Event 9, with the torso bent forward and the head down. The right arm is hanging loosely.
+    - **Key Event (Frame 3)**: The right arm is abruptly and independently thrust backward, with the hand opening. The shoulder is pulled back. The head, neck, and torso show no correlating movement or cavitation, indicating the movement may be voluntary or a localized reflex. The t-shirt on the right side is pulled taut by the arm movement.
+    - **Post-Event Changes (Frames 4-5)**: The right arm begins to return to its resting position. The subject continues to crumple forward. No blood loss observed.
+- **Quantified Measurements**: Right arm displacement: Approx. 0.18m (75px) backward.

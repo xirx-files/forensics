@@ -47,17 +47,19 @@ Table estimated measurements
 
 
 
-| # |                           | P-n-P                   | Millimeters |        |                  |  Ratio            | Base elevation (m) |
-|---|---------------------------|-------------------------|-------------|--------|------------------|-------------------|--------------------|
-| 1 | Google Earth yardstick    | 1102.00                 | 14700.00    |        |                  | 13.34             | 1401               |
-| 2 |                           |                         |             |        |                  |                   |                    |
-| 3 |                           | World-coordinate-system |             |        | Google-earth-GPS |                   |                    |
-| 4 | Feature                   | x                       | y           | z      | lat              | lon               | elevation          |
-| 5 | North speaker             | 3533.00                 | 950.00      | 204.81 | 40.2775627642768 | -111.714047818602 | 1403.732083        |
-| 6 | Center north speaker      | 3316.00                 | 1084.00     | 188.45 | 40.2775466124262 | -111.714013612385 | 1403.513785        |
-| 7 | Center south speaker      | 3025.00                 | 1110.00     | 177.40 | 40.2775165615533 | -111.713989351347 | 1403.366405        |
-| 8 | South speaker             | 2763.00                 | 1142.00     | 221.68 | 40.2774899744697 | -111.713966300153 | 1403.957025        |
-| 9 | Audience microphone stand | 3181.00                 | 1074.00     | 102.69 | 40.2775314668336 | -111.714005459209 | 1402.369802        |
+| #  |                           | Editor Size (Pt)        | Millimeters |        |                  |  Ratio            | Base elevation (m) |
+|----|---------------------------|-------------------------|-------------|--------|------------------|-------------------|--------------------|
+| 1  | Google Earth yardstick    | 1102.00                 | 14700.00    |        |                  | 13.34             | 1401               |
+| 2  |                           |                         |             |        |                  |                   |                    |
+| 3  |                           | World-coordinate-system |             |        | Google-earth-GPS |                   |                    |
+| 4  | Feature                   | x                       | y           | z      | lat              | lon               | elevation          |
+| 5  | North speaker             | 3533.00                 | 950.00      | 204.81 | 40.2775627642768 | -111.714047818602 | 1403.732083        |
+| 6  | Center north speaker      | 3316.00                 | 1084.00     | 188.45 | 40.2775466124262 | -111.714013612385 | 1403.513785        |
+| 7  | Center south speaker      | 3025.00                 | 1110.00     | 177.40 | 40.2775165615533 | -111.713989351347 | 1403.366405        |
+| 8  | South speaker             | 2763.00                 | 1142.00     | 221.68 | 40.2774899744697 | -111.713966300153 | 1403.957025        |
+| 9  | CK speaker (under table)  | 3180.00                 | 930.00      | 0.00   | 40.2775234970147 | -111.714025635114 | 1401.000000        |
+| 10 | CK microphone             | 3180.00                 | 873.00      | 87.79  | 40.2775203851023 | -111.714033649438 | 1402.171097        |
+| 11 | Audience microphone stand | 3181.00                 | 1074.00     | 102.69 | 40.2775314668336 | -111.714005459209 | 1402.369802        |
 
 Table coordinate system cross-reference
 
@@ -84,6 +86,11 @@ Table coordinate system cross-reference
         "y": 1142.00
     },
     {
+        "Feature": "CK speaker under table",
+        "x": 3180.00, 
+        "y": 930.00
+    },
+    {
         "Feature": "CK microphone",
         "x": 3180.00, 
         "y": 873.00
@@ -97,12 +104,12 @@ Table coordinate system cross-reference
 ```
 
 ```bash
-$ python ../tools/world-coordinate-system.py -v world-coordinate-system_to_gps_lamp-posts.json stage-area/stage-area-mapping.json  stage-area/stage-area-mapping-out.json 
+$ python ../tools/2.world-coordinate-system.py -v -m world-coordinate-system_to_gps_lamp-posts.json -i stage-area/stage-area-mapping.json -o stage-area/stage-area-mapping-out.json 
 --- Mapping Model Status ---
 RMSE: 0.00000129 Degrees
 Approximate ground error: 0.143 meters
 ----------------------------
-Successfully processed 6 entries to stage-area/stage-area-mapping-out.json
+Successfully processed 7 entries to stage-area/stage-area-mapping-out.json
 ```
 
 ```json stage-area-mapping-out.json
@@ -122,6 +129,10 @@ Successfully processed 6 entries to stage-area/stage-area-mapping-out.json
     {
         "lat": 40.277489974469745,
         "lon": -111.71396630015255
+    },
+    {
+        "lat": 40.277523497014705,
+        "lon": -111.71402563511377
     },
     {
         "lat": 40.277520385102314,
