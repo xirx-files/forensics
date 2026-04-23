@@ -179,20 +179,3 @@ From_Feature,To_Feature,Distance_Meters,Lat_1,Lon_1,Ele_1,Lat_2,Lon_2,Ele_2
     }
 }
 ```
-
-```json hfov-config.json
-{
-    "subject_dimensions": {
-        "shoulder_width_m": 0.480,
-        "chest_depth_m": 0.216,
-        "subject_facing_bearing": 63,
-        "pixel_width": 200
-    },
-    "camera_specs": {
-        "frame_width_px": 886
-    },
-    "logic_thresholds": {
-        "catchment_angle_deg": 45
-    }
-}
-```

@@ -1,13 +1,13 @@
 {
     "subject_dimensions": {
-        "shoulder_width_m": 0.480,
-        "chest_depth_m": 0.216,
+        "shoulder_width_m": 0.472,
+        "chest_depth_m": 0.318,
         "subject_facing_bearing": 63,
-        "pixel_width": 200
+        "pixel_width": 204
     },
     "camera_specs": {
-        "frame_width_px": 350,
-        "device": "unknown smart phone",
+        "frame_width_px": 380,
+        "device": "unknown android smart phone",
         "orientation": "portrait",
         "mic_channel_1": "top",
         "mic_channel_2": "bottom"

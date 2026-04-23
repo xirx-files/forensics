@@ -1,0 +1,64 @@
+Event_ID,Frame_Type,Measurement_Group,Measurement_Name,Value_cm,Value_deg,Notes
+0,baseline,Head,forward_tilt_deg,,,opposite = abs(pose.nose.y – avg([pose.left_shoulder.y,pose.right_shoulder.y])); hypot = opposite @ event[0].baseline (ie. prior to 1st impact frame)
+0,baseline,Head,lateral_tilt_deg,,,positive=right
+0,baseline,Neck,neck_width_cm,,,at narrowest visible point
+0,baseline,Neck,neck_cavitation_cm,,,if present (0 if none)
+0,baseline,Face,cheek_to_cheek_width_cm,,,horizontal distance between zygomatic prominences
+0,baseline,Face,facial_deformation_width_cm,,,if swelling/bruising changes width
+0,baseline,UpperBody,forward_tilt_cm,,,from vertical reference (e.g. sternum to wall)
+0,baseline,UpperBody,lateral_tilt_deg,,,
+0,baseline,LeftArm,humerus_angle_deg,,,relative to horizontal (0=horizontal)
+0,baseline,LeftArm,radius_angle_deg,,,relative to humerus (0=straight)
+0,baseline,LeftArm,distance_from_lap_cm,,,vertical distance from elbow to thigh
+0,baseline,RightArm,humerus_angle_deg,,,
+0,baseline,RightArm,radius_angle_deg,,,
+0,baseline,RightArm,distance_from_lap_cm,,,
+0,baseline,LeftHand,clench_score,,,1=open ... 5=fist
+0,baseline,RightHand,clench_score,,,
+0,baseline,Legs,inter_knee_distance_cm,,,horizontal gap between patellae
+0,baseline,LeftLeg,tibia_angle_deg,,,from vertical (0=vertical)
+0,baseline,RightLeg,tibia_angle_deg,,,
+0,baseline,Wounds,location_1,,,e.g. "left cheek"
+0,baseline,Wounds,blood_flow_rate,,,e.g. "slow ooze" / "pulsatile" / "flowing" / "none"
+0,onset,Head,forward_tilt_cm,,,
+0,onset,Head,lateral_tilt_deg,,,
+0,onset,Neck,neck_width_cm,,,
+0,onset,Neck,neck_cavitation_cm,,,
+0,onset,Face,cheek_to_cheek_width_cm,,,
+0,onset,Face,facial_deformation_width_cm,,,
+0,onset,UpperBody,forward_tilt_cm,,,
+0,onset,UpperBody,lateral_tilt_deg,,,
+0,onset,LeftArm,humerus_angle_deg,,,
+0,onset,LeftArm,radius_angle_deg,,,
+0,onset,LeftArm,distance_from_lap_cm,,,
+0,onset,RightArm,humerus_angle_deg,,,
+0,onset,RightArm,radius_angle_deg,,,
+0,onset,RightArm,distance_from_lap_cm,,,
+0,onset,LeftHand,clench_score,,,
+0,onset,RightHand,clench_score,,,
+0,onset,Legs,inter_knee_distance_cm,,,
+0,onset,LeftLeg,tibia_angle_deg,,,
+0,onset,RightLeg,tibia_angle_deg,,,
+0,onset,Wounds,location_1,,,
+0,onset,Wounds,blood_flow_rate,,,
+0,peak,Head,forward_tilt_cm,,,
+0,peak,Head,lateral_tilt_deg,,,
+0,peak,Neck,neck_width_cm,,,
+0,peak,Neck,neck_cavitation_cm,,,
+0,peak,Face,cheek_to_cheek_width_cm,,,
+0,peak,Face,facial_deformation_width_cm,,,
+0,peak,UpperBody,forward_tilt_cm,,,
+0,peak,UpperBody,lateral_tilt_deg,,,
+0,peak,LeftArm,humerus_angle_deg,,,
+0,peak,LeftArm,radius_angle_deg,,,
+0,peak,LeftArm,distance_from_lap_cm,,,
+0,peak,RightArm,humerus_angle_deg,,,
+0,peak,RightArm,radius_angle_deg,,,
+0,peak,RightArm,distance_from_lap_cm,,,
+0,peak,LeftHand,clench_score,,,
+0,peak,RightHand,clench_score,,,
+0,peak,Legs,inter_knee_distance_cm,,,
+0,peak,LeftLeg,tibia_angle_deg,,,
+0,peak,RightLeg,tibia_angle_deg,,,
+0,peak,Wounds,location_1,,,
+0,peak,Wounds,blood_flow_rate,,,
