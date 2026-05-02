@@ -542,7 +542,12 @@ python ../../tools/3.prepare-observation-measurements_v2.py \
 
 
 ```bash
-python ../../tools/3.prepare-fbf-observation-artifacts_v5.py --motion-summary 3.identify-impact-events-motion-summary.csv --video ../.bin/key-seq-video-cropped-brightened.mkv --output-dir fbf_artifacts --scale-cm 10 --m-per-px 0.0023 --interpolation-range 20
+# generate pose measurements
+python ../../tools/3.generate-pose-measurements.py --front-facing-subject-standing-img ../../analysis-considerations/features/younger-CK-standing.jpg --subject-height-cm 195.58 --gen-overlay ../../analysis-considerations/features/younger-CK-standing-overlay.png --gen-pose-model ../../analysis-considerations/features/younger-CK-standing-pose_model.csv --gen-pose-metrics ../../analysis-considerations/features/younger-CK-standing-pose_metrics.csv
+
+
+# generate background strips & pose-model.csv
+python ../../tools/3.prepare-fbf-observation-artifacts_v5.py --motion-summary 3.identify-impact-events-motion-summary.csv --video ../.bin/key-seq-video-cropped.mkv --output-dir fbf_artifacts --scale-cm 10 --m-per-px 0.0023 --interpolation-range 20
 
 
 python ../../tools/3.generate-pose-overlay-strips_v2.py \
@@ -550,6 +555,15 @@ python ../../tools/3.generate-pose-overlay-strips_v2.py \
     --strips-dir ./fbf_artifacts \
     --output-dir ./fbf_artifacts 
 
+# generate original pose-model.csv overlays
+python ../../tools/3.generate-pose-overlay-strips_v2.py --pose-model ./fbf_artifacts/pose_model-original.csv --strips-dir ./fbf_artifacts --output-dir ./fbf_artifacts/original --only-strips --skip-background
+
+# generate (fine-tuned) pose_model-finetuned.csv overlays
+python ../../tools/3.generate-pose-overlay-strips_v2.py --pose-model ./fbf_artifacts/pose_model-finetuned.csv --strips-dir ./fbf_artifacts --output-dir ./fbf_artifacts/finetuned --only-strips --skip-background
+
+
+
+python ../../tools/3.generate-pose-overlay-strips_v2.py --pose-model ./fbf_artifacts/pose_model-finetuned.csv --strips-dir ./fbf_artifacts --output-dir ./fbf_artifacts/overlays --only-strips
 ```
 
 

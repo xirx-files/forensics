@@ -185,7 +185,7 @@ def main():
         event_id = int(row['Key_Event#'])
         onset_time = row['Onset_V_Time']
         peak_time = row['V_Time']
-        baseline_time = onset_time - 0.033   # one frame before onset
+        baseline_time = onset_time - (1/fps)   # one frame before onset
 
         for label, t in [('baseline', baseline_time), ('onset', onset_time), ('peak', peak_time)]:
             frame_idx = int(round(t * fps))
@@ -223,7 +223,7 @@ def main():
         event_id = int(row['Key_Event#'])
         onset_time = row['Onset_V_Time']
         peak_time = row['V_Time']
-        baseline_time = onset_time - 0.033
+        baseline_time = onset_time - (1/fps)   # one frame before onset
 
         frames_info = []
         for label, t in [('baseline', baseline_time), ('onset', onset_time), ('peak', peak_time)]:
