@@ -53,6 +53,10 @@ $ ffmpeg -i ../.bin/key-seq-video.mkv \
   -c:a copy \
   ../.bin/key-seq-video-cropped-brightened.mkv
 
+$ ffmpeg -i ../.bin/key-seq-video.mkv \
+  -vf "$CROP_STR, unsharp=5:5:1.0:5:5:0.5, eq=contrast=1.4:brightness=0.1:saturation=1.2, histeq=strength=0.3" \
+  -c:v ffv1 -level 3 -g 1 -c:a copy \
+  ../.bin/key-seq-video-cropped-enh2.mkv
 
 
 $ python ../../tools/3.verify-lossless-crop.py --orig ../.bin/key-seq-video.mkv --crop_file ../.bin/key-seq-video-cropped.mkv --params $CROP_STR

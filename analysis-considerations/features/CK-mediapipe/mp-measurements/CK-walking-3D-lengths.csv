@@ -1,0 +1,13 @@
+mediapipe_connection,from_index,to_index,world_lms_est_m,manual_m,error_m
+shoulder_width,11,12,0.3499,0.4063,-0.06
+left_forearm,11,13,0.2178,0.3761,-0.16
+left_torso_lateral,11,23,0.4870,0.6625,-0.18
+right_forearm,12,14,0.2479,0.3761,-0.13
+right_torso_lateral,12,24,0.5334,0.6625,-0.13
+left_elbow_to_wrist,13,15,0.1706,0.317,-0.15
+right_elbow_to_wrist,14,16,0.1974,0.317,-0.12
+hip_width,23,24,0.2256,0.2217,0.00
+left_upper_leg,23,25,0.4310,0.4794,-0.05
+right_upper_leg,24,26,0.3627,0.4794,-0.12
+left_knee_to_ankle,25,27,0.3531,0.3778,-0.02
+right_knee_to_ankle,26,28,0.3853,0.3778,0.01

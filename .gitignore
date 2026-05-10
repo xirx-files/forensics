@@ -1,5 +1,11 @@
+.venv-*
+
+
 .bin/
 *.tmp.md
+*.tmp.html
+*.tmp.pdf
+*.tmp.jpg
 *.dtmp
 
 # Byte-compiled / optimized / DLL files

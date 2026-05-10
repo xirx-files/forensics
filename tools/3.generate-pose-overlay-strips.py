@@ -38,10 +38,15 @@ def draw_pose_on_transparent(landmarks, width, height):
         if a in landmarks and b in landmarks:
             pt_a = landmarks[a]
             pt_b = landmarks[b]
+            pt_a = (pt_a[0], 60 + pt_a[1])  # Shift down by 60 pixels to align with the strip region
+            pt_b = (pt_b[0], 60 + pt_b[1])  # Shift down by 60 pixels to align with the strip region
+            if pt_a[0] == -1 or pt_b[0] == -1:
+                continue  # Skip if either point is missing (default to (-1, -1))  
             cv2.line(img, pt_a, pt_b, (0, 255, 0, 255), 2)
     
     # Draw landmark points
     for pt in landmarks.values():
+        pt = (pt[0], 60 + pt[1])  # Shift down by 60 pixels to align with the strip region
         cv2.circle(img, pt, 3, (0, 255, 0, 255), -1)
     
     return img
@@ -66,6 +71,16 @@ def main():
                         help="Directory containing event_*_strip.jpg images (from V3)")
     parser.add_argument("--output-dir", required=True,
                         help="Directory to save overlay PNGs and strips")
+    parser.add_argument("--only-event", default=-1, type=int,
+                         help="Only process this event_id (default: process all)")
+    parser.add_argument("--skip-strips", action="store_true",
+                        help="Skip generating combined strips, only create individual overlay PNGs")
+    parser.add_argument("--only-strips", action="store_true",
+                        help="Skip generating individual overlay PNGs")
+    parser.add_argument("--skip-background", action="store_true",
+                        help="Skip generating overlays on the original background image, only create transparent pose PNGs")
+    parser.add_argument("--only-background", action="store_true",
+                        help="Generate background image only")
     args = parser.parse_args()
 
     out_dir = Path(args.output_dir)
@@ -98,6 +113,8 @@ def main():
         if not match:
             continue
         event_id = int(match.group(1))
+        if (args.only_event != -1 and event_id != args.only_event):
+            continue
         
         # Read the strip image (which contains baseline, onset, peak side by side)
         strip_img = cv2.imread(str(strip_path))
@@ -122,22 +139,31 @@ def main():
                 # Draw pose on transparent canvas (same size as frame_region)
                 pose_canvas = draw_pose_on_transparent(landmarks, frame_width, h)
                 # Overlay on the original frame region
-                final_img = overlay_pose_on_image(frame_region.copy(), pose_canvas)
+                background_img = None if args.skip_background else frame_region.copy()
+                final_img = background_img if args.only_background else overlay_pose_on_image(background_img, pose_canvas)
             else:
                 final_img = frame_region.copy()
                 cv2.putText(final_img, "NO POSE DATA", (50, 50),
                             cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
             
-            # Save individual overlay PNG (with alpha)
-            out_path = out_dir / f"event_{event_id}_{frame_type}_overlay.png"
-            cv2.imwrite(str(out_path), final_img)
-            print(f"Saved {out_path}")
-            overlay_imgs.append(final_img)
+            if not args.only_strips:
+                # Save individual overlay PNG (with alpha)
+                if args.only_background:
+                    out_path = out_dir / f"event_{event_id}_{frame_type}_background.png"
+                else:
+                    out_path = out_dir / f"event_{event_id}_{frame_type}_overlay.png"
+                cv2.imwrite(str(out_path), final_img)
+                print(f"Saved {out_path}")
+            if not args.skip_strips:
+                overlay_imgs.append(final_img)
         
         # Create a combined strip with overlays
         if len(overlay_imgs) == 3:
             combined_strip = np.hstack(overlay_imgs)
-            combined_path = out_dir / f"event_{event_id}_strip_overlay.png"
+            if args.only_background:
+                combined_path = out_dir / f"event_{event_id}_strip_background.png"
+            else:
+                combined_path = out_dir / f"event_{event_id}_strip_overlay.png"
             cv2.imwrite(str(combined_path), combined_strip)
             print(f"Saved combined overlay strip: {combined_path}")
 

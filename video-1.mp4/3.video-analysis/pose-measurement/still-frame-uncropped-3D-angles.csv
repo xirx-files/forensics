@@ -1,0 +1,69 @@
+Joint_Description,Point_A,Vertex_B,Point_C,Angle_Deg
+Left Elbow,"x: 0.148829654
+y: -0.411533445
+z: -0.13507545
+visibility: 0.999936342
+","x: 0.169267625
+y: -0.200509548
+z: -0.145897925
+visibility: 0.817526
+","x: 0.119506977
+y: -0.0231814887
+z: -0.164886162
+visibility: 0.68666172
+",158.65
+Right Elbow,"x: -0.147441298
+y: -0.454001784
+z: -0.153113395
+visibility: 0.999964118
+","x: -0.150437519
+y: -0.164088652
+z: -0.198307291
+visibility: 0.94370532
+","x: -0.0287113059
+y: -0.023849288
+z: -0.281908303
+visibility: 0.973591447
+",137.52
+Left Knee,"x: 0.100852311
+y: -0.00638865773
+z: 0.0553112626
+visibility: 0.999790728
+","x: 0.361879349
+y: 0.0646682829
+z: -0.147411615
+visibility: 0.385651648
+","x: 0.0203479715
+y: 0.170179278
+z: -0.0722305328
+visibility: 0.0421856306
+",38.31
+Right Knee,"x: -0.09814661
+y: 0.00250302581
+z: -0.0544338338
+visibility: 0.999835849
+","x: -0.161084741
+y: -0.00537020806
+z: -0.34558934
+visibility: 0.551776171
+","x: -0.00270080753
+y: 0.193404973
+z: -0.129927129
+visibility: 0.0558270253
+",41.56
+Torso_Lean_Forward_Back,<__main__.get_midpoint.<locals>.Point object at 0x7fc614bd5940>,<__main__.get_midpoint.<locals>.Point object at 0x7fc614bd5cd0>,<__main__.get_midpoint.<locals>.Point object at 0x7fc614bd5b80>,79.58
+Head_Tilt_Lateral_Left,<__main__.get_midpoint.<locals>.Point object at 0x7fc614bd5bb0>,<__main__.get_midpoint.<locals>.Point object at 0x7fc614bd5940>,"x: 0.148829654
+y: -0.411533445
+z: -0.13507545
+visibility: 0.999936342
+",95.17
+Head_Pitch_Forward_Back,"x: 0.0293613672
+y: -0.560961
+z: -0.360181302
+visibility: 0.999627471
+",<__main__.get_midpoint.<locals>.Point object at 0x7fc614bd5bb0>,<__main__.get_midpoint.<locals>.Point object at 0x7fc614bd5940>,144.71
+Torso_Twist_Orientation,"x: -0.147441298
+y: -0.454001784
+z: -0.153113395
+visibility: 0.999964118
+",<__main__.get_midpoint.<locals>.Point object at 0x7fc614bd5940>,<__main__.get_midpoint.<locals>.Point object at 0x7fc614bd5cd0>,98.91
